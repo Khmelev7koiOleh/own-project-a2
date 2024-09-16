@@ -5,7 +5,7 @@ import { RouterLink, RouterView } from 'vue-router'
 <template>
   <header>
     <div class=""></div>
-    <h1 class="text-sm font-bold underline text-black">Hello worlds</h1>
+    <h1 class="text-sm font-bold underline text-black">Hello world</h1>
   </header>
   <main></main>
   <footer></footer>
