@@ -34,7 +34,7 @@ const SideMenu = ref(false)
           placeholder="Search delivery address..."
           type="text"
         />
-        <button type="button" class="bg-black px-6 py-2 text-white rounded-2xl">Find smth</button>
+        <button type="button" class="bg-black px-6 py-2 text-white rounded-2xl">Find</button>
       </div>
       <div>
         <div class="text-[170px] text-gray-200 absolute top-[5%] left-[83%] opacity-60">To</div>
