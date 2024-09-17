@@ -58,7 +58,8 @@ const SideMenu = ref(false)
           <button type="button" @click="SideMenu = !SideMenu" class="flex items-center justify-end">
             <MenuIcon fillColor="#000000" :size="30" class="flex items-center justify-end" />
           </button>
-
+        </div>
+        <div class="pt-10 pb-8 flex items-center justify-center">
           <img
             width="60px"
             @click="SideMenu = !SideMenu"
@@ -67,7 +68,7 @@ const SideMenu = ref(false)
             alt="A large burger"
           />
         </div>
-        <ul class="flex flex-col">
+        <ul class="flex flex-col p-2">
           <li class="text-black text-lg font-bold">Menu</li>
           <img
             width="120px"
