@@ -34,7 +34,7 @@ const SideMenu = ref(false)
           placeholder="Search delivery address..."
           type="text"
         />
-        <button type="button" class="bg-black px-6 py-2 text-white rounded-2xl">Find</button>
+        <button type="button" class="bg-black px-6 py-2 text-white rounded-2xl">Findl</button>
       </div>
       <div>
         <div class="text-[170px] text-gray-200 absolute top-[5%] left-[83%] opacity-60">To</div>
@@ -43,7 +43,7 @@ const SideMenu = ref(false)
         <div class="text-[130px] text-gray-900 absolute top-[75%] left-[85%] opacity-60">O</div>
       </div>
       <img
-        class="w-full h-full object-cover"
+        class="w-full sm:w-3/4 md:w-1/2 lg:w-1/3 xl:w-1/4 h-auto object-cover"
         src="/img/A large (((burg 95314bcf-8973-4a5b-9150-d5d72f7ce321.png"
         alt="A large burger"
       />
