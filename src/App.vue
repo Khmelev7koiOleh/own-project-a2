@@ -3,6 +3,7 @@ import { RouterLink, RouterView } from 'vue-router'
 import { ref } from 'vue'
 import MenuIcon from 'vue-material-design-icons/Menu.vue'
 import DasComp from './components/DasComp.vue'
+import DieComp from './components/DasComp.vue'
 
 const SideMenu = ref(false)
 </script>
@@ -45,7 +46,7 @@ const SideMenu = ref(false)
       <div
         class="absolute top-1/2 left-5 transform -translate-y-1/2 flex flex-col justify-center items-center gap-16"
       >
-        <div class="text-4xl md:text-7xl font-bold text-gray-400 md:text-red-400 text-center">
+        <div class="text-5xl md:text-7xl font-bold text-gray-400 md:text-red-300 text-center">
           Order delivery near you
         </div>
 
@@ -60,10 +61,9 @@ const SideMenu = ref(false)
           <button type="button" class="bg-black px-6 py-2 text-white rounded-md font-xl">
             Find
           </button>
-        </div>
-
-        <div class="text-sm font-light absolute -bottom-5 left-12 text-white">
-          use <span class="underline text-md font-medium">QR</span> code
+          <div class="text-sm font-light absolute -bottom-10 left-30 text-white">
+            use <span class="underline text-md font-medium">QR</span> code
+          </div>
         </div>
       </div>
 
@@ -130,27 +130,18 @@ const SideMenu = ref(false)
       <div class="w-full h-full bg-white">
         <div class="p-8"></div>
         <div
-          class="p-10 gap-0 grid text-black grid-cols-1 md:grid-cols-2 lg:grid-cols-2 md:text-red-300 lg:text-red-300 sm::text-red-300 xl:text-red-300"
+          class="p-10 gap-4 grid text-black grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 md:text-red-300 lg:text-red-300 sm::text-red-300 xl:text-red-300"
         >
           <DasComp
-            image="/public/img/fast food image 4bff65dd-7daf-4074-94d7-e87e35b37bad.png"
+            image="./public/img/Tofu burger aa17295d-ac21-4b1f-88e7-cc34f571e1dd.png"
             title="The Meal Deal gets you how much?!"
             text="A 4 piece McNuggets®, small fries and soft drink, plus a McChicken® or McDouble® starts at $5. You already know the name, now get yours in the app before it’s gone.*"
             subtext="*Prices and participation may vary. McDouble Meal Deal $6 in some areas. ©2024 The Coca-Cola Company."
             button="Get the Meal in the App"
             size="300px"
           />
-
           <DasComp
-            image="/public/img/output (3).jpg"
-            title="“McD’s Best Burgers Ever.” - Hamburglar"
-            text="You’re gonna love the hotter, juicier, tastier upgrades we’ve made to burgers like our Cheeseburger and Double Cheeseburger.* From patties grilled with onions and perfectly melted cheese to new soft, pillowy buns—these are our best burgers yet."
-            subtext="Get one today in the app for pickup or McDelivery®.^"
-            button="Get the Meal in the App"
-            size="300px"
-          />
-          <DasComp
-            image="https://picsum.photos/id/212/300/300"
+            image="../public/img/The Weekend bur 91d1843b-068f-47fb-a186-4a265d3a8a2f.png"
             title="The Meal Deal gets you how much?!"
             text="A 4 piece McNuggets®, small fries and soft drink, plus a McChicken® or McDouble® starts at $5. You already know the name, now get yours in the app before it’s gone.*"
             subtext="*Prices and participation may vary. McDouble Meal Deal $6 in some areas. ©2024 The Coca-Cola Company."
@@ -158,6 +149,100 @@ const SideMenu = ref(false)
             size="300px"
           />
         </div>
+        <div class="p-8"></div>
+
+        <div class="px-[13%] gap-4 grid text-black grid-cols-1">
+          <DieComp
+            image="./public/img/output (3).jpg"
+            title="“McD’s Best Burgers Ever.” - Hamburglar"
+            text="You’re gonna love the hotter, juicier, tastier upgrades we’ve made to burgers like our Cheeseburger and Double Cheeseburger.* From patties grilled with onions and perfectly melted cheese to new soft, pillowy buns—these are our best burgers yet."
+            subtext="Get one today in the app for pickup or McDelivery®.^"
+            button="Get the Meal in the App"
+            size="600px"
+          />
+        </div>
+
+        <div class="p-80"></div>
+        <!-- Carousel -->
+        <!-- <div class="min-w-[800px]">
+          <CustomCarousel
+            category="New releases for you"
+            :data="[
+              {
+                url: 'https://picsum.photos/id/89/300/300',
+                song: 'Foregone',
+                by: 'In Flames',
+                releasedOn: '10/02/2023'
+              },
+              {
+                url: 'https://picsum.photos/id/101/300/300',
+                song: 'Dark Waters',
+                by: 'Delain',
+                releasedOn: '09/01/2023'
+              },
+              {
+                url: 'https://picsum.photos/id/121/300/300',
+                song: 'Heritage',
+                by: 'Distant',
+                releasedOn: '10/01/2023'
+              },
+              {
+                url: 'https://picsum.photos/id/134/300/300',
+                song: 'Meanwhile',
+                by: 'Klone',
+                releasedOn: '08/02/2023'
+              },
+              {
+                url: 'https://picsum.photos/id/144/300/300',
+                song: 'Truth Decay',
+                by: 'You Me At Six',
+                releasedOn: '10/01/2023'
+              },
+              {
+                url: 'https://picsum.photos/id/155/300/300',
+                song: 'This Is Why',
+                by: 'Paramore',
+                releasedOn: '10/02/2023'
+              },
+              {
+                url: 'https://picsum.photos/id/166/300/300',
+                song: 'The Jaws Of Life',
+                by: 'Pierce The Veil',
+                releasedOn: '09/23/2023'
+              },
+              {
+                url: 'https://picsum.photos/id/198/300/300',
+                song: 'The Future Is Your Past',
+                by: 'In The Brian Jonestown Massacre',
+                releasedOn: '07/25/2023'
+              },
+              {
+                url: 'https://picsum.photos/id/211/300/300',
+                song: 'The Land, The Water, The Sky',
+                by: 'Black Belt Eagle Scout',
+                releasedOn: '09/22/2023'
+              },
+              {
+                url: 'https://picsum.photos/id/223/300/300',
+                song: 'The Day My Father Died',
+                by: 'SYML',
+                releasedOn: '10/02/2023'
+              },
+              {
+                url: 'https://picsum.photos/id/225/300/300',
+                song: 'Complete Mountain Almanac',
+                by: 'Complete Mountain Almanac',
+                releasedOn: '10/02/2023'
+              },
+              {
+                url: 'https://picsum.photos/id/239/300/300',
+                song: 'Music From Montana Story',
+                by: 'Kevin Morby',
+                releasedOn: '10/01/2023'
+              }
+            ]"
+          />
+        </div> -->
       </div>
     </main>
 
