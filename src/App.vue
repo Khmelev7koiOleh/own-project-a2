@@ -53,17 +53,18 @@ const SideMenu = ref(false)
         <div
           class="flex flex-col items-center justify-center gap-4 w-[100%] sm:w-[80%] md:w-[70%] lg:w-[70%] xl:w-[70%]"
         >
-          <div class="flex w-full gap-2">
+          <div class="flex w-full">
             <input
-              class="flex-grow border border-black shadow-2xl text-4xl px-4 py-6 md:py-3 lg:py-1 xl:py-1 rounded-lg placeholder:text-2xl md:placeholder:text-lg lg:placeholder:text-2xl focus:outline-none focus:ring-2 focus:ring-blue-500 md:text-3xl lg:text-4xl"
+              class="flex-grow border border-black shadow-2xl px-4 py-4 text-lg rounded-lg placeholder:text-lg focus:outline-none focus:ring-2 focus:ring-blue-500 md:text-xl md:px-8 md:py-4 lg:text-2xl lg:px-8 lg:py-4 xl:py-4"
               placeholder="Search delivery address..."
               type="text"
             />
+
             <button
               type="button"
-              class="bg-black text-white rounded-md text-2xl px-6 py-6 md:py-2 lg:py-2 lg:px-2 md:px-2 md:text-lg lg:text-lg"
+              class="bg-black text-white rounded-md text-lg px-6 py-4 md:text-xl md:px-8 md:py-4 lg:text-2xl lg:px-6 lg:py-4"
             >
-              Find food
+              Find
             </button>
           </div>
           <div class="text-sm font-light text-white pr-80">
