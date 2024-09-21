@@ -2,27 +2,23 @@
 import { RouterLink, RouterView } from 'vue-router'
 import { ref } from 'vue'
 import MenuIcon from 'vue-material-design-icons/Menu.vue'
+import DasComp from './components/DasComp.vue'
 
 const SideMenu = ref(false)
 </script>
 
 <template>
   <div class="relative">
-    <header class="fixed w-full min-h-[80px] z-10 bg-opacity-0">
-      <div v-if="!SideMenu" class="flex justify-between items-center p-4">
-        <div class="flex justify-between items-center">
+    <header v-if="!SideMenu" class="fixed w-full min-h-[80px] z-10 bg-opacity-0">
+      <div class="flex justify-between items-center p-4">
+        <div class="flex justify-between items-center gap-8">
           <button type="button" @click="SideMenu = !SideMenu">
-            <MenuIcon fillColor="#FFFFFF" :size="30" />
+            <MenuIcon fillColor="#00000" :size="30" />
           </button>
 
           <div class="flex items-center">
-            <img
-              class="relative"
-              width="120px"
-              src="/public/img/98a0d2b3-376e-4cb8-85dd-6c6a86921cd1-removebg-preview.png"
-              alt=""
-            />
-            <p class="text-3xl text-gray-400 font-semibold absolute left-[10%]">TnM</p>
+            <img width="60px" src="/public/img/tuxpi.com.1726604318-removebg-preview.png" alt="" />
+            <p class="text-3xl text-gray-300 font-semibold">MnT</p>
           </div>
         </div>
         <div class="flex justify-between items-center gap-4">
@@ -42,7 +38,7 @@ const SideMenu = ref(false)
     <main class="w-screen h-screen z-0 relative">
       <div class="absolute top-[55%] left-[15%] flex items-center justify-between gap-8">
         <input
-          class="min-w-[100%] flex items-center border border-black shadow-2xl px-4 py-3 rounded-full placeholder:text-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+          class="min-w-[100%] flex items-center border border-black shadow-2xl px-4 py-3 rounded-lg placeholder:text-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
           placeholder="Search delivery address..."
           type="text"
         />
@@ -57,34 +53,103 @@ const SideMenu = ref(false)
       <div
         v-if="SideMenu"
         id="SideNav"
-        class="fixed top-0 left-0 w-[180px] bg-white h-full z-50 p-4"
+        class="fixed top-0 left-0 w-[180px] bg-white h-full z-50 py-8 px-4 border-r-2 border-gray-200 shadow-lg transition-transform duration-300"
       >
-        <button
-          type="button"
-          @click="SideMenu = !SideMenu"
-          class="cursor-pointer p-[20px] bg-black"
-        >
-          <MenuIcon fillColor="#999999" :size="30" />
-        </button>
-        <div>
+        <div class="flex items-center justify-between">
+          <button type="button" @click="SideMenu = !SideMenu" class="flex items-center justify-end">
+            <MenuIcon fillColor="#000000" :size="30" class="flex items-center justify-end" />
+          </button>
+        </div>
+        <div class="py-10 flex items-center justify-center">
           <img
+            width="60px"
             @click="SideMenu = !SideMenu"
             class="flex items-center justify-center"
-            src="/public/img/98a0d2b3-376e-4cb8-85dd-6c6a86921cd1-removebg-preview.png"
+            src="/public/img/tuxpi.com.1726604318-removebg-preview.png"
             alt="A large burger"
           />
         </div>
 
-        <ul class="flex">
-          <li class="text-black text-sm font-light">1</li>
-          <li class="text-black text-sm font-light">2</li>
-          <li class="text-black text-sm font-light">3</li>
-          <li class="text-black text-sm font-light">4</li>
-          <li class="text-black text-sm font-light">5</li>
+        <div class="border-b border-b-gray-500"></div>
+        <ul class="flex flex-col p-2">
+          <li class="text-black text-lg font-bold">Menu</li>
+          <img
+            width="120px"
+            class="relative bottom-2 right-4"
+            src="/public/img/rotated_french_fry_180__1_-removebg-preview (1).png"
+            alt=""
+          />
+          <li class="text-black text-sm font-light">Today's best</li>
+          <img
+            width="120px"
+            class="relative bottom-2 right-4"
+            src="/public/img/rotated_french_fry_180__1_-removebg-preview (1).png"
+            alt=""
+          />
+          <li class="text-black text-sm font-light">Food-Set</li>
+          <img
+            width="120px"
+            class="relative bottom-2 right-4"
+            src="/public/img/rotated_french_fry_180__1_-removebg-preview (1).png"
+            alt=""
+          />
+          <li class="text-black text-sm font-light">Popular</li>
+          <img
+            width="120px"
+            class="relative bottom-2 right-4"
+            src="/public/img/rotated_french_fry_180__1_-removebg-preview (1).png"
+            alt=""
+          />
+          <li class="text-red-700 text-sm font-bold underline underline-offset-4">Special offer</li>
+          <img
+            width="120px"
+            class="relative bottom-2 right-4"
+            src="/public/img/rotated_french_fry_180__1_-removebg-preview (1).png"
+            alt=""
+          />
         </ul>
       </div>
 
-      <div class="h-[300px] bg-green-400"></div>
+      <!-- end -->
+
+      <div class="w-full h-full bg-white">
+        <div class="p-8"></div>
+        <div class="p-[10%] gap-8 grid">
+          <div class="grid gap-2">
+            <!-- start -->
+            <DasComp
+              image="/public/img/output.jpg"
+              title="
+The Meal Deal gets you how much?!"
+              text="A 4 piece McNuggets®, small fries and soft drink, plus a McChicken® or McDouble® starts at $5. You already know the name, now get yours in the app before it’s gone.*"
+              subtext="*Prices and participation may vary. McDouble Meal Deal $6 in some areas. ©2024 The Coca-Cola Company. “Coca-Cola” is a registered trademark of The Coca-Cola Company."
+              button="Get the Meal in the App"
+              size="550px"
+            />
+          </div>
+          <div class="grid gap-2">
+            <DasComp
+              image="/public/img/output (1).jpg"
+              title="
+The Meal Deal gets you how much?!"
+              text="A 4 piece McNuggets®, small fries and soft drink, plus a McChicken® or McDouble® starts at $5. You already know the name, now get yours in the app before it’s gone.*"
+              subtext="*Prices and participation may vary. McDouble Meal Deal $6 in some areas. ©2024 The Coca-Cola Company. “Coca-Cola” is a registered trademark of The Coca-Cola Company."
+              button="Get the Meal in the App"
+              size="550px"
+            />
+            <div class="grid gap-2">
+            <DasComp
+              image="/public/img/output (3).jpg"
+              title="
+The Meal Deal gets you how much?!"
+              text="A 4 piece McNuggets®, small fries and soft drink, plus a McChicken® or McDouble® starts at $5. You already know the name, now get yours in the app before it’s gone.*"
+              subtext="*Prices and participation may vary. McDouble Meal Deal $6 in some areas. ©2024 The Coca-Cola Company. “Coca-Cola” is a registered trademark of The Coca-Cola Company."
+              button="Get the Meal in the App"
+              size="550px"
+            />
+          </div>
+        </div>
+      </div>
     </main>
 
     <footer></footer>

@@ -2,6 +2,7 @@
 import { RouterLink, RouterView } from 'vue-router'
 import { ref } from 'vue'
 import MenuIcon from 'vue-material-design-icons/Menu.vue'
+import DasComp from './components/DasComp.vue'
 
 const SideMenu = ref(false)
 </script>
@@ -12,7 +13,7 @@ const SideMenu = ref(false)
       <div class="flex justify-between items-center p-4">
         <div class="flex justify-between items-center gap-8">
           <button type="button" @click="SideMenu = !SideMenu">
-            <MenuIcon fillColor="#FFFFFF" :size="30" />
+            <MenuIcon fillColor="#00000" :size="30" />
           </button>
 
           <div class="flex items-center">
@@ -52,14 +53,14 @@ const SideMenu = ref(false)
       <div
         v-if="SideMenu"
         id="SideNav"
-        class="fixed top-0 left-0 w-[180px] bg-white h-full z-50 py-8 px-4"
+        class="fixed top-0 left-0 w-[180px] bg-white h-full z-50 py-8 px-4 border-r-2 border-gray-200 shadow-lg transition-transform duration-300"
       >
         <div class="flex items-center justify-between">
           <button type="button" @click="SideMenu = !SideMenu" class="flex items-center justify-end">
             <MenuIcon fillColor="#000000" :size="30" class="flex items-center justify-end" />
           </button>
         </div>
-        <div class="pt-10 pb-8 flex items-center justify-center">
+        <div class="py-10 flex items-center justify-center">
           <img
             width="60px"
             @click="SideMenu = !SideMenu"
@@ -68,6 +69,8 @@ const SideMenu = ref(false)
             alt="A large burger"
           />
         </div>
+
+        <div class="border-b border-b-gray-500"></div>
         <ul class="flex flex-col p-2">
           <li class="text-black text-lg font-bold">Menu</li>
           <img
@@ -107,7 +110,46 @@ const SideMenu = ref(false)
         </ul>
       </div>
 
-      <div class="h-[300px] bg-green-400"></div>
+      <!-- end -->
+
+      <div class="w-full h-full bg-white">
+        <div class="p-8"></div>
+        <div class="p-[10%] gap-8 grid">
+          <div class="grid gap-2">
+            <!-- start -->
+            <DasComp
+              image="/public/img/output.jpg"
+              title="
+The Meal Deal gets you how much?!"
+              text="A 4 piece McNuggets®, small fries and soft drink, plus a McChicken® or McDouble® starts at $5. You already know the name, now get yours in the app before it’s gone.*"
+              subtext="*Prices and participation may vary. McDouble Meal Deal $6 in some areas. ©2024 The Coca-Cola Company. “Coca-Cola” is a registered trademark of The Coca-Cola Company."
+              button="Get the Meal in the App"
+              size="550px"
+            />
+          </div>
+          <div class="flex py-10">
+            <DasComp
+              image="/public/img/output (4).jpg"
+              title="“McD’s Best Burgers Ever.” - Hamburglar"
+              text="You’re gonna love the hotter, juicier, tastier upgrades we’ve made to burgers like our Cheeseburger and Double Cheeseburger.* From patties grilled with onions and perfectly melted cheese to new soft, pillowy buns—these are our best burgers yet. Ask the Hamburglar, he can’t keep his hands off of ‘em. Robble, robble."
+              subtext="Get one today in the app for pickup or McDelivery®.^"
+              button="Get the Meal in the App"
+              size="650px"
+            />
+          </div>
+          <div class="grid gap-2">
+            <DasComp
+              image="/public/img/output (1).jpg"
+              title="
+The Meal Deal gets you how much?!"
+              text="A 4 piece McNuggets®, small fries and soft drink, plus a McChicken® or McDouble® starts at $5. You already know the name, now get yours in the app before it’s gone.*"
+              subtext="*Prices and participation may vary. McDouble Meal Deal $6 in some areas. ©2024 The Coca-Cola Company. “Coca-Cola” is a registered trademark of The Coca-Cola Company."
+              button="Get the Meal in the App"
+              size="550px"
+            />
+          </div>
+        </div>
+      </div>
     </main>
 
     <footer></footer>
