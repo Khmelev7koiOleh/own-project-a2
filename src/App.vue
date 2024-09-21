@@ -35,21 +35,33 @@ const SideMenu = ref(false)
         </div>
       </div>
     </header>
-    <main class="w-screen h-screen z-0 relative">
-      <div class="absolute top-[55%] left-[15%] flex items-center justify-between gap-8">
-        <input
-          class="min-w-[100%] flex items-center border border-black shadow-2xl px-4 py-3 rounded-lg placeholder:text-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
-          placeholder="Search delivery address..."
-          type="text"
-        />
-        <button type="button" class="bg-black px-6 py-2 text-white rounded-2xl">Find</button>
-      </div>
-
+    <main class="relative w-full h-screen sm:h-screen md:h-[75vh] lg:h-[50vh] xl:h-[100vh]">
       <img
-        class="w-full h-auto sm:h-screen md:h-[75vh] lg:h-[50vh] xl:h-[100vh] object-contain"
-        src="/img/A large (((burg 95314bcf-8973-4a5b-9150-d5d72f7ce321.png"
+        class="w-full h-screen object-cover"
+        src="/public/img/cropped-A large (((burg 95314bcf.png"
         alt="A large burger"
       />
+
+      <div class="absolute top-[35%] left-[5%] flex flex-col justify-center items-center gap-12">
+        <div class="text-6xl font-bold text-white opacity-70">Order delivery near you</div>
+        <div
+          class="flex items-center justify-between gap-4 w-[80%] sm:w-[80%] md:w-[70%] lg:w-[60%] xl:w-[60%] 2xl:w-[60%] relative"
+        >
+          <input
+            class="flex-grow border border-black shadow-2xl px-4 py-3 rounded-lg placeholder:text-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+            placeholder="Search delivery address..."
+            type="text"
+          />
+          <button type="button" class="bg-black px-6 py-3 text-white rounded-md font-xl">
+            Find food
+          </button>
+        </div>
+
+        <div class="text-sm font-light absolute -bottom-[20%] left-[12%]">
+          use <span class="underline text-md font-medium">QR</span> code
+        </div>
+      </div>
+
       <div
         v-if="SideMenu"
         id="SideNav"
