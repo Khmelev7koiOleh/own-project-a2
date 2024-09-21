@@ -35,15 +35,15 @@ const SideMenu = ref(false)
         </div>
       </div>
     </header>
-    <main class="relative w-full h-screen sm:h-screen md:h-[75vh] lg:h-[50vh] xl:h-[100vh]">
+    <main class="relative w-full h-screen sm:h-screen md:w-[75%] lg:w-[50%] xl:w-[100%]">
       <img
-        class="w-full h-screen object-cover"
+        class="w-full h-screen object-cover sm:h-screen md:w-[75%] lg:w-[50%] xl:w-[100%]"
         src="/public/img/fast food image 4bff65dd-7daf-4074-94d7-e87e35b37bad.png"
         alt="A large burger"
       />
 
       <div class="absolute top-[40%] left-[5%] flex flex-col justify-center items-center gap-16">
-        <div class="text-7xl font-bold text-gray-400">Order delivery near you</div>
+        <div class="text-7xl font-bold text-gray-400">Order delivery near you 1</div>
         <div
           class="flex items-center justify-between gap-4 w-[80%] sm:w-[80%] md:w-[70%] lg:w-[60%] xl:w-[60%] 2xl:w-[60%] relative"
         >
