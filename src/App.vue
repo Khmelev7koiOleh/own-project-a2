@@ -55,11 +55,14 @@ const SideMenu = ref(false)
         >
           <div class="flex w-full">
             <input
-              class="flex-grow border border-black shadow-2xl px-4 py-4 text-lg rounded-lg placeholder:text-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              class="flex-grow border border-black shadow-2xl px-4 py-4 text-lg rounded-lg placeholder:text-lg focus:outline-none focus:ring-2 focus:ring-blue-500 md:text-xl md:px-8 md:py-6 lg:text-2xl lg:px-12 lg:py-8"
               placeholder="Search delivery address..."
               type="text"
             />
-            <button type="button" class="bg-black px-6 py-4 text-white text-lg rounded-md">
+            <button
+              type="button"
+              class="bg-black text-white rounded-md text-lg px-6 py-4 md:text-xl md:px-8 md:py-6 lg:text-2xl lg:px-12 lg:py-8"
+            >
               Find
             </button>
           </div>
