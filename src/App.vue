@@ -45,7 +45,7 @@ const SideMenu = ref(false)
       <div
         class="absolute top-1/2 left-5 transform -translate-y-1/2 flex flex-col justify-center items-center gap-16"
       >
-        <div class="text-4xl md:text-7xl font-bold text-gray-400 text-center">
+        <div class="text-4xl md:text-7xl font-bold text-gray-400 md:text-red-400 text-center">
           Order delivery near you 1
         </div>
 
@@ -57,8 +57,8 @@ const SideMenu = ref(false)
             placeholder="Search delivery address..."
             type="text"
           />
-          <button type="button" class="bg-black px-6 py-3 text-white rounded-md font-xl">
-            Find food
+          <button type="button" class="bg-black px-6 py-2 text-white rounded-md font-xl">
+            Find
           </button>
         </div>
 
