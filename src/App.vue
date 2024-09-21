@@ -46,27 +46,27 @@ const SideMenu = ref(false)
       <div
         class="absolute top-1/2 left-5 transform -translate-y-1/2 flex flex-col justify-center items-center gap-16"
       >
-        <div class="text-5xl md:text-7xl font-bold text-gray-400 md:text-red-300 text-center">
+        <div class="text-8xl md:text-7xl font-bold text-red-400 md:text-red-300 text-center">
           Order delivery near you
         </div>
 
         <div
-          class="flex flex-col items-center justify-center gap-4 w-[90%] sm:w-[80%] md:w-[70%] lg:w-[60%] xl:w-[60%]"
+          class="flex flex-col items-center justify-center gap-4 w-[100%] sm:w-[80%] md:w-[70%] lg:w-[70%] xl:w-[70%]"
         >
-          <div class="flex w-full">
+          <div class="flex w-full gap-2">
             <input
-              class="flex-grow border border-black shadow-2xl px-4 py-4 text-lg rounded-lg placeholder:text-lg focus:outline-none focus:ring-2 focus:ring-blue-500 md:text-xl md:px-8 md:py-6 lg:text-2xl lg:px-12 lg:py-8"
+              class="flex-grow border border-black shadow-2xl text-4xl px-4 py-6 md:py-3 lg:py-1 xl:py-1 rounded-lg placeholder:text-2xl md:placeholder:text-lg lg:placeholder:text-2xl focus:outline-none focus:ring-2 focus:ring-blue-500 md:text-3xl lg:text-4xl"
               placeholder="Search delivery address..."
               type="text"
             />
             <button
               type="button"
-              class="bg-black text-white rounded-md text-lg px-6 py-4 md:text-xl md:px-8 md:py-6 lg:text-2xl lg:px-12 lg:py-8"
+              class="bg-black text-white rounded-md text-2xl px-6 py-6 md:py-2 lg:py-2 lg:px-2 md:px-2 md:text-lg lg:text-lg"
             >
-              Find
+              Find food
             </button>
           </div>
-          <div class="text-sm font-light text-white">
+          <div class="text-sm font-light text-white pr-80">
             use <span class="underline text-md font-medium">QR</span> code
           </div>
         </div>
