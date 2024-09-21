@@ -46,7 +46,7 @@ const SideMenu = ref(false)
       </div>
 
       <img
-        class="w-full h-auto max-w-full object-contain sm:max-w-[640px] md:max-w-[768px] lg:max-w-[1024px] xl:max-w-[1280px] 2xl:max-w-[1500px]"
+        class="w-full h-auto sm:h-screen md:h-[75vh] lg:h-[50vh] xl:h-[100vh] object-contain"
         src="/img/A large (((burg 95314bcf-8973-4a5b-9150-d5d72f7ce321.png"
         alt="A large burger"
       />
