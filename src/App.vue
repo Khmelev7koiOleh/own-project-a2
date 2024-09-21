@@ -35,7 +35,7 @@ const SideMenu = ref(false)
         </div>
       </div>
     </header>
-    <main class="relative w-full h-screen">
+    <main class="relative w-screen h-screen">
       <img
         class="w-full h-full object-cover md:width-[768px] lg:-width-[1024px] sm-width-[640px]"
         src="/public/img/fast food image 4bff65dd-7daf-4074-94d7-e87e35b37bad.png"
@@ -130,7 +130,7 @@ const SideMenu = ref(false)
       <div class="w-full h-full bg-white">
         <div class="p-8"></div>
         <div
-          class="p-10 gap-8 grid text-black grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:text-red-300 lg:text-red-300 sm::text-red-300 xl:text-red-300"
+          class="p-10 gap-0 grid text-black grid-cols-1 md:grid-cols-2 lg:grid-cols-2 md:text-red-300 lg:text-red-300 sm::text-red-300 xl:text-red-300"
         >
           <DasComp
             image="/public/img/fast food image 4bff65dd-7daf-4074-94d7-e87e35b37bad.png"
@@ -138,24 +138,24 @@ const SideMenu = ref(false)
             text="A 4 piece McNuggets®, small fries and soft drink, plus a McChicken® or McDouble® starts at $5. You already know the name, now get yours in the app before it’s gone.*"
             subtext="*Prices and participation may vary. McDouble Meal Deal $6 in some areas. ©2024 The Coca-Cola Company."
             button="Get the Meal in the App"
-            size="550px"
+            size="300px"
           />
-          <img src="/public/img/fast food image 4bff65dd-7daf-4074-94d7-e87e35b37bad.png" alt="" />
+
           <DasComp
-            image="/public/img/fast food image 4bff65dd-7daf-4074-94d7-e87e35b37bad.png"
+            image="/public/img/output (3).jpg"
             title="“McD’s Best Burgers Ever.” - Hamburglar"
             text="You’re gonna love the hotter, juicier, tastier upgrades we’ve made to burgers like our Cheeseburger and Double Cheeseburger.* From patties grilled with onions and perfectly melted cheese to new soft, pillowy buns—these are our best burgers yet."
             subtext="Get one today in the app for pickup or McDelivery®.^"
             button="Get the Meal in the App"
-            size="650px"
+            size="300px"
           />
           <DasComp
-            image="/public/img/fast food image 4bff65dd-7daf-4074-94d7-e87e35b37bad.png"
+            image="https://picsum.photos/id/212/300/300"
             title="The Meal Deal gets you how much?!"
             text="A 4 piece McNuggets®, small fries and soft drink, plus a McChicken® or McDouble® starts at $5. You already know the name, now get yours in the app before it’s gone.*"
             subtext="*Prices and participation may vary. McDouble Meal Deal $6 in some areas. ©2024 The Coca-Cola Company."
             button="Get the Meal in the App"
-            size="550px"
+            size="300px"
           />
         </div>
       </div>
