@@ -42,8 +42,8 @@ const SideMenu = ref(false)
         alt="A large burger"
       />
 
-      <div class="absolute top-[35%] left-[5%] flex flex-col justify-center items-center gap-12">
-        <div class="text-6xl font-bold text-white opacity-70">Order delivery near you</div>
+      <div class="absolute top-[40%] left-[5%] flex flex-col justify-center items-center gap-16">
+        <div class="text-7xl font-bold text-gray-400">Order delivery near you</div>
         <div
           class="flex items-center justify-between gap-4 w-[80%] sm:w-[80%] md:w-[70%] lg:w-[60%] xl:w-[60%] 2xl:w-[60%] relative"
         >
@@ -57,7 +57,7 @@ const SideMenu = ref(false)
           </button>
         </div>
 
-        <div class="text-sm font-light absolute -bottom-[20%] left-[12%]">
+        <div class="text-sm font-light absolute -bottom-[20%] left-[12%] text-white">
           use <span class="underline text-md font-medium">QR</span> code
         </div>
       </div>
