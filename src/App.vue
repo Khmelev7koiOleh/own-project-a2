@@ -51,17 +51,19 @@ const SideMenu = ref(false)
         </div>
 
         <div
-          class="flex items-center justify-between gap-4 w-[80%] sm:w-[80%] md:w-[70%] lg:w-[60%] xl:w-[60%]"
+          class="flex flex-col items-center justify-center gap-4 w-[90%] sm:w-[80%] md:w-[70%] lg:w-[60%] xl:w-[60%]"
         >
-          <input
-            class="flex-grow border border-black shadow-2xl px-4 py-3 rounded-lg placeholder:text-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
-            placeholder="Search delivery address..."
-            type="text"
-          />
-          <button type="button" class="bg-black px-6 py-2 text-white rounded-md font-xl">
-            Find
-          </button>
-          <div class="text-sm font-light absolute -bottom-10 left-30 text-white">
+          <div class="flex w-full">
+            <input
+              class="flex-grow border border-black shadow-2xl px-4 py-4 text-lg rounded-lg placeholder:text-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="Search delivery address..."
+              type="text"
+            />
+            <button type="button" class="bg-black px-6 py-4 text-white text-lg rounded-md">
+              Find
+            </button>
+          </div>
+          <div class="text-sm font-light text-white">
             use <span class="underline text-md font-medium">QR</span> code
           </div>
         </div>
