@@ -35,9 +35,9 @@ const SideMenu = ref(false)
         </div>
       </div>
     </header>
-    <main class="relative w-full h-screen sm:h-screen md:w-[75%] lg:w-[50%] xl:w-[100%]">
+    <main class="relative w-full h-screen">
       <img
-        class="w-full h-screen object-cover"
+        class="w-full h-full object-cover"
         src="/public/img/fast food image 4bff65dd-7daf-4074-94d7-e87e35b37bad.png"
         alt="A large burger"
       />
@@ -50,7 +50,7 @@ const SideMenu = ref(false)
         </div>
 
         <div
-          class="flex items-center justify-between gap-4 w-[80%] sm:w-[80%] md:w-[70%] lg:w-[60%] xl:w-[60%] 2xl:w-[60%]"
+          class="flex items-center justify-between gap-4 w-[80%] sm:w-[80%] md:w-[70%] lg:w-[60%] xl:w-[60%]"
         >
           <input
             class="flex-grow border border-black shadow-2xl px-4 py-3 rounded-lg placeholder:text-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -62,7 +62,7 @@ const SideMenu = ref(false)
           </button>
         </div>
 
-        <div class="text-sm font-light absolute bottom-5 left-5 text-white">
+        <div class="text-sm font-light absolute -bottom-5 left-12 text-white">
           use <span class="underline text-md font-medium">QR</span> code
         </div>
       </div>
