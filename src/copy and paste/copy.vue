@@ -36,20 +36,23 @@ const SideMenu = ref(false)
       </div>
     </header>
     <main class="w-screen h-screen z-0 relative">
-      <div class="absolute top-[55%] left-[15%] flex items-center justify-between gap-8">
-        <input
-          class="min-w-[100%] flex items-center border border-black shadow-2xl px-4 py-3 rounded-lg placeholder:text-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
-          placeholder="Search delivery address..."
-          type="text"
-        />
-        <button type="button" class="bg-black px-6 py-2 text-white rounded-2xl">Find</button>
+      <div class="absolute top-[55%] left-[15%] gap-8">
+        <div class="text-2xl font-bold">Order delivery near you</div>
+        <div class="flex items-center justify-between">
+          <input
+            class="min-w-[100%] flex items-center border border-black shadow-2xl px-4 py-3 rounded-lg placeholder:text-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+            placeholder="Search delivery address..."
+            type="text"
+          />
+          <button type="button" class="bg-black px-6 py-2 text-white rounded-2xl">Find</button>
+        </div>
       </div>
-
       <img
-        class="w-full h-full object-cover"
+        class="w-full h-auto sm:h-screen md:h-[75vh] lg:h-[50vh] xl:h-[100vh] object-contain"
         src="/img/A large (((burg 95314bcf-8973-4a5b-9150-d5d72f7ce321.png"
         alt="A large burger"
       />
+
       <div
         v-if="SideMenu"
         id="SideNav"
@@ -127,19 +130,19 @@ The Meal Deal gets you how much?!"
               size="550px"
             />
           </div>
+          <div class="flex py-10">
+            <DasComp
+              image="/public/img/output (4).jpg"
+              title="“McD’s Best Burgers Ever.” - Hamburglar"
+              text="You’re gonna love the hotter, juicier, tastier upgrades we’ve made to burgers like our Cheeseburger and Double Cheeseburger.* From patties grilled with onions and perfectly melted cheese to new soft, pillowy buns—these are our best burgers yet. Ask the Hamburglar, he can’t keep his hands off of ‘em. Robble, robble."
+              subtext="Get one today in the app for pickup or McDelivery®.^"
+              button="Get the Meal in the App"
+              size="650px"
+            />
+          </div>
           <div class="grid gap-2">
             <DasComp
               image="/public/img/output (1).jpg"
-              title="
-The Meal Deal gets you how much?!"
-              text="A 4 piece McNuggets®, small fries and soft drink, plus a McChicken® or McDouble® starts at $5. You already know the name, now get yours in the app before it’s gone.*"
-              subtext="*Prices and participation may vary. McDouble Meal Deal $6 in some areas. ©2024 The Coca-Cola Company. “Coca-Cola” is a registered trademark of The Coca-Cola Company."
-              button="Get the Meal in the App"
-              size="550px"
-            />
-            <div class="grid gap-2">
-            <DasComp
-              image="/public/img/output (3).jpg"
               title="
 The Meal Deal gets you how much?!"
               text="A 4 piece McNuggets®, small fries and soft drink, plus a McChicken® or McDouble® starts at $5. You already know the name, now get yours in the app before it’s gone.*"

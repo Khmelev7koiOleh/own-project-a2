@@ -140,6 +140,7 @@ const SideMenu = ref(false)
             button="Get the Meal in the App"
             size="550px"
           />
+          <img src="/public/img/fast food image 4bff65dd-7daf-4074-94d7-e87e35b37bad.png" alt="" />
           <DasComp
             image="/public/img/fast food image 4bff65dd-7daf-4074-94d7-e87e35b37bad.png"
             title="“McD’s Best Burgers Ever.” - Hamburglar"
