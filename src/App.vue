@@ -3,7 +3,7 @@ import { RouterLink, RouterView } from 'vue-router'
 import { ref } from 'vue'
 import MenuIcon from 'vue-material-design-icons/Menu.vue'
 import DasComp from './components/DasComp.vue'
-import DieComp from './components/DasComp.vue'
+import DieComp from './components/DieComp.vue'
 
 const SideMenu = ref(false)
 </script>
@@ -42,7 +42,7 @@ const SideMenu = ref(false)
       <div
         class="absolute top-1/2 left-5 transform -translate-y-1/2 flex flex-col justify-center items-center gap-16"
       >
-        <div class="text-5xl md:text-7xl font-bold text-red-400 md:text-red-300 text-center">
+        <div class="text-5xl md:text-7xl font-bold text-black md:text-black text-center">
           Order delivery near you
         </div>
 
@@ -129,42 +129,41 @@ const SideMenu = ref(false)
         </ul>
       </div>
 
-      <!-- problem -->
       <div class="w-full h-full bg-white">
         <div class="p-8"></div>
         <div
-          class="p-10 gap-4 grid text-black grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 md:text-red-300 lg:text-red-300 sm::text-red-300 xl:text-red-300"
+          class="p-10 gap-20 grid text-black grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-1 md:text-red-300 lg:text-red-300 sm::text-red-300 xl:text-red-300"
         >
           <DasComp
-            image="./public/img/Tofu burger aa17295d-ac21-4b1f-88e7-cc34f571e1dd.png"
+            image="/img/gimme a pic of  ffaeb647-6729-463c-8081-47641a77139b.png"
             title="The Meal Deal gets you how much?!"
             text="A 4 piece McNuggets®, small fries and soft drink, plus a McChicken® or McDouble® starts at $5. You already know the name, now get yours in the app before it’s gone.*"
             subtext="*Prices and participation may vary. McDouble Meal Deal $6 in some areas. ©2024 The Coca-Cola Company."
             button="Get the Meal in the App"
-            size="100px"
+            size="500px"
           />
+          <div class="px-[3%] gap-4 grid text-black grid-cols-1 py-8">
+            <DieComp
+              image="/img/output (3).jpg"
+              title="“McD’s Best Burgers Ever.” - Hamburglar"
+              text="You’re gonna love the hotter, juicier, tastier upgrades we’ve made to burgers like our Cheeseburger and Double Cheeseburger.* From patties grilled with onions and perfectly melted cheese to new soft, pillowy buns—these are our best burgers yet."
+              subtext="Get one today in the app for pickup or McDelivery®.^"
+              button="Get the Meal in the App"
+              size="600px"
+            />
+          </div>
           <DasComp
-            image="../public/img/The Weekend bur 91d1843b-068f-47fb-a186-4a265d3a8a2f.png"
+            image="/img/gimme a pic of  6bbb77d8-d93e-473f-b9a2-0e4692047f1e.png"
             title="The Meal Deal gets you how much?!"
             text="A 4 piece McNuggets®, small fries and soft drink, plus a McChicken® or McDouble® starts at $5. You already know the name, now get yours in the app before it’s gone.*"
             subtext="*Prices and participation may vary. McDouble Meal Deal $6 in some areas. ©2024 The Coca-Cola Company."
             button="Get the Meal in the App"
-            size="100px"
+            size="500px"
           />
         </div>
         <div class="p-8"></div>
 
-        <div class="px-[13%] gap-4 grid text-black grid-cols-1">
-          <DieComp
-            image="./public/img/output (3).jpg"
-            title="“McD’s Best Burgers Ever.” - Hamburglar"
-            text="You’re gonna love the hotter, juicier, tastier upgrades we’ve made to burgers like our Cheeseburger and Double Cheeseburger.* From patties grilled with onions and perfectly melted cheese to new soft, pillowy buns—these are our best burgers yet."
-            subtext="Get one today in the app for pickup or McDelivery®.^"
-            button="Get the Meal in the App"
-            size="200px"
-          />
-        </div>
-
+        <div class="p-80"></div>
         <!-- Carousel -->
         <!-- <div class="min-w-[800px]">
           <CustomCarousel
