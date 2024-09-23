@@ -13,7 +13,7 @@
     </div>
   </div>
 
-  <div class="w-full h-auto gap-4 hidden sm:flex sm:flex-row flex-col gap-4">
+  <div class="w-full h-auto gap-4 hidden sm:flex sm:flex-row flex-col">
     <div class="flex items-center justify-between">
       <div class="w-auto">
         <div class="text-3xl font-bold p-2">{{ title }}</div>
