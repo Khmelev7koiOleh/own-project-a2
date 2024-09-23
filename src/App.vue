@@ -46,7 +46,7 @@ const SideMenu = ref(false)
       <div
         class="absolute top-1/2 left-5 transform -translate-y-1/2 flex flex-col justify-center items-center gap-16"
       >
-        <div class="text-8xl md:text-7xl font-bold text-red-400 md:text-red-300 text-center">
+        <div class="text-2xl md:text-7xl font-bold text-red-400 md:text-red-300 text-center">
           Order delivery near you
         </div>
 
