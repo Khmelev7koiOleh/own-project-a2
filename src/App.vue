@@ -37,12 +37,19 @@ const SideMenu = ref(false)
       </div>
     </header>
     <main class="relative w-screen h-screen">
-      <div class="bg-blue-300 h-screen w-screen"></div>
+      <div
+        class="bg-gradient-to-r from-yellow-400 to-green-400 h-screen w-screen flex md:hidden"
+      ></div>
+      <img
+        class="h-screen w-screen md:flex hidden"
+        src="/img/fast_food_image_resized_30_percent.png"
+        alt=""
+      />
 
       <div
         class="absolute top-1/2 left-5 transform -translate-y-1/2 flex flex-col justify-center items-center gap-16"
       >
-        <div class="text-5xl md:text-7xl font-bold text-black md:text-black text-center">
+        <div class="text-5xl md:text-7xl font-bold text-black md:text-gray-400">
           Order delivery near you
         </div>
 
@@ -95,35 +102,35 @@ const SideMenu = ref(false)
           <img
             width="120"
             class="relative bottom-2 right-4"
-            src="/public/img/rotated_french_fry_180__1_-removebg-preview (1).png"
+            src="/img/rotated_french_fry_180__1_-removebg-preview (1).png"
             alt=""
           />
           <li class="text-black text-sm font-light">Today's best</li>
           <img
             width="120"
             class="relative bottom-2 right-4"
-            src="/public/img/rotated_french_fry_180__1_-removebg-preview (1).png"
+            src="/img/rotated_french_fry_180__1_-removebg-preview (1).png"
             alt=""
           />
           <li class="text-black text-sm font-light">Food-Set</li>
           <img
             width="120"
             class="relative bottom-2 right-4"
-            src="/public/img/rotated_french_fry_180__1_-removebg-preview (1).png"
+            src="/img/rotated_french_fry_180__1_-removebg-preview (1).png"
             alt=""
           />
           <li class="text-black text-sm font-light">Popular</li>
           <img
             width="120"
             class="relative bottom-2 right-4"
-            src="/public/img/rotated_french_fry_180__1_-removebg-preview (1).png"
+            src="/img/rotated_french_fry_180__1_-removebg-preview (1).png"
             alt=""
           />
           <li class="text-red-700 text-sm font-bold underline underline-offset-4">Special offer</li>
           <img
             width="120"
             class="relative bottom-2 right-4"
-            src="/public/img/rotated_french_fry_180__1_-removebg-preview (1).png"
+            src="/img/rotated_french_fry_180__1_-removebg-preview (1).png"
             alt=""
           />
         </ul>
