@@ -10,7 +10,7 @@ const SideMenu = ref(false)
 
 <template>
   <div class="relative">
-    <header v-if="!SideMenu" class="fixed w-full min-h-[80px] z-10 bg-opacity-0">
+    <header v-if="!SideMenu" class="fixed w-[100vw] min-h-[80px] z-10 bg-opacity-0">
       <div class="flex justify-between items-center p-4">
         <div class="flex justify-between items-center gap-8">
           <button type="button" @click="SideMenu = !SideMenu">
@@ -26,7 +26,7 @@ const SideMenu = ref(false)
           <div
             class="border border-black px-2.5 py-1.5 text-sm rounded-full bg-white text-black font-normal"
           >
-            Log-in
+            Log-in1
           </div>
           <div
             class="border border-black px-2.5 py-1.5 text-sm r rounded-full bg-black text-white font-normal"
