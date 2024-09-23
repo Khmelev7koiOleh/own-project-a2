@@ -53,13 +53,11 @@ const SideMenu = ref(false)
       />
 
       <div
-        class="absolute top-1/2 left-5 transform -translate-y-1/2 flex flex-col justify-center items-center gap-16"
+        class="absolute top-1/2 left-5 transform -translate-y-1/2 flex flex-col justify-center items-center gap-8"
       >
-        <div class="text-5xl md:text-7xl font-bold text-black md:text-gray-300 grid">
-          <span class="text-black md:text-black"> Order delivery </span>
-          <span class="text-white md:text-white"
-            ><span class="md:opacity-0 md:disabled opacity-0 disabled">Lorrrem</span> near you</span
-          >
+        <div class="text-5xl md:text-7xl font-bold text-black md:text-gray-300 flex gap-4">
+          <span class="text-white md:text-white">Order</span>
+          <span class="text-black md:text-black">delivery </span>
         </div>
 
         <div
@@ -67,7 +65,7 @@ const SideMenu = ref(false)
         >
           <div class="flex w-full gap-2">
             <input
-              class="flex-grow border border-black shadow-2xl px-2 py-2 text-lg rounded-lg placeholder:text-lg focus:outline-none focus:ring-2 focus:ring-blue-500 md:text-xl md:px-4 md:py-4 lg:text-2xl lg:px-4 lg:py-4 xl:py-4"
+              class="flex-grow border border-black shadow-2xl px-2 py-2 text-lg rounded-lg placeholder:text-lg focus:outline-none focus:ring-2 focus:ring-blue-500 md:text-xl md:px-4 md:py-4 lg:text-2xl lg:px-6 lg:py-4 xl:py-4 xl:px-8"
               placeholder="Search delivery address..."
               type="text"
             />
