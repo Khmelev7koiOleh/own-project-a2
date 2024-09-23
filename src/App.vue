@@ -26,7 +26,7 @@ const SideMenu = ref(false)
           <div
             class="border border-black px-2.5 py-1.5 text-sm rounded-full bg-white text-black font-normal"
           >
-            Log-in1
+            Log-in2
           </div>
           <div
             class="border border-black px-2.5 py-1.5 text-sm r rounded-full bg-black text-white font-normal"
@@ -38,8 +38,8 @@ const SideMenu = ref(false)
     </header>
     <main class="relative w-screen h-screen">
       <img
-        class="w-[100vw] h-screen object-cover md:width-[768px] lg:-width-[1024px] sm-width-[640px]"
-        src="/public/img/fast food image 4bff65dd-7daf-4074-94d7-e87e35b37bad.png"
+        class="w-[100vw] h-screen object-cover md:width-[768px] lg:-width-[1024px]"
+        src="/public/img/fast_food_image_resized_30_percent.png"
         alt="A large burger"
       />
 
