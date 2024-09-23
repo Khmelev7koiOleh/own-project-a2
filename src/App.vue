@@ -79,7 +79,7 @@ const SideMenu = ref(false)
               Find
             </button>
           </div>
-          <div class="text-sm font-light text-white pr-80">use QR code</div>
+          <div class="text-sm font-light text-white pr-60">use QR code</div>
         </div>
       </div>
 
