@@ -46,23 +46,23 @@ const SideMenu = ref(false)
       <div
         class="absolute top-1/2 left-5 transform -translate-y-1/2 flex flex-col justify-center items-center gap-16"
       >
-        <div class="text-2xl md:text-7xl font-bold text-red-400 md:text-red-300 text-center">
+        <div class="text-5xl md:text-7xl font-bold text-red-400 md:text-red-300 text-center">
           Order delivery near you
         </div>
 
         <div
           class="flex flex-col items-center justify-center gap-4 w-[100%] sm:w-[80%] md:w-[70%] lg:w-[70%] xl:w-[70%]"
         >
-          <div class="flex w-full">
+          <div class="flex w-full gap-2">
             <input
-              class="flex-grow border border-black shadow-2xl px-4 py-4 text-lg rounded-lg placeholder:text-lg focus:outline-none focus:ring-2 focus:ring-blue-500 md:text-xl md:px-8 md:py-4 lg:text-2xl lg:px-8 lg:py-4 xl:py-4"
+              class="flex-grow border border-black shadow-2xl px-2 py-2 text-lg rounded-lg placeholder:text-lg focus:outline-none focus:ring-2 focus:ring-blue-500 md:text-xl md:px-4 md:py-4 lg:text-2xl lg:px-4 lg:py-4 xl:py-4"
               placeholder="Search delivery address..."
               type="text"
             />
 
             <button
               type="button"
-              class="bg-black text-white rounded-md text-lg px-6 py-4 md:text-xl md:px-8 md:py-4 lg:text-2xl lg:px-6 lg:py-4"
+              class="bg-black text-white rounded-md text-lg px-4 py-4 md:text-xl md:px-8 md:py-4 lg:text-2xl lg:px-6 lg:py-4"
             >
               Find
             </button>
