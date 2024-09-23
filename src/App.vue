@@ -48,7 +48,7 @@ const SideMenu = ref(false)
 
       <img
         class="h-screen w-screen flex md:hidden"
-        src="/img/fast food image 481cf65f-8a3d-4cd5-a80b-ed6779124db0 (1).png"
+        src="/img/fast food image 4bff65dd-7daf-4074-94d7-e87e35b37bad.png"
         alt=""
       />
 
