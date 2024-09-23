@@ -129,10 +129,10 @@ const SideMenu = ref(false)
         </ul>
       </div>
 
-      <div class="w-full h-full bg-white">
+      <div class="w-auto h-full bg-white">
         <div class="p-8"></div>
         <div
-          class="p-10 gap-20 grid text-black grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-1 md:text-red-300 lg:text-red-300 sm::text-red-300 xl:text-red-300"
+          class="p-10 grid text-black grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-1 md:text-red-300 lg:text-red-300 sm::text-red-300 xl:text-red-300"
         >
           <DasComp
             image="/img/gimme a pic of  ffaeb647-6729-463c-8081-47641a77139b.png"
@@ -140,7 +140,7 @@ const SideMenu = ref(false)
             text="A 4 piece McNuggets®, small fries and soft drink, plus a McChicken® or McDouble® starts at $5. You already know the name, now get yours in the app before it’s gone.*"
             subtext="*Prices and participation may vary. McDouble Meal Deal $6 in some areas. ©2024 The Coca-Cola Company."
             button="Get the Meal in the App"
-            size="100px"
+            size="300px"
           />
           <div class="px-[3%] gap-4 grid text-black grid-cols-1 py-8">
             <DieComp
@@ -149,7 +149,7 @@ const SideMenu = ref(false)
               text="You’re gonna love the hotter, juicier, tastier upgrades we’ve made to burgers like our Cheeseburger and Double Cheeseburger.* From patties grilled with onions and perfectly melted cheese to new soft, pillowy buns—these are our best burgers yet."
               subtext="Get one today in the app for pickup or McDelivery®.^"
               button="Get the Meal in the App"
-              size="200px"
+              size="300px"
             />
           </div>
           <DasComp
@@ -158,12 +158,11 @@ const SideMenu = ref(false)
             text="A 4 piece McNuggets®, small fries and soft drink, plus a McChicken® or McDouble® starts at $5. You already know the name, now get yours in the app before it’s gone.*"
             subtext="*Prices and participation may vary. McDouble Meal Deal $6 in some areas. ©2024 The Coca-Cola Company."
             button="Get the Meal in the App"
-            size="100px"
+            size="500px"
           />
         </div>
         <div class="p-8"></div>
 
-        <div class="p-80"></div>
         <!-- Carousel -->
         <!-- <div class="min-w-[800px]">
           <CustomCarousel
