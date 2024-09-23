@@ -3,13 +3,14 @@ import { RouterLink, RouterView } from 'vue-router'
 import { ref } from 'vue'
 import MenuIcon from 'vue-material-design-icons/Menu.vue'
 import DasComp from './components/DasComp.vue'
+import DieComp from './components/DasComp.vue'
 
 const SideMenu = ref(false)
 </script>
 
 <template>
   <div class="relative">
-    <header v-if="!SideMenu" class="fixed w-full min-h-[80px] z-10 bg-opacity-0">
+    <header v-if="!SideMenu" class="fixed w-[100vw] min-h-[80px] z-10 bg-opacity-0">
       <div class="flex justify-between items-center p-4">
         <div class="flex justify-between items-center gap-8">
           <button type="button" @click="SideMenu = !SideMenu">
@@ -25,7 +26,7 @@ const SideMenu = ref(false)
           <div
             class="border border-black px-2.5 py-1.5 text-sm rounded-full bg-white text-black font-normal"
           >
-            Log-in
+            Log-in2
           </div>
           <div
             class="border border-black px-2.5 py-1.5 text-sm r rounded-full bg-black text-white font-normal"
@@ -35,23 +36,38 @@ const SideMenu = ref(false)
         </div>
       </div>
     </header>
-    <main class="w-screen h-screen z-0 relative">
-      <div class="absolute top-[55%] left-[15%] gap-8">
-        <div class="text-2xl font-bold">Order delivery near you</div>
-        <div class="flex items-center justify-between">
-          <input
-            class="min-w-[100%] flex items-center border border-black shadow-2xl px-4 py-3 rounded-lg placeholder:text-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
-            placeholder="Search delivery address..."
-            type="text"
-          />
-          <button type="button" class="bg-black px-6 py-2 text-white rounded-2xl">Find</button>
+    <main class="relative w-screen h-screen">
+      <div class="bg-blue-300 h-screen w-screen"></div>
+
+      <div
+        class="absolute top-1/2 left-5 transform -translate-y-1/2 flex flex-col justify-center items-center gap-16"
+      >
+        <div class="text-5xl md:text-7xl font-bold text-red-400 md:text-red-300 text-center">
+          Order delivery near you
+        </div>
+
+        <div
+          class="flex flex-col items-center justify-center gap-4 w-[100%] sm:w-[80%] md:w-[70%] lg:w-[70%] xl:w-[70%]"
+        >
+          <div class="flex w-full gap-2">
+            <input
+              class="flex-grow border border-black shadow-2xl px-2 py-2 text-lg rounded-lg placeholder:text-lg focus:outline-none focus:ring-2 focus:ring-blue-500 md:text-xl md:px-4 md:py-4 lg:text-2xl lg:px-4 lg:py-4 xl:py-4"
+              placeholder="Search delivery address..."
+              type="text"
+            />
+
+            <button
+              type="button"
+              class="bg-black text-white rounded-md text-lg px-4 py-4 md:text-xl md:px-8 md:py-4 lg:text-2xl lg:px-6 lg:py-4"
+            >
+              Find
+            </button>
+          </div>
+          <div class="text-sm font-light text-white pr-80">
+            use <span class="underline text-md font-medium">QR</span> code
+          </div>
         </div>
       </div>
-      <img
-        class="w-full h-auto sm:h-screen md:h-[75vh] lg:h-[50vh] xl:h-[100vh] object-contain"
-        src="/img/A large (((burg 95314bcf-8973-4a5b-9150-d5d72f7ce321.png"
-        alt="A large burger"
-      />
 
       <div
         v-if="SideMenu"
@@ -60,14 +76,14 @@ const SideMenu = ref(false)
       >
         <div class="flex items-center justify-between">
           <button type="button" @click="SideMenu = !SideMenu" class="flex items-center justify-end">
-            <MenuIcon fillColor="#000000" :size="30" class="flex items-center justify-end" />
+            <MenuIcon fillColor="#000000" :size="30" />
           </button>
         </div>
         <div class="py-10 flex items-center justify-center">
           <img
-            width="60px"
+            width="60"
             @click="SideMenu = !SideMenu"
-            class="flex items-center justify-center"
+            class="cursor-pointer"
             src="/public/img/tuxpi.com.1726604318-removebg-preview.png"
             alt="A large burger"
           />
@@ -77,35 +93,35 @@ const SideMenu = ref(false)
         <ul class="flex flex-col p-2">
           <li class="text-black text-lg font-bold">Menu</li>
           <img
-            width="120px"
+            width="120"
             class="relative bottom-2 right-4"
             src="/public/img/rotated_french_fry_180__1_-removebg-preview (1).png"
             alt=""
           />
           <li class="text-black text-sm font-light">Today's best</li>
           <img
-            width="120px"
+            width="120"
             class="relative bottom-2 right-4"
             src="/public/img/rotated_french_fry_180__1_-removebg-preview (1).png"
             alt=""
           />
           <li class="text-black text-sm font-light">Food-Set</li>
           <img
-            width="120px"
+            width="120"
             class="relative bottom-2 right-4"
             src="/public/img/rotated_french_fry_180__1_-removebg-preview (1).png"
             alt=""
           />
           <li class="text-black text-sm font-light">Popular</li>
           <img
-            width="120px"
+            width="120"
             class="relative bottom-2 right-4"
             src="/public/img/rotated_french_fry_180__1_-removebg-preview (1).png"
             alt=""
           />
           <li class="text-red-700 text-sm font-bold underline underline-offset-4">Special offer</li>
           <img
-            width="120px"
+            width="120"
             class="relative bottom-2 right-4"
             src="/public/img/rotated_french_fry_180__1_-removebg-preview (1).png"
             alt=""
@@ -113,45 +129,122 @@ const SideMenu = ref(false)
         </ul>
       </div>
 
-      <!-- end -->
-
       <div class="w-full h-full bg-white">
         <div class="p-8"></div>
-        <div class="p-[10%] gap-8 grid">
-          <div class="grid gap-2">
-            <!-- start -->
-            <DasComp
-              image="/public/img/output.jpg"
-              title="
-The Meal Deal gets you how much?!"
-              text="A 4 piece McNuggets®, small fries and soft drink, plus a McChicken® or McDouble® starts at $5. You already know the name, now get yours in the app before it’s gone.*"
-              subtext="*Prices and participation may vary. McDouble Meal Deal $6 in some areas. ©2024 The Coca-Cola Company. “Coca-Cola” is a registered trademark of The Coca-Cola Company."
-              button="Get the Meal in the App"
-              size="550px"
-            />
-          </div>
-          <div class="flex py-10">
-            <DasComp
-              image="/public/img/output (4).jpg"
-              title="“McD’s Best Burgers Ever.” - Hamburglar"
-              text="You’re gonna love the hotter, juicier, tastier upgrades we’ve made to burgers like our Cheeseburger and Double Cheeseburger.* From patties grilled with onions and perfectly melted cheese to new soft, pillowy buns—these are our best burgers yet. Ask the Hamburglar, he can’t keep his hands off of ‘em. Robble, robble."
-              subtext="Get one today in the app for pickup or McDelivery®.^"
-              button="Get the Meal in the App"
-              size="650px"
-            />
-          </div>
-          <div class="grid gap-2">
-            <DasComp
-              image="/public/img/output (1).jpg"
-              title="
-The Meal Deal gets you how much?!"
-              text="A 4 piece McNuggets®, small fries and soft drink, plus a McChicken® or McDouble® starts at $5. You already know the name, now get yours in the app before it’s gone.*"
-              subtext="*Prices and participation may vary. McDouble Meal Deal $6 in some areas. ©2024 The Coca-Cola Company. “Coca-Cola” is a registered trademark of The Coca-Cola Company."
-              button="Get the Meal in the App"
-              size="550px"
-            />
-          </div>
+        <div
+          class="p-10 gap-4 grid text-black grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 md:text-red-300 lg:text-red-300 sm::text-red-300 xl:text-red-300"
+        >
+          <DasComp
+            image="./public/img/Tofu burger aa17295d-ac21-4b1f-88e7-cc34f571e1dd.png"
+            title="The Meal Deal gets you how much?!"
+            text="A 4 piece McNuggets®, small fries and soft drink, plus a McChicken® or McDouble® starts at $5. You already know the name, now get yours in the app before it’s gone.*"
+            subtext="*Prices and participation may vary. McDouble Meal Deal $6 in some areas. ©2024 The Coca-Cola Company."
+            button="Get the Meal in the App"
+            size="300px"
+          />
+          <DasComp
+            image="../public/img/The Weekend bur 91d1843b-068f-47fb-a186-4a265d3a8a2f.png"
+            title="The Meal Deal gets you how much?!"
+            text="A 4 piece McNuggets®, small fries and soft drink, plus a McChicken® or McDouble® starts at $5. You already know the name, now get yours in the app before it’s gone.*"
+            subtext="*Prices and participation may vary. McDouble Meal Deal $6 in some areas. ©2024 The Coca-Cola Company."
+            button="Get the Meal in the App"
+            size="300px"
+          />
         </div>
+        <div class="p-8"></div>
+
+        <div class="px-[13%] gap-4 grid text-black grid-cols-1">
+          <DieComp
+            image="./public/img/output (3).jpg"
+            title="“McD’s Best Burgers Ever.” - Hamburglar"
+            text="You’re gonna love the hotter, juicier, tastier upgrades we’ve made to burgers like our Cheeseburger and Double Cheeseburger.* From patties grilled with onions and perfectly melted cheese to new soft, pillowy buns—these are our best burgers yet."
+            subtext="Get one today in the app for pickup or McDelivery®.^"
+            button="Get the Meal in the App"
+            size="600px"
+          />
+        </div>
+
+        <div class="p-80"></div>
+        <!-- Carousel -->
+        <!-- <div class="min-w-[800px]">
+          <CustomCarousel
+            category="New releases for you"
+            :data="[
+              {
+                url: 'https://picsum.photos/id/89/300/300',
+                song: 'Foregone',
+                by: 'In Flames',
+                releasedOn: '10/02/2023'
+              },
+              {
+                url: 'https://picsum.photos/id/101/300/300',
+                song: 'Dark Waters',
+                by: 'Delain',
+                releasedOn: '09/01/2023'
+              },
+              {
+                url: 'https://picsum.photos/id/121/300/300',
+                song: 'Heritage',
+                by: 'Distant',
+                releasedOn: '10/01/2023'
+              },
+              {
+                url: 'https://picsum.photos/id/134/300/300',
+                song: 'Meanwhile',
+                by: 'Klone',
+                releasedOn: '08/02/2023'
+              },
+              {
+                url: 'https://picsum.photos/id/144/300/300',
+                song: 'Truth Decay',
+                by: 'You Me At Six',
+                releasedOn: '10/01/2023'
+              },
+              {
+                url: 'https://picsum.photos/id/155/300/300',
+                song: 'This Is Why',
+                by: 'Paramore',
+                releasedOn: '10/02/2023'
+              },
+              {
+                url: 'https://picsum.photos/id/166/300/300',
+                song: 'The Jaws Of Life',
+                by: 'Pierce The Veil',
+                releasedOn: '09/23/2023'
+              },
+              {
+                url: 'https://picsum.photos/id/198/300/300',
+                song: 'The Future Is Your Past',
+                by: 'In The Brian Jonestown Massacre',
+                releasedOn: '07/25/2023'
+              },
+              {
+                url: 'https://picsum.photos/id/211/300/300',
+                song: 'The Land, The Water, The Sky',
+                by: 'Black Belt Eagle Scout',
+                releasedOn: '09/22/2023'
+              },
+              {
+                url: 'https://picsum.photos/id/223/300/300',
+                song: 'The Day My Father Died',
+                by: 'SYML',
+                releasedOn: '10/02/2023'
+              },
+              {
+                url: 'https://picsum.photos/id/225/300/300',
+                song: 'Complete Mountain Almanac',
+                by: 'Complete Mountain Almanac',
+                releasedOn: '10/02/2023'
+              },
+              {
+                url: 'https://picsum.photos/id/239/300/300',
+                song: 'Music From Montana Story',
+                by: 'Kevin Morby',
+                releasedOn: '10/01/2023'
+              }
+            ]"
+          />
+        </div> -->
       </div>
     </main>
 
