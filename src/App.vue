@@ -38,7 +38,7 @@ const SideMenu = ref(false)
     </header>
     <main class="relative w-screen h-screen">
       <img
-        class="w-screen h-screen object-cover md:width-[768px] lg:-width-[1024px] sm-width-[640px]"
+        class="w-[100vw] h-screen object-cover md:width-[768px] lg:-width-[1024px] sm-width-[640px]"
         src="/public/img/fast food image 4bff65dd-7daf-4074-94d7-e87e35b37bad.png"
         alt="A large burger"
       />
