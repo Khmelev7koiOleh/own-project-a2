@@ -55,7 +55,7 @@ const SideMenu = ref(false)
       <div
         class="absolute top-1/2 left-5 transform -translate-y-1/2 flex flex-col justify-center items-center gap-8"
       >
-        <div class="text-6xl md:text-7xl font-bold text-black md:text-gray-300 flex gap-4">
+        <div class="text-6xl md:text-7xl font-bold text-black md:text-gray-300 flex gap-3">
           <span class="text-white md:text-white">Order</span>
           <span class="text-black md:text-black">delivery </span>
         </div>
