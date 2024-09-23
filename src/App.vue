@@ -55,7 +55,7 @@ const SideMenu = ref(false)
       <div
         class="absolute top-1/2 left-5 transform -translate-y-1/2 flex flex-col justify-center items-center gap-16"
       >
-        <div class="text-6xl md:text-7xl font-bold text-black md:text-gray-300 grid">
+        <div class="text-5xl md:text-7xl font-bold text-black md:text-gray-300 grid">
           <span class="text-black md:text-black"> Order delivery </span>
           <span class="text-white md:text-white"
             ><span class="md:opacity-0 md:disabled hidden">Lorrrem</span> near you</span
