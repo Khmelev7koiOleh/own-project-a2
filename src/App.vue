@@ -37,19 +37,25 @@ const SideMenu = ref(false)
       </div>
     </header>
     <main class="relative w-screen h-screen">
-      <div
+      <!-- <div
         class="bg-gradient-to-r from-yellow-400 to-green-400 h-screen w-screen flex md:hidden"
-      ></div>
+      ></div> -->
       <img
         class="h-screen w-screen md:flex hidden"
         src="/img/fast_food_image_resized_30_percent.png"
         alt=""
       />
 
+      <img
+        class="h-screen w-screen flex md:hidden"
+        src="/img/fast food image 481cf65f-8a3d-4cd5-a80b-ed6779124db0 (1).png"
+        alt=""
+      />
+
       <div
         class="absolute top-1/2 left-5 transform -translate-y-1/2 flex flex-col justify-center items-center gap-16"
       >
-        <div class="text-5xl md:text-7xl font-bold text-black md:text-gray-300">
+        <div class="text-[46px] md:text-7xl font-bold text-black md:text-gray-300">
           Order delivery near you
         </div>
 
