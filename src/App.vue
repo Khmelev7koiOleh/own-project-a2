@@ -49,7 +49,7 @@ const SideMenu = ref(false)
       <div
         class="absolute top-1/2 left-5 transform -translate-y-1/2 flex flex-col justify-center items-center gap-16"
       >
-        <div class="text-5xl md:text-7xl font-bold text-black md:text-gray-400">
+        <div class="text-5xl md:text-7xl font-bold text-black md:text-gray-300">
           Order delivery near you
         </div>
 
@@ -70,9 +70,7 @@ const SideMenu = ref(false)
               Find
             </button>
           </div>
-          <div class="text-sm font-light text-white pr-80">
-            use <span class="underline text-md font-medium">QR</span> code
-          </div>
+          <div class="text-sm font-light text-white pr-80">use QR code</div>
         </div>
       </div>
 
