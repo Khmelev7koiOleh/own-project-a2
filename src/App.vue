@@ -36,7 +36,7 @@ const SideMenu = ref(false)
         </div>
       </div>
     </header>
-
+    <main class="bg-black w-screen h-screen border border-white"></main>
     <footer></footer>
 
     <RouterView />
