@@ -41,13 +41,13 @@ const SideMenu = ref(false)
         class="bg-gradient-to-r from-yellow-400 to-green-400 h-screen w-screen flex md:hidden"
       ></div> -->
       <img
-        class="h-screen w-screen md:flex hidden"
-        src="/img/fast_food_image_resized_30_percent.png"
+        class="h-screen w-screen flex md:hidden"
+        src="/img/fast food image 481cf65f-8a3d-4cd5-a80b-ed6779124db0.png"
         alt=""
       />
 
       <img
-        class="h-screen w-screen flex md:hidden"
+        class="h-screen w-screen md:flex hidden"
         src="/img/fast food image 4bff65dd-7daf-4074-94d7-e87e35b37bad.png"
         alt=""
       />
