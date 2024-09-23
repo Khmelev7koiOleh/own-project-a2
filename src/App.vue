@@ -26,7 +26,7 @@ const SideMenu = ref(false)
           <div
             class="border border-black px-2.5 py-1.5 text-sm rounded-full bg-white text-black font-normal"
           >
-            Log-in2
+            Log-in
           </div>
           <div
             class="border border-black px-2.5 py-1.5 text-sm r rounded-full bg-black text-white font-normal"
@@ -128,7 +128,8 @@ const SideMenu = ref(false)
           />
         </ul>
       </div>
-      <!-- 
+
+      <!-- problem -->
       <div class="w-full h-full bg-white">
         <div class="p-8"></div>
         <div
@@ -140,7 +141,7 @@ const SideMenu = ref(false)
             text="A 4 piece McNuggets®, small fries and soft drink, plus a McChicken® or McDouble® starts at $5. You already know the name, now get yours in the app before it’s gone.*"
             subtext="*Prices and participation may vary. McDouble Meal Deal $6 in some areas. ©2024 The Coca-Cola Company."
             button="Get the Meal in the App"
-            size="300px"
+            size="100px"
           />
           <DasComp
             image="../public/img/The Weekend bur 91d1843b-068f-47fb-a186-4a265d3a8a2f.png"
@@ -148,7 +149,7 @@ const SideMenu = ref(false)
             text="A 4 piece McNuggets®, small fries and soft drink, plus a McChicken® or McDouble® starts at $5. You already know the name, now get yours in the app before it’s gone.*"
             subtext="*Prices and participation may vary. McDouble Meal Deal $6 in some areas. ©2024 The Coca-Cola Company."
             button="Get the Meal in the App"
-            size="300px"
+            size="100px"
           />
         </div>
         <div class="p-8"></div>
@@ -160,13 +161,12 @@ const SideMenu = ref(false)
             text="You’re gonna love the hotter, juicier, tastier upgrades we’ve made to burgers like our Cheeseburger and Double Cheeseburger.* From patties grilled with onions and perfectly melted cheese to new soft, pillowy buns—these are our best burgers yet."
             subtext="Get one today in the app for pickup or McDelivery®.^"
             button="Get the Meal in the App"
-            size="600px"
+            size="200px"
           />
         </div>
 
-        <div class="p-80"></div>
-        <!- Carousel -->
-      <!-- <div class="min-w-[800px]">
+        <!-- Carousel -->
+        <!-- <div class="min-w-[800px]">
           <CustomCarousel
             category="New releases for you"
             :data="[
@@ -244,9 +244,8 @@ const SideMenu = ref(false)
               }
             ]"
           />
-        </div> 
-         </div> -
-        -->
+        </div> -->
+      </div>
     </main>
 
     <footer></footer>
