@@ -55,7 +55,7 @@ const SideMenu = ref(false)
       <div
         class="absolute top-1/2 left-4 transform -translate-y-1/2 flex flex-col justify-center items-center gap-8"
       >
-        <div class="text-6xl md:text-7xl font-bold text-black md:text-gray-300 flex gap-3">
+        <div class="text-5xl md:text-7xl font-bold text-black md:text-gray-300 flex gap-3">
           <span class="text-white md:text-white">Order</span>
           <span class="text-black md:text-black">delivery </span>
         </div>
@@ -63,7 +63,7 @@ const SideMenu = ref(false)
         <div
           class="flex flex-col items-center justify-center gap-4 w-[100%] sm:w-[80%] md:w-[70%] lg:w-[70%] xl:w-[70%]"
         >
-          <div class="flex w-[95%] gap-2">
+          <div class="flex w-full gap-2">
             <input
               class="flex-grow border border-black shadow-2xl px-2 py-2 text-lg rounded-lg placeholder:text-lg focus:outline-none focus:ring-2 focus:ring-blue-500 md:text-xl md:px-4 md:py-4 lg:text-2xl lg:px-6 lg:py-4 xl:py-4 xl:px-8"
               placeholder="Search delivery address..."
