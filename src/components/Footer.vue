@@ -188,8 +188,8 @@
 
     <!-- Social Media & App Download Icons -->
     <div class="p-8"></div>
-    <div class="w-screen h-auto grid gap-4 py-8 grid-flow-row-dense">
-      <div class="flex items-center gap-4">
+    <div class="w-screen h-auto grid grid-rows-2 gap-4 py-8">
+      <div class="flex items-center gap-4 justify-center">
         <img src="/img/facebook.png" alt="Facebook" />
         <img src="/img/x.png" alt="X" />
         <img src="/img/youtube.png" alt="YouTube" />
@@ -197,7 +197,7 @@
         <img src="/img/tumblr.png" alt="Tumblr" />
         <img src="/img/spotify.png" alt="Spotify" />
       </div>
-      <div class="flex items-center gap-8">
+      <div class="flex items-center gap-8 justify-around">
         <img src="/img/app_store_badge.png" alt="App Store" />
         <img src="/img/DownloadApp_Googleplay_154x40.png" alt="Google Play" />
       </div>
