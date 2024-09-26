@@ -53,7 +53,7 @@ const SideMenu = ref(false)
       />
 
       <div
-        class="absolute top-1/2 px-20 transform -translate-y-1/2 insert-0 flex flex-col justify-center items-center gap-8"
+        class="absolute top-1/2 px-[10%] transform -translate-y-1/2 insert-0 flex flex-col justify-center items-center gap-8"
       >
         <div class="text-5xl md:text-7xl font-bold text-black md:text-gray-300 flex gap-3">
           <span class="text-white md:text-white">Order</span>
