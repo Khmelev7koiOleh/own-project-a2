@@ -152,7 +152,7 @@ const SideMenu = ref(false)
           text="A 4 piece McNuggets®, small fries and soft drink, plus a McChicken® or McDouble® starts at $5. You already know the name, now get yours in the app before it’s gone.*"
           subtext="*Prices and participation may vary. McDouble Meal Deal $6 in some areas. ©2024 The Coca-Cola Company."
           button="Get the Meal in the App"
-          size="500px"
+          size="600px"
         />
         <div class="px-[3%] gap-4 grid text-black grid-cols-1 py-8">
           <DieComp
@@ -170,7 +170,7 @@ const SideMenu = ref(false)
           text="A 4 piece McNuggets®, small fries and soft drink, plus a McChicken® or McDouble® starts at $5. You already know the name, now get yours in the app before it’s gone.*"
           subtext="*Prices and participation may vary. McDouble Meal Deal $6 in some areas. ©2024 The Coca-Cola Company."
           button="Get the Meal in the App"
-          size="500px"
+          size="600px"
         />
       </div>
       <div class="p-8"></div>
@@ -257,8 +257,79 @@ const SideMenu = ref(false)
         </div> -->
   </main>
   <RouterView />
-  <footer class="z-50">
-    <div class="bg-red-100 text-2xl p-[10px] text-green-300 text-center z-50">Footer</div>
+  <footer class="w-screen h-full">
+    <div class="flex justify-around items-baseline">
+      <div class="flex flex-col">
+        <div class="font-bold text-black text-base py-4">About us</div>
+        <div class="text-base text-black font-light">About Us Overview</div>
+        <div class="text-base text-black font-light">Leadership Team</div>
+        <div class="text-base text-black font-light">Values In Action</div>
+        <div class="text-base text-black font-light">Franchising info</div>
+        <div class="text-base text-black font-light">Recalls & Alerts</div>
+        <div class="text-base text-black font-light">Real Estate</div>
+        <div class="text-base text-black font-light">Accessibility</div>
+        <div class="text-base text-black font-light">Investor Relations</div>
+        <div class="text-base text-black font-light">News & Notifications</div>
+      </div>
+      <div class="flex flex-col">
+        <div class="font-bold text-black text-base py-4">Services</div>
+        <div class="text-base text-black font-light">Services Overview</div>
+        <div class="text-base text-black font-light">Wi-Fi</div>
+        <div class="text-base text-black font-light">PlayPlaces & Parties</div>
+        <div class="text-base text-black font-light">Mobile Order & Pay</div>
+        <div class="text-base text-black font-light">Trending Now</div>
+        <div class="text-base text-black font-light">McDonald’s Merchandise</div>
+        <div class="text-base text-black font-light">Family Fun Hub</div>
+        <div class="text-base text-black font-light">MyMcDonald's Rewards</div>
+        <div class="text-base text-black font-light">Investor Relations</div>
+        <div class="text-base text-black font-light">McCafé®</div>
+      </div>
+      <div class="flex flex-col">
+        <div class="font-bold text-black text-base py-4">Community</div>
+
+        <div class="text-base text-black font-light">About Us Overview</div>
+        <div class="text-base text-black font-light">Leadership Team</div>
+        <div class="text-base text-black font-light">Values In Action</div>
+        <div class="text-base text-black font-light">Franchising info</div>
+        <div class="text-base text-black font-light">Recalls & Alerts</div>
+        <div class="text-base text-black font-light">Real Estate</div>
+        <div class="text-base text-black font-light">Accessibility</div>
+        <div class="text-base text-black font-light">Investor Relations</div>
+        <div class="text-base text-black font-light">News & Notifications</div>
+        <div class="text-base text-black font-light">Something</div>
+        <div class="text-base text-black font-light">Something</div>
+        <div class="text-base text-black font-light">Something</div>
+      </div>
+      <div class="flex flex-col">
+        <div class="font-bold text-black text-base py-4">Contact Us</div>
+        <div class="text-base text-black font-light">Something</div>
+        <div class="text-base text-black font-light">About Us Overview</div>
+        <div class="text-base text-black font-light">Leadership Team</div>
+        <div class="text-base text-black font-light">Values In Action</div>
+        <div class="text-base text-black font-light">Franchising info</div>
+        <div class="text-base text-black font-light">Accessibility</div>
+        <div class="text-base text-black font-light">Investor Relations</div>
+        <div class="text-base text-black font-light">News</div>
+      </div>
+    </div>
+    <div class="p-8"></div>
+    <div class="w-screen h-auto flex items-center justify-around">
+      <div class="flex items-center justify-around gap-4">
+        <img src="/img/facebook.png" alt="" />
+        <img src="/img/x.png" alt="" />
+        <img src="/img/youtube.png" alt="" />
+        <img src="/img/instagram.png" alt="" />
+        <img src="/img/tumblr.png" alt="" />
+        <img src="/img/spotify.png" alt="" />
+      </div>
+      <div class="flex items-center justify-around gap-8">
+        <img src="/img/app_store_badge.png" alt="" />
+        <img src="/img/DownloadApp_Googleplay_154x40.png" alt="" />
+      </div>
+    </div>
+
+    <div class="border-b border-b-gray-300 py-8"></div>
+    <div class="p-8"></div>
   </footer>
 </template>
 
