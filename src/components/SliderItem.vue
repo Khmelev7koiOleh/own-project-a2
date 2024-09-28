@@ -1,6 +1,6 @@
 <template>
-  <div class="max-w-220px grid md:hidden">
-    <img width="220px" :src="slide.url" alt="" />
+  <div class="max-w-200px grid md:hidden">
+    <img width="200px" :src="slide.url" alt="" />
     <div>{{ slide.song }}</div>
     <div>{{ slide.by }}</div>
     <div>{{ slide.releasedOn }}</div>
