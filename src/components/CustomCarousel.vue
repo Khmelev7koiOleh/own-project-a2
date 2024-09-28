@@ -1,5 +1,22 @@
 <template>
-  <div class="w-screen">
+  <div class="w-screen md:hidden">
+    <Carousel
+      class="mr-0"
+      ref="carousel"
+      v-model="firstScroll"
+      :items-to-show="2"
+      :items-to-scroll="1"
+      :transition="800"
+      snapAlign="start"
+      wrap-around="true"
+    >
+      <Slide v-for="slide in data" :key="slide" class="flex items-baseline">
+        <SliderItem :slide="slide" />
+      </Slide>
+    </Carousel>
+  </div>
+
+  <div class="md:grid hidden">
     <Carousel
       class="mr-0"
       ref="carousel"

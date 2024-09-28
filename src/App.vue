@@ -185,7 +185,7 @@ const SideMenu = ref(false)
           {
             url: '/img/gimme a pic of  fb69176a-7b07-4229-8ca1-0bc5e7479957.png',
             song: 'burger 1',
-            by: 'In Flames',
+            by: 'description',
             releasedOn: '10/02/2023'
           },
           {
@@ -197,61 +197,61 @@ const SideMenu = ref(false)
           {
             url: '/img/gimme a pic of  fb69176a-7b07-4229-8ca1-0bc5e7479957.png',
             song: 'burger 3',
-            by: 'Distant',
+            by: 'description',
             releasedOn: '10/01/2023'
           },
           {
             url: '/img/gimme a pic of  fb69176a-7b07-4229-8ca1-0bc5e7479957.png',
             song: 'burger 4',
-            by: 'Klone',
+            by: 'description',
             releasedOn: '08/02/2023'
           },
           {
             url: '/img/gimme a pic of  fb69176a-7b07-4229-8ca1-0bc5e7479957.png',
             song: 'burger 5',
-            by: 'You Me At Six',
+            by: 'description',
             releasedOn: '10/01/2023'
           },
           {
             url: '/img/gimme a pic of  fb69176a-7b07-4229-8ca1-0bc5e7479957.png',
             song: 'burger 6',
-            by: 'Paramore',
+            by: 'description',
             releasedOn: '10/02/2023'
           },
           {
             url: '/img/gimme a pic of  fb69176a-7b07-4229-8ca1-0bc5e7479957.png',
             song: 'burger 7',
-            by: 'Pierce The Veil',
+            by: 'description',
             releasedOn: '09/23/2023'
           },
           {
             url: '/img/gimme a pic of  fb69176a-7b07-4229-8ca1-0bc5e7479957.png',
             song: 'burger 8',
-            by: 'In The Brian Jonestown Massacre',
+            by: 'description',
             releasedOn: '07/25/2023'
           },
           {
             url: '/img/gimme a pic of  fb69176a-7b07-4229-8ca1-0bc5e7479957.png',
             song: 'burger 9',
-            by: 'Black Belt Eagle Scout',
+            by: 'description',
             releasedOn: '09/22/2023'
           },
           {
             url: '/img/gimme a pic of  fb69176a-7b07-4229-8ca1-0bc5e7479957.png',
             song: 'burger 10',
-            by: 'SYML',
+            by: 'description',
             releasedOn: '10/02/2023'
           },
           {
             url: '/img/gimme a pic of  fb69176a-7b07-4229-8ca1-0bc5e7479957.png',
             song: 'burger  11',
-            by: 'Complete Mountain Almanac',
+            by: 'description',
             releasedOn: '10/02/2023'
           },
           {
             url: '/img/gimme a pic of  fb69176a-7b07-4229-8ca1-0bc5e7479957.png',
             song: 'burger 12',
-            by: 'Kevin Morby',
+            by: 'description',
             releasedOn: '10/01/2023'
           }
         ]"
