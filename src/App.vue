@@ -178,81 +178,81 @@ const SideMenu = ref(false)
       <div class="p-8"></div>
     </div>
     <!-- Carousel -->
-    <div class="w-screen">
+    <div class="w-screen mb-20">
       <CustomCarousel
         category="New releases for you"
         :data="[
           {
-            url: '/img/gimme a pic of  fb69176a-7b07-4229-8ca1-0bc5e7479957.png',
-            song: 'burger 1',
+            url: '/img/gimme_a_pic_of__db972bd8-282c-4bd6-8878-6d2d230132d2-removebg-preview.png',
+            song: 'Classic Burger',
             by: 'description',
-            releasedOn: '10/02/2023'
+            releasedOn: 'New'
           },
           {
-            url: '/img/gimme a pic of  fb69176a-7b07-4229-8ca1-0bc5e7479957.png',
-            song: 'burger 2',
+            url: '/img/gimme_a_pic_of__10744faa-2e52-4cd8-84ca-d5804f8c0444-removebg-preview.png',
+            song: 'Smoky BBQ Stack',
             by: 'Delain',
-            releasedOn: '09/01/2023'
+            releasedOn: 'New'
           },
           {
-            url: '/img/gimme a pic of  fb69176a-7b07-4229-8ca1-0bc5e7479957.png',
-            song: 'burger 3',
+            url: '/img/gimme_a_pic_of__53420499-9fad-4891-9830-86f0d39d9116-removebg-preview.png',
+            song: 'Cheddar Crunch Delight',
             by: 'description',
-            releasedOn: '10/01/2023'
+            releasedOn: 'New'
           },
           {
-            url: '/img/gimme a pic of  fb69176a-7b07-4229-8ca1-0bc5e7479957.png',
-            song: 'burger 4',
+            url: '/img/gimme_a_pic_of__37e3567e-315b-4617-ba10-295c0096a1ce-removebg-preview.png',
+            song: 'Spicy Jalapeño Blast',
             by: 'description',
-            releasedOn: '08/02/2023'
+            releasedOn: 'New'
           },
           {
-            url: '/img/gimme a pic of  fb69176a-7b07-4229-8ca1-0bc5e7479957.png',
-            song: 'burger 5',
+            url: '/img/file.png',
+            song: 'Double Decker Supreme',
             by: 'description',
-            releasedOn: '10/01/2023'
+            releasedOn: 'New'
           },
           {
-            url: '/img/gimme a pic of  fb69176a-7b07-4229-8ca1-0bc5e7479957.png',
-            song: 'burger 6',
+            url: '/img/gimme_a_pic_of__58017fd2-8d24-4bbf-b65a-294f23aa42a8-removebg-preview.png',
+            song: 'Classic Beef Tower',
             by: 'description',
-            releasedOn: '10/02/2023'
+            releasedOn: 'New'
           },
           {
-            url: '/img/gimme a pic of  fb69176a-7b07-4229-8ca1-0bc5e7479957.png',
-            song: 'burger 7',
+            url: '/img/gimme_a_pic_of__e61b2600-81b3-4790-8464-0bfbe91c2084-removebg-preview.png',
+            song: 'Cheezburger',
             by: 'description',
-            releasedOn: '09/23/2023'
+            releasedOn: 'New'
           },
           {
-            url: '/img/gimme a pic of  fb69176a-7b07-4229-8ca1-0bc5e7479957.png',
-            song: 'burger 8',
+            url: '/img/gimme_a_pic_of__10744faa-2e52-4cd8-84ca-d5804f8c0444-removebg-preview.png',
+            song: 'Maple Bacon Bomber',
             by: 'description',
-            releasedOn: '07/25/2023'
+            releasedOn: 'New'
           },
           {
-            url: '/img/gimme a pic of  fb69176a-7b07-4229-8ca1-0bc5e7479957.png',
-            song: 'burger 9',
+            url: '/img/gimme_a_pic_of__37e3567e-315b-4617-ba10-295c0096a1ce-removebg-preview.png',
+            song: 'Grilled Onion Melt',
             by: 'description',
-            releasedOn: '09/22/2023'
+            releasedOn: 'New'
           },
           {
-            url: '/img/gimme a pic of  fb69176a-7b07-4229-8ca1-0bc5e7479957.png',
-            song: 'burger 10',
+            url: '/img/gimme_a_pic_of__58017fd2-8d24-4bbf-b65a-294f23aa42a8-removebg-preview.png',
+            song: 'Zesty Ranch Smash',
             by: 'description',
-            releasedOn: '10/02/2023'
+            releasedOn: 'New'
           },
           {
-            url: '/img/gimme a pic of  fb69176a-7b07-4229-8ca1-0bc5e7479957.png',
-            song: 'burger  11',
+            url: '/img/gimme_a_pic_of__37e3567e-315b-4617-ba10-295c0096a1ce-removebg-preview.png',
+            song: 'Triple Cheese Inferno',
             by: 'description',
-            releasedOn: '10/02/2023'
+            releasedOn: 'New'
           },
           {
-            url: '/img/gimme a pic of  fb69176a-7b07-4229-8ca1-0bc5e7479957.png',
-            song: 'burger 12',
+            url: '/img/gimme_a_pic_of__58017fd2-8d24-4bbf-b65a-294f23aa42a8-removebg-preview.png',
+            song: 'CFirecracker Sizzle Burger',
             by: 'description',
-            releasedOn: '10/01/2023'
+            releasedOn: 'New'
           }
         ]"
       />
