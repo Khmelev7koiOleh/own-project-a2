@@ -257,6 +257,7 @@ const SideMenu = ref(false)
         ]"
       />
     </div>
+    <div class="border-b border-b-gray-400"></div>
   </main>
   <RouterView />
 
