@@ -21,7 +21,7 @@
       class="mr-0"
       ref="carousel"
       v-model="firstScroll"
-      :items-to-show="2"
+      :items-to-show="3"
       :items-to-scroll="1"
       :transition="800"
       snapAlign="start"
