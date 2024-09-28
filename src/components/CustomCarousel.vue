@@ -10,7 +10,7 @@
       snapAlign="start"
       wrap-around="true"
     >
-      <Slide v-for="slide in data" :key="slide" class="flex items-baseline">
+      <Slide v-for="slide in data" :key="slide" class="flex items-baseline gap-2">
         <SliderItem :slide="slide" />
       </Slide>
     </Carousel>
@@ -27,7 +27,7 @@
       snapAlign="start"
       wrap-around="true"
     >
-      <Slide v-for="slide in data" :key="slide" class="flex items-baseline">
+      <Slide v-for="slide in data" :key="slide" class="flex items-baseline gap-2">
         <SliderItem :slide="slide" />
       </Slide>
     </Carousel>
