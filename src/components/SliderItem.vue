@@ -1,5 +1,5 @@
 <template>
-  <div class="max-w-200px grid md:hidden">
+  <div class="max-w-200px grid md:hidden px-4">
     <img width="200px" :src="slide.url" alt="" />
     <div>{{ slide.song }}</div>
     <div>{{ slide.by }}</div>

@@ -178,7 +178,7 @@ const SideMenu = ref(false)
       <div class="p-8"></div>
     </div>
     <!-- Carousel -->
-    <div class="w-screen py-8">
+    <div class="w-screen">
       <CustomCarousel
         category="New releases for you"
         :data="[
