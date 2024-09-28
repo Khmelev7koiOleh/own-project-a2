@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <img :src="slide.url" alt="" />
+  <div class="max-w-250px">
+    <img width="250px" :src="slide.url" alt="" />
     <div>{{ slide.song }}</div>
     <div>{{ slide.by }}</div>
     <div>{{ slide.releasedOn }}</div>

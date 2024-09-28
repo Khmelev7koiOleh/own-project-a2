@@ -1,13 +1,14 @@
 <template>
-  <div class="grid w-full">
+  <div class="w-screen">
     <Carousel
-      class="mr-8"
+      class="mr-0"
       ref="carousel"
       v-model="firstScroll"
-      :items-to-show="4"
-      :items-to-scroll="4"
+      :items-to-show="2"
+      :items-to-scroll="1"
       :transition="800"
       snapAlign="start"
+      wrap-around="true"
     >
       <Slide v-for="slide in data" :key="slide" class="flex items-baseline">
         <SliderItem :slide="slide" />
