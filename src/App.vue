@@ -50,14 +50,14 @@ const openFormFunc = (val) => {
           <div
             class="border border-black px-2.5 py-1.5 text-sm rounded-full bg-white text-black font-normal"
           >
-            Log-in
+            Sign-up
           </div>
           <button
             type="button"
             @click="openFormFunc(true)"
             class="border border-black px-2.5 py-1.5 text-sm r rounded-full bg-black text-white font-normal"
           >
-            Sign-up
+            Log-in
           </button>
         </div>
       </div>
