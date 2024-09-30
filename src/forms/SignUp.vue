@@ -1,3 +1,32 @@
+<script setup>
+import { ref } from 'vue'
+import ChevronLeft from 'vue-material-design-icons/ChevronLeft.vue'
+import ChevronRight from 'vue-material-design-icons/ChevronRight.vue'
+import { useThisStore } from '../stores/pinia'
+import { storeToRefs } from 'pinia'
+const useThis = useThisStore()
+const { openForm, openFormLog } = storeToRefs(useThis)
+const openFormFunc = (val) => {
+  if (val) {
+    openForm.value = !openForm.value
+  }
+}
+
+// Form logic
+const email = ref('')
+const password = ref('')
+
+const handleSubmit = () => {
+  if (!email.value || !password.value) {
+    alert('Please enter both email and password.')
+    return
+  }
+
+  // Placeholder for form submission logic
+  alert(`Email: ${email.value}, Password: ${password.value}`)
+}
+</script>
+
 <template>
   <div class="bg-gray-800">
     <div class="p-8">
@@ -7,7 +36,7 @@
     </div>
 
     <div class="flex justify-center items-center min-h-screen bg-gray-800">
-      <div class="bg-white shadow-lg rounded-lg p-8 max-w-md w-full">
+      <div class="bg-white shadow-lg rounded-lg py-20 px-8 max-w-md w-full">
         <h2 class="text-2xl font-bold text-gray-700 text-center mb-6">Login</h2>
 
         <!-- Email Field -->
@@ -48,34 +77,5 @@
     </div>
   </div>
 </template>
-
-<script setup>
-import { ref } from 'vue'
-import ChevronLeft from 'vue-material-design-icons/ChevronLeft.vue'
-import ChevronRight from 'vue-material-design-icons/ChevronRight.vue'
-import { useThisStore } from '../stores/pinia'
-import { storeToRefs } from 'pinia'
-const useThis = useThisStore()
-const { openForm, openFormLog } = storeToRefs(useThis)
-const openFormFunc = (val) => {
-  if (val) {
-    openForm.value = !openForm.value
-  }
-}
-
-// Form logic
-const email = ref('')
-const password = ref('')
-
-const handleSubmit = () => {
-  if (!email.value || !password.value) {
-    alert('Please enter both email and password.')
-    return
-  }
-
-  // Placeholder for form submission logic
-  alert(`Email: ${email.value}, Password: ${password.value}`)
-}
-</script>
 
 <style lang="scss" scoped></style>
