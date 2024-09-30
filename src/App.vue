@@ -149,6 +149,7 @@ const SideMenu = ref(false)
     <div class="w-screen mb-0">
       <CustomCarousel
         category="New releases for you"
+        title="New releases"
         :data="[
           {
             url: '/img/gimme_a_pic_of__db972bd8-282c-4bd6-8878-6d2d230132d2-removebg-preview.png',
@@ -263,6 +264,7 @@ const SideMenu = ref(false)
     <!-- Carousel -->
     <div class="w-screen mb-20">
       <CustomCarousel
+        title="Best for you"
         category="New releases for you"
         :data="[
           {
