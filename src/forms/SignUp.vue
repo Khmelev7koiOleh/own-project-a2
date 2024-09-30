@@ -62,6 +62,20 @@ const openFormFunc = (val) => {
     openForm.value = !openForm.value
   }
 }
+
+// Form logic
+const email = ref('')
+const password = ref('')
+
+const handleSubmit = () => {
+  if (!email.value || !password.value) {
+    alert('Please enter both email and password.')
+    return
+  }
+
+  // Placeholder for form submission logic
+  alert(`Email: ${email.value}, Password: ${password.value}`)
+}
 </script>
 
 <style lang="scss" scoped></style>

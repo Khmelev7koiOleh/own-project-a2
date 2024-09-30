@@ -35,7 +35,7 @@ const slideTo = (val) => {
 <template>
   <div class="w-screen md:hidden">
     <div class="flex justify-between">
-      <div class="p-8 text-3xl text-black font-semibold underline">{{ title }}</div>
+      <div class="p-8 text-2xl text-black font-semibold underline">{{ title }}</div>
       <div class="flex justify-between p-8">
         <button class="px-1">
           <ChevronLeft @click="slideTo(false)" fillColor="#000000" :size="40" />
@@ -64,7 +64,7 @@ const slideTo = (val) => {
 
   <div class="md:grid hidden w-screen">
     <div class="flex justify-between p-8">
-      <div class="p-8 text-3xl text-black font-semibold underline">{{ title }}</div>
+      <div class="p-8 text-2xl text-black font-semibold underline">{{ title }}</div>
       <div class="p-8">
         <button class="px-1">
           <ChevronLeft @click="slideTo(false)" fillColor="#000000" :size="50" />
