@@ -1,6 +1,8 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
 import { ref } from 'vue'
+import ChevronLeft from 'vue-material-design-icons/ChevronLeft.vue'
+import ChevronRight from 'vue-material-design-icons/ChevronRight.vue'
 import MenuIcon from 'vue-material-design-icons/Menu.vue'
 import DasComp from './components/DasComp.vue'
 import DieComp from './components/DieComp.vue'
@@ -145,7 +147,6 @@ const SideMenu = ref(false)
     </div>
     <!-- Carousel -->
     <div class="w-screen mb-0">
-      <div class="p-8 text-3xl text-red-600 font-semibold underline">New line</div>
       <CustomCarousel
         category="New releases for you"
         :data="[
