@@ -40,7 +40,7 @@ const SideMenu = ref(false)
       </div>
     </div>
   </header>
-  <main class="relative w-screen h-full flex-grow">
+  <main class="relative w-screen h-full flex-grow overflow-hidden">
     <!-- <div
         class="bg-gradient-to-r from-yellow-400 to-green-400 h-screen w-screen flex md:hidden"
       ></div> -->
