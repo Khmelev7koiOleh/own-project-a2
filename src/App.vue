@@ -144,7 +144,7 @@ const SideMenu = ref(false)
       </ul>
     </div>
     <!-- Carousel -->
-    <div class="w-screen mb-20">
+    <div class="w-screen mb-0">
       <div class="p-8 text-3xl text-red-600 font-semibold underline">New line</div>
       <CustomCarousel
         category="New releases for you"
@@ -339,7 +339,7 @@ const SideMenu = ref(false)
         ]"
       />
     </div>
-    <div class="w-screen h-auto bg-gray-100 grid grid-cols-1 md:grid-cols-2">
+    <div class="w-screen h-auto bg-gray-100">
       <div class="px-[3%] gap-4 text-black py-8">
         <DerComp
           image="/img/35d3cdaac1a43701e208f936357b13a10086faa3-2000x1000.webp"
