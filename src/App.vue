@@ -6,6 +6,7 @@ import DasComp from './components/DasComp.vue'
 import DieComp from './components/DieComp.vue'
 import Footer from './components/Footer.vue'
 import CustomCarousel from './components/CustomCarousel.vue'
+import DerComp from './components/DerComp.vue'
 
 const SideMenu = ref(false)
 </script>
@@ -142,6 +143,87 @@ const SideMenu = ref(false)
         />
       </ul>
     </div>
+    <!-- Carousel -->
+    <div class="w-screen mb-20">
+      <div class="p-8 text-3xl text-red-600 font-semibold underline">New line</div>
+      <CustomCarousel
+        category="New releases for you"
+        :data="[
+          {
+            url: '/img/gimme_a_pic_of__db972bd8-282c-4bd6-8878-6d2d230132d2-removebg-preview.png',
+            song: 'Classic Burger',
+            by: 'description',
+            releasedOn: 'New'
+          },
+          {
+            url: '/img/gimme_a_pic_of__10744faa-2e52-4cd8-84ca-d5804f8c0444-removebg-preview.png',
+            song: 'Smoky BBQ Stack',
+            by: 'Delain',
+            releasedOn: 'New'
+          },
+          {
+            url: '/img/gimme_a_pic_of__53420499-9fad-4891-9830-86f0d39d9116-removebg-preview.png',
+            song: 'Cheddar Crunch Delight',
+            by: 'description',
+            releasedOn: 'New'
+          },
+          {
+            url: '/img/gimme_a_pic_of__37e3567e-315b-4617-ba10-295c0096a1ce-removebg-preview.png',
+            song: 'Spicy Jalapeño Blast',
+            by: 'description',
+            releasedOn: 'New'
+          },
+          {
+            url: '/img/file.png',
+            song: 'Double Decker Supreme',
+            by: 'description',
+            releasedOn: 'New'
+          },
+          {
+            url: '/img/gimme_a_pic_of__58017fd2-8d24-4bbf-b65a-294f23aa42a8-removebg-preview.png',
+            song: 'Classic Beef Tower',
+            by: 'description',
+            releasedOn: 'New'
+          },
+          {
+            url: '/img/gimme_a_pic_of__e61b2600-81b3-4790-8464-0bfbe91c2084-removebg-preview.png',
+            song: 'Cheezburger',
+            by: 'description',
+            releasedOn: 'New'
+          },
+          {
+            url: '/img/gimme_a_pic_of__10744faa-2e52-4cd8-84ca-d5804f8c0444-removebg-preview.png',
+            song: 'Maple Bacon Bomber',
+            by: 'description',
+            releasedOn: 'New'
+          },
+          {
+            url: '/img/gimme_a_pic_of__37e3567e-315b-4617-ba10-295c0096a1ce-removebg-preview.png',
+            song: 'Grilled Onion Melt',
+            by: 'description',
+            releasedOn: 'New'
+          },
+          {
+            url: '/img/gimme_a_pic_of__58017fd2-8d24-4bbf-b65a-294f23aa42a8-removebg-preview.png',
+            song: 'Zesty Ranch Smash',
+            by: 'description',
+            releasedOn: 'New'
+          },
+          {
+            url: '/img/gimme_a_pic_of__37e3567e-315b-4617-ba10-295c0096a1ce-removebg-preview.png',
+            song: 'Triple Cheese Inferno',
+            by: 'description',
+            releasedOn: 'New'
+          },
+          {
+            url: '/img/gimme_a_pic_of__58017fd2-8d24-4bbf-b65a-294f23aa42a8-removebg-preview.png',
+            song: 'CFirecracker Sizzle Burger',
+            by: 'description',
+            releasedOn: 'New'
+          }
+        ]"
+      />
+    </div>
 
     <div class="w-auto h-auto bg-white">
       <div class="p-8"></div>
@@ -256,6 +338,28 @@ const SideMenu = ref(false)
           }
         ]"
       />
+    </div>
+    <div class="w-screen h-auto bg-gray-100 grid grid-cols-1 md:grid-cols-2">
+      <div class="px-[3%] gap-4 text-black py-8">
+        <DerComp
+          image="/img/35d3cdaac1a43701e208f936357b13a10086faa3-2000x1000.webp"
+          title="“McD’s Best Burgers Ever.” - Hamburglar"
+          text="You’re gonna love the hotter, juicier, tastier upgrades we’ve made to burgers like our Cheeseburger and Double Cheeseburger."
+          subtext="Get one today in the app for pickup or McDelivery®.^"
+          button="Get the Meal in the App"
+          size="600px"
+        />
+      </div>
+      <div class="px-[3%] gap-4 grid text-black grid-cols-1 py-8">
+        <DerComp
+          image="/img/f39ef68a4f1d6417cf34072991c4306225f66e9a-2000x1000.webp"
+          title="“McD’s Best Burgers Ever.” - Hamburglar"
+          text="You’re gonna love the hotter, juicier, tastier upgrades we’ve made to burgers like our Cheeseburger and Double Cheeseburger."
+          subtext="Get one today in the app for pickup or McDelivery®.^"
+          button="Get the Meal in the App"
+          size="600px"
+        />
+      </div>
     </div>
     <div class="border-b border-b-gray-400"></div>
   </main>
