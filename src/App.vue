@@ -1,6 +1,8 @@
 <script setup>
 import { onMounted } from 'vue'
 import { RouterLink, RouterView } from 'vue-router'
+import { useRouter } from 'vue-router'
+
 import { ref } from 'vue'
 import ChevronLeft from 'vue-material-design-icons/ChevronLeft.vue'
 import ChevronRight from 'vue-material-design-icons/ChevronRight.vue'
@@ -11,9 +13,9 @@ import Footer from './components/Footer.vue'
 import CustomCarousel from './components/CustomCarousel.vue'
 import DerComp from './components/DerComp.vue'
 import SignUp from './forms/SignUp.vue'
-
 import { useThisStore } from './stores/pinia'
 import { storeToRefs } from 'pinia'
+import Register from './views/Register.vue'
 const useThis = useThisStore()
 const { openForm, openFormLog } = storeToRefs(useThis)
 
@@ -30,9 +32,11 @@ const openFormFunc = (val) => {
 </script>
 
 <template>
-  <section>
-    <div><SignUp v-if="openForm" /></div>
-  </section>
+  <RouterView class="fixed z-20 inset-0" />
+
+  <!-- <section>
+    <div><Register v-if="openForm" /></div>
+  </section> -->
   <div v-if="!openForm">
     <header v-if="!SideMenu" class="fixed w-[100vw] min-h-[80px] z-10 bg-opacity-0">
       <div class="flex justify-between items-center p-4">
@@ -47,18 +51,20 @@ const openFormFunc = (val) => {
           </div>
         </div>
         <div class="flex justify-between items-center gap-4">
-          <div
+          <RouterLink
+            to="/sign-in"
+            type="button"
             class="border border-black px-2.5 py-1.5 text-sm rounded-full bg-white text-black font-normal"
           >
-            Sign-up
-          </div>
-          <button
+            Sign-in
+          </RouterLink>
+          <RouterLink
+            to="/sign-up"
             type="button"
-            @click="openFormFunc(true)"
-            class="border border-black px-2.5 py-1.5 text-sm r rounded-full bg-black text-white font-normal"
+            class="border border-black px-2.5 py-1.5 text-sm rounded-full bg-black text-white font-normal"
           >
-            Log-in
-          </button>
+            Sign-up
+          </RouterLink>
         </div>
       </div>
     </header>
@@ -388,7 +394,6 @@ const openFormFunc = (val) => {
       </div>
       <div class="border-b border-b-gray-400"></div>
     </main>
-    <RouterView />
 
     <footer>
       <Footer />

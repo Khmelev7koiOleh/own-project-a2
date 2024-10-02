@@ -6,5 +6,6 @@ export const useThisStore = defineStore('This', {
     openFormLog: false
   }),
   actions: {},
+
   persist: true
 })
