@@ -23,10 +23,6 @@ const { openForm, openFormLog } = storeToRefs(useThis)
 const router = useRouter()
 onMounted(() => {
   openForm.value = false
-
-  setTimeout(() => {
-    router.push('/sign-up')
-  }, 10000)
 })
 
 const SideMenu = ref(false)

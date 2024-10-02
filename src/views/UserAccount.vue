@@ -3,25 +3,47 @@
              @click="openFormFunc(true)" type="button"
              > -->
 
-  <div class="p-10 bg-black w-[100vw] h-[100vh]">
+  <section class="bg-black w-[100vw] h-[100vh]">
     <div class="flex justify-between">
+      <section
+        id="userSideMenu"
+        class="fixed w-[240px] h-full right-0 bg-blue-900 overflow-x-auto z-50"
+      >
+        <div class="text-xl text-gray-100 flex items-center justify-between gap-2 p-4">
+          <p>User account:</p>
+          <p
+            class="bg-green-400 rounded-full w-10 h-10 flex items-center justify-center text-white"
+          >
+            {{ firstLetter }}
+          </p>
+        </div>
+      </section>
+
       <RouterLink to="/">
-        <button class="flex items-center rounded-full bg-gray-500 px-2 p-1 justify-between">
+        <button class="flex items-center rounded-full bg-gray-500 px-2 p-1 justify-between m-10">
           <ChevronLeft fillColor="#ffffff" :size="35" class="bg-black rounded-full mx-1" />
           <div @click="handleSignOut()" class="text-xl text-white font-bold" v-if="isLogedIn">
             Sign-out
           </div>
         </button>
       </RouterLink>
-
-      <div class="text-xl text-gray-100 flex items-center justify-between gap-2">
-        <p>User account:</p>
-        <p class="bg-green-400 rounded-full w-10 h-10 flex items-center justify-center text-white">
-          {{ firstLetter }}
-        </p>
+    </div>
+    <div class="flex justify-center items-center mt-10">
+      <div class="text-center text-white max-w-[30%]">
+        <div class="text-center text-white text-xl p-4">Title</div>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum enim commodi, placeat illum,
+        laudantium fugit, numquam itaque porro labore ratione impedit dolorum? Quas non commodi
+        placeat reiciendis doloribus et voluptatem. Repellendus nostrum commodi, in culpa eveniet
+        velit molestias vel voluptate qui doloremque, consequatur ea reiciendis! Voluptatibus,
+        quisquam beatae dolorum alias modi sapiente voluptatum commodi. Nihil itaque aperiam, neque
+        at impedit eos blanditiis excepturi distinctio magni, doloribus facere accusamus explicabo
+        necessitatibus nisi quo pariatur optio nostrum dolorem ipsum ut eaque perspiciatis aliquid.
+        Quam, rem quis! Dolorum est itaque, culpa quasi porro, ipsam sint provident hic odio
+        corrupti commodi! Unde nostrum, dicta, aliquid voluptas labore iste doloribus porro quae ea
+        adipisci, exercitationem quo tenetur numquam mollitia!
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script setup>

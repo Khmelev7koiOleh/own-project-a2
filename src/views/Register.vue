@@ -1,6 +1,11 @@
 <script setup>
 import { ref } from 'vue'
-import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithPopup
+} from 'firebase/auth'
 import { useRouter } from 'vue-router'
 import ChevronLeft from 'vue-material-design-icons/ChevronLeft.vue'
 import ChevronRight from 'vue-material-design-icons/ChevronRight.vue'
@@ -31,7 +36,16 @@ const register = () => {
     })
 }
 
-const signInWithGoogle = () => {}
+const signInWithGoogle = () => {
+  const provider = new GoogleAuthProvider()
+  signInWithPopup(getAuth(), provider)
+    .then((result) => {
+      router.push('/user-account')
+    })
+    .catch((error) => {
+      // handle error
+    })
+}
 
 // const handleSubmit = () => {
 //   if (!email.value || !password.value) {
