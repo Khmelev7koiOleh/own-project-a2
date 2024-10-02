@@ -25,7 +25,7 @@ const register = () => {
   signInWithEmailAndPassword(getAuth(), email.value, password.value)
     .then((data) => {
       console.log('Successfully signed-in!')
-      router.push('/feed')
+      router.push('/user-account')
     })
     .catch((error) => {
       console.log(error.code)
