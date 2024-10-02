@@ -15,20 +15,26 @@ import DerComp from './components/DerComp.vue'
 import SignUp from './forms/SignUp.vue'
 import { useThisStore } from './stores/pinia'
 import { storeToRefs } from 'pinia'
+import { useRoute } from 'vue-router'
 import Register from './views/Register.vue'
 const useThis = useThisStore()
 const { openForm, openFormLog } = storeToRefs(useThis)
 
+const router = useRouter()
 onMounted(() => {
   openForm.value = false
+
+  setTimeout(() => {
+    router.push('/sign-up')
+  }, 10000)
 })
 
 const SideMenu = ref(false)
-const openFormFunc = (val) => {
-  if (val) {
-    openForm.value = openForm.value = true
-  }
-}
+// const openFormFunc = (val) => {
+//   if (val) {
+//     openForm.value = openForm.value = true
+//   }
+// }
 </script>
 
 <template>
