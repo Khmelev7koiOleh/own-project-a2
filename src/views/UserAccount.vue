@@ -82,8 +82,8 @@
         </div>
       </section>
     </div>
-    <section class="items-center mt-10 w-[calc(100%-200px)] h-[100vh] ml-[200px] p-8">
-      <div class="text-center text-white">
+    <section class="mt-10 w-[100vw] h-[100vh] p-10">
+      <div class="text-white">
         <div class="text-center text-white text-xl p-4">Title</div>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum enim commodi, placeat illum,
         laudantium fugit, numquam itaque porro labore ratione impedit dolorum? Quas non commodi

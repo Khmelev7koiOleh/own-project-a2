@@ -39,7 +39,7 @@ const isFullScreenRoute = route.meta.fullScreen
     <div><Register v-if="openForm" /></div>
   </section> -->
   <div v-if="!openForm">
-    <RouterView class="fixed z-30 inset-0 h-[100vh] overflow-auto" />
+    <RouterView class="fixed z-30 w-[100vw] h-[100vh] overflow-auto" />
     <header>
       <Header />
     </header>
