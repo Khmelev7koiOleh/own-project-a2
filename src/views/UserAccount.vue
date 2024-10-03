@@ -3,30 +3,70 @@
              @click="openFormFunc(true)" type="button"
              > -->
 
-  <section class="bg-black w-[100vw] h-[100vh]">
+  <section class="bg-black w-screen h-[100%]">
     <div class="flex justify-between">
       <section
         id="userSideMenu"
-        class="fixed w-[150px] h-full right-0 bg-blue-900 overflow-x-auto z-50"
+        class="fixed w-[200px] h-full left-0 bg-yellow-400 overflow-x-auto z-50"
       >
-        <div class="text-xl text-gray-100 flex items-center justify-between gap-2 p-4">
-          <p>User:</p>
-          <p
-            class="bg-green-400 rounded-full w-10 h-10 flex items-center justify-center text-white"
-          >
-            {{ firstLetter }}
-          </p>
+        <div class="flex flex-col justify-around">
+          <div class="text-xl text-gray-100 flex items-center gap-2 p-4 justify-center">
+            <p
+              class="bg-green-400 rounded-full w-10 h-10 flex items-center justify-center text-white"
+            >
+              {{ firstLetter }}
+            </p>
+          </div>
+
+          <div class="border-b border-b-gray-500"></div>
+          <ul class="flex flex-col justify-center items-center py-40 md:py-40">
+            <li class="text-black text-lg font-bold">Menu</li>
+            <img
+              width="120"
+              class="relative bottom-2 right-4"
+              src="/img/rotated_french_fry_180__1_-removebg-preview (1).png"
+              alt=""
+            />
+            <li class="text-black text-sm font-light">Today's best</li>
+            <img
+              width="120"
+              class="relative bottom-2 right-4"
+              src="/img/rotated_french_fry_180__1_-removebg-preview (1).png"
+              alt=""
+            />
+            <li class="text-black text-sm font-light">Food-Set</li>
+            <img
+              width="120"
+              class="relative bottom-2 right-4"
+              src="/img/rotated_french_fry_180__1_-removebg-preview (1).png"
+              alt=""
+            />
+            <li class="text-black text-sm font-light">Popular</li>
+            <img
+              width="120"
+              class="relative bottom-2 right-4"
+              src="/img/rotated_french_fry_180__1_-removebg-preview (1).png"
+              alt=""
+            />
+            <li class="text-red-700 text-sm font-bold underline underline-offset-4">
+              Special offer
+            </li>
+            <img
+              width="120"
+              class="relative bottom-2 right-4"
+              src="/img/rotated_french_fry_180__1_-removebg-preview (1).png"
+              alt=""
+            />
+          </ul>
+
+          <button class="flex items-center rounded-full bg-black px-2 p-1 justify-between m-10">
+            <ChevronLeft fillColor="#ffffff" :size="30" class="bg-black rounded-full mx-1" />
+            <div @click="handleSignOut()" class="text-sm text-white font-bold" v-if="isLogedIn">
+              Sign-out
+            </div>
+          </button>
         </div>
       </section>
-
-      <RouterLink to="/">
-        <button class="flex items-center rounded-full bg-gray-500 px-2 p-1 justify-between m-10">
-          <ChevronLeft fillColor="#ffffff" :size="35" class="bg-black rounded-full mx-1" />
-          <div @click="handleSignOut()" class="text-xl text-white font-bold" v-if="isLogedIn">
-            Sign-out
-          </div>
-        </button>
-      </RouterLink>
     </div>
     <div class="flex justify-center items-center mt-10">
       <div class="text-center text-white">
