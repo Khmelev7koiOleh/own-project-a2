@@ -10,7 +10,7 @@
         class="fixed w-[150px] h-full right-0 bg-blue-900 overflow-x-auto z-50"
       >
         <div class="text-xl text-gray-100 flex items-center justify-between gap-2 p-4">
-          <p>User account:</p>
+          <p>User:</p>
           <p
             class="bg-green-400 rounded-full w-10 h-10 flex items-center justify-center text-white"
           >
