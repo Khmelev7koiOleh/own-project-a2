@@ -1,6 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import Feed from '../views/UserAccount.vue'
 import Register from '../views/Register.vue'
 import SignIn from '@/views/SignIn.vue'
 import UserAccount from '../views/UserAccount.vue'
@@ -15,15 +14,18 @@ const router = createRouter({
     },
     {
       path: '/user-account',
-      component: UserAccount
+      component: UserAccount,
+      meta: { fullScreen: true }
     },
     {
       path: '/sign-up',
-      component: Register
+      component: Register,
+      meta: { fullScreen: true }
     },
     {
       path: '/sign-in',
-      component: SignIn
+      component: SignIn,
+      meta: { fullScreen: true }
     },
     {
       path: '/:pathMatch(.*)*',

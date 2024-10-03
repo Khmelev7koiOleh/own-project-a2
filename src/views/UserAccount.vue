@@ -3,14 +3,28 @@
              @click="openFormFunc(true)" type="button"
              > -->
 
-  <section class="bg-black w-screen h-[100%]">
+  <section class="bg-black w-[100vw] h-[100vh] fixed">
     <div class="flex justify-between">
+      <div class="flex justify-end items-end">
+        <button type="button" @click="userSideMenu = !userSideMenu" class="p-5">
+          <MenuIcon fillColor="#ffffff" :size="35" />
+        </button>
+        <p
+          class="bg-green-400 rounded-full w-10 h-10 flex items-center justify-center text-white absolute top-5 right-5"
+        >
+          {{ firstLetter }}
+        </p>
+      </div>
       <section
+        v-if="userSideMenu"
         id="userSideMenu"
         class="fixed w-[200px] h-full left-0 bg-yellow-400 overflow-x-auto z-50"
       >
         <div class="flex flex-col justify-around">
-          <div class="text-xl text-gray-100 flex items-center gap-2 p-4 justify-center">
+          <div class="text-xl text-gray-100 flex items-center gap-2 p-4 justify-between">
+            <button type="button" @click="userSideMenu = !userSideMenu" class="p-1">
+              <MenuIcon fillColor="#ffffff" :size="35" />
+            </button>
             <p
               class="bg-green-400 rounded-full w-10 h-10 flex items-center justify-center text-white"
             >
@@ -68,7 +82,7 @@
         </div>
       </section>
     </div>
-    <div class="flex justify-center items-center mt-10">
+    <section class="items-center mt-10 w-[calc(100%-200px)] h-[100vh] ml-[200px] p-8">
       <div class="text-center text-white">
         <div class="text-center text-white text-xl p-4">Title</div>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum enim commodi, placeat illum,
@@ -82,7 +96,46 @@
         corrupti commodi! Unde nostrum, dicta, aliquid voluptas labore iste doloribus porro quae ea
         adipisci, exercitationem quo tenetur numquam mollitia!
       </div>
-    </div>
+      <div class="text-center text-white">
+        <div class="text-center text-white text-xl p-4">Title</div>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum enim commodi, placeat illum,
+        laudantium fugit, numquam itaque porro labore ratione impedit dolorum? Quas non commodi
+        placeat reiciendis doloribus et voluptatem. Repellendus nostrum commodi, in culpa eveniet
+        velit molestias vel voluptate qui doloremque, consequatur ea reiciendis! Voluptatibus,
+        quisquam beatae dolorum alias modi sapiente voluptatum commodi. Nihil itaque aperiam, neque
+        at impedit eos blanditiis excepturi distinctio magni, doloribus facere accusamus explicabo
+        necessitatibus nisi quo pariatur optio nostrum dolorem ipsum ut eaque perspiciatis aliquid.
+        Quam, rem quis! Dolorum est itaque, culpa quasi porro, ipsam sint provident hic odio
+        corrupti commodi! Unde nostrum, dicta, aliquid voluptas labore iste doloribus porro quae ea
+        adipisci, exercitationem quo tenetur numquam mollitia!
+      </div>
+      <div class="text-center text-white">
+        <div class="text-center text-white text-xl p-4">Title</div>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum enim commodi, placeat illum,
+        laudantium fugit, numquam itaque porro labore ratione impedit dolorum? Quas non commodi
+        placeat reiciendis doloribus et voluptatem. Repellendus nostrum commodi, in culpa eveniet
+        velit molestias vel voluptate qui doloremque, consequatur ea reiciendis! Voluptatibus,
+        quisquam beatae dolorum alias modi sapiente voluptatum commodi. Nihil itaque aperiam, neque
+        at impedit eos blanditiis excepturi distinctio magni, doloribus facere accusamus explicabo
+        necessitatibus nisi quo pariatur optio nostrum dolorem ipsum ut eaque perspiciatis aliquid.
+        Quam, rem quis! Dolorum est itaque, culpa quasi porro, ipsam sint provident hic odio
+        corrupti commodi! Unde nostrum, dicta, aliquid voluptas labore iste doloribus porro quae ea
+        adipisci, exercitationem quo tenetur numquam mollitia!
+      </div>
+      <div class="text-center text-white">
+        <div class="text-center text-white text-xl p-4">Title</div>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum enim commodi, placeat illum,
+        laudantium fugit, numquam itaque porro labore ratione impedit dolorum? Quas non commodi
+        placeat reiciendis doloribus et voluptatem. Repellendus nostrum commodi, in culpa eveniet
+        velit molestias vel voluptate qui doloremque, consequatur ea reiciendis! Voluptatibus,
+        quisquam beatae dolorum alias modi sapiente voluptatum commodi. Nihil itaque aperiam, neque
+        at impedit eos blanditiis excepturi distinctio magni, doloribus facere accusamus explicabo
+        necessitatibus nisi quo pariatur optio nostrum dolorem ipsum ut eaque perspiciatis aliquid.
+        Quam, rem quis! Dolorum est itaque, culpa quasi porro, ipsam sint provident hic odio
+        corrupti commodi! Unde nostrum, dicta, aliquid voluptas labore iste doloribus porro quae ea
+        adipisci, exercitationem quo tenetur numquam mollitia!
+      </div>
+    </section>
   </section>
 </template>
 
@@ -90,13 +143,14 @@
 import { RouterLink, RouterView } from 'vue-router'
 import { useRouter } from 'vue-router'
 import ChevronLeft from 'vue-material-design-icons/ChevronLeft.vue'
-
+import MenuIcon from 'vue-material-design-icons/Menu.vue'
 import { onMounted, ref } from 'vue'
 import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth'
 import router from '@/router'
 const isLogedIn = ref(false)
 const firstLetter = ref('')
 
+let userSideMenu = ref(false)
 let auth
 
 onMounted(() => {

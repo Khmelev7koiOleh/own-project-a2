@@ -1,11 +1,11 @@
 <script setup>
 import { onMounted } from 'vue'
 import { RouterLink, RouterView } from 'vue-router'
-import { useRouter } from 'vue-router'
 
 import { ref } from 'vue'
 import ChevronLeft from 'vue-material-design-icons/ChevronLeft.vue'
 import ChevronRight from 'vue-material-design-icons/ChevronRight.vue'
+import Header from './components/Header.vue'
 import MenuIcon from 'vue-material-design-icons/Menu.vue'
 import DasComp from './components/DasComp.vue'
 import DieComp from './components/DieComp.vue'
@@ -20,12 +20,13 @@ import Register from './views/Register.vue'
 const useThis = useThisStore()
 const { openForm, openFormLog } = storeToRefs(useThis)
 
-const router = useRouter()
+const route = useRoute()
 onMounted(() => {
   openForm.value = false
 })
 
 const SideMenu = ref(false)
+const isFullScreenRoute = route.meta.fullScreen
 // const openFormFunc = (val) => {
 //   if (val) {
 //     openForm.value = openForm.value = true
@@ -34,41 +35,13 @@ const SideMenu = ref(false)
 </script>
 
 <template>
-  <RouterView class="fixed z-20 inset-0" />
-
   <!-- <section>
     <div><Register v-if="openForm" /></div>
   </section> -->
   <div v-if="!openForm">
-    <header v-if="!SideMenu" class="fixed w-[100vw] min-h-[80px] z-10 bg-opacity-0">
-      <div class="flex justify-between items-center p-4">
-        <div class="flex justify-between items-center gap-8">
-          <button type="button" @click="SideMenu = !SideMenu">
-            <MenuIcon fillColor="#888888" :size="30" />
-          </button>
-
-          <div class="flex items-center">
-            <img width="60px" src="/public/img/tuxpi.com.1726604318-removebg-preview.png" alt="" />
-            <p class="text-3xl text-gray-300 font-semibold">MnT</p>
-          </div>
-        </div>
-        <div class="flex justify-between items-center gap-4">
-          <RouterLink
-            to="/sign-in"
-            type="button"
-            class="border border-black px-2.5 py-1.5 text-sm rounded-full bg-white text-black font-normal"
-          >
-            Sign-in
-          </RouterLink>
-          <RouterLink
-            to="/sign-up"
-            type="button"
-            class="border border-black px-2.5 py-1.5 text-sm rounded-full bg-black text-white font-normal"
-          >
-            Sign-up
-          </RouterLink>
-        </div>
-      </div>
+    <RouterView class="fixed z-30 inset-0 h-[100vh] overflow-auto" />
+    <header>
+      <Header />
     </header>
     <main class="relative w-screen h-full flex-grow overflow-hidden">
       <!-- <div
@@ -116,65 +89,7 @@ const SideMenu = ref(false)
           </div>
         </div>
       </div>
-      <div
-        v-if="SideMenu"
-        id="SideNav"
-        class="fixed top-0 left-0 w-[180px] bg-white h-full z-40 py-8 px-4 border-r-2 border-gray-200 shadow-lg transition-transform duration-300"
-      >
-        <div class="flex items-center justify-between">
-          <button type="button" @click="SideMenu = !SideMenu" class="flex items-center justify-end">
-            <MenuIcon fillColor="#000000" :size="30" />
-          </button>
-        </div>
-        <div class="py-10 flex items-center justify-center">
-          <img
-            width="60"
-            @click="SideMenu = !SideMenu"
-            class="cursor-pointer"
-            src="/public/img/tuxpi.com.1726604318-removebg-preview.png"
-            alt="A large burger"
-          />
-        </div>
 
-        <div class="border-b border-b-gray-500"></div>
-        <ul class="flex flex-col p-2">
-          <li class="text-black text-lg font-bold">Menu</li>
-          <img
-            width="120"
-            class="relative bottom-2 right-4"
-            src="/img/rotated_french_fry_180__1_-removebg-preview (1).png"
-            alt=""
-          />
-          <li class="text-black text-sm font-light">Today's best</li>
-          <img
-            width="120"
-            class="relative bottom-2 right-4"
-            src="/img/rotated_french_fry_180__1_-removebg-preview (1).png"
-            alt=""
-          />
-          <li class="text-black text-sm font-light">Food-Set</li>
-          <img
-            width="120"
-            class="relative bottom-2 right-4"
-            src="/img/rotated_french_fry_180__1_-removebg-preview (1).png"
-            alt=""
-          />
-          <li class="text-black text-sm font-light">Popular</li>
-          <img
-            width="120"
-            class="relative bottom-2 right-4"
-            src="/img/rotated_french_fry_180__1_-removebg-preview (1).png"
-            alt=""
-          />
-          <li class="text-red-700 text-sm font-bold underline underline-offset-4">Special offer</li>
-          <img
-            width="120"
-            class="relative bottom-2 right-4"
-            src="/img/rotated_french_fry_180__1_-removebg-preview (1).png"
-            alt=""
-          />
-        </ul>
-      </div>
       <!-- Carousel -->
       <div class="w-screen mb-0">
         <CustomCarousel
