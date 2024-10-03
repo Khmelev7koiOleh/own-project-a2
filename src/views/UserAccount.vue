@@ -7,7 +7,7 @@
     <div class="flex justify-between">
       <section
         id="userSideMenu"
-        class="fixed w-[240px] h-full right-0 bg-blue-900 overflow-x-auto z-50"
+        class="fixed w-[150px] h-full right-0 bg-blue-900 overflow-x-auto z-50"
       >
         <div class="text-xl text-gray-100 flex items-center justify-between gap-2 p-4">
           <p>User account:</p>
@@ -29,7 +29,7 @@
       </RouterLink>
     </div>
     <div class="flex justify-center items-center mt-10">
-      <div class="text-center text-white max-w-[30%]">
+      <div class="text-center text-white">
         <div class="text-center text-white text-xl p-4">Title</div>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum enim commodi, placeat illum,
         laudantium fugit, numquam itaque porro labore ratione impedit dolorum? Quas non commodi
