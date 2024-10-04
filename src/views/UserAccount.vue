@@ -3,7 +3,7 @@
              @click="openFormFunc(true)" type="button"
              > -->
 
-  <section class="bg-black w-[100vw] h-[100vh] fixed">
+  <section class="bg-black w-[100vw] h-[100vh]">
     <div class="flex justify-between">
       <div class="flex justify-end items-end">
         <button type="button" @click="userSideMenu = !userSideMenu" class="p-5">
@@ -82,7 +82,7 @@
         </div>
       </section>
     </div>
-    <section class="mt-10 w-[100vw] h-[100vh] p-10">
+    <section class="mt-10 w-[100vw] h-[100vh] p-0">
       <div class="text-white">
         <div class="text-center text-white text-xl p-4">Title</div>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum enim commodi, placeat illum,

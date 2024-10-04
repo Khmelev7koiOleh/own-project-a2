@@ -15,7 +15,7 @@
 
   <div class="relative w-full h-auto gap-4 hidden sm:flex sm:flex-row flex-col">
     <img :src="image" :width="size" alt="" class="rounded-md w-full h-auto" />
-    <div class="absolute inset-0 flex flex-col justify-center items-center p-4 z-10">
+    <div class="absolute inset-0 flex flex-col justify-center items-center p-4">
       <div class="text-2xl font-bold text-white">
         {{ title }}
       </div>

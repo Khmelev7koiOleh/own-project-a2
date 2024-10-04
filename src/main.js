@@ -11,9 +11,9 @@ import { getAnalytics } from 'firebase/analytics'
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: 'AIzaSyDVcQmLoxQINYKKBLqtqJZSl7fyLTkjrJY',
-  authDomain: 'fastfood-registration-form.firebaseapp.com',
-  projectId: 'fastfood-registration-form',
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
   storageBucket: 'fastfood-registration-form.appspot.com',
   messagingSenderId: '596990446611',
   appId: '1:596990446611:web:ba2e3f68adfc70bcfcc3e6',
