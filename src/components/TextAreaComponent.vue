@@ -1,9 +1,10 @@
 <template>
   <div>
     <textarea
+      placeholder="Write something..."
       cols="30"
       rows="10"
-      class="border-2 border-red-400"
+      class="border-2 border-red-400 placeholder:text-green-400"
       v-model="content"
       @input="saveContent"
     ></textarea>

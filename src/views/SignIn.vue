@@ -1,6 +1,11 @@
 <script setup>
 import { ref } from 'vue'
-import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
+import {
+  getAuth,
+  signInWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithPopup
+} from 'firebase/auth'
 import { useRouter } from 'vue-router'
 import ChevronLeft from 'vue-material-design-icons/ChevronLeft.vue'
 import ChevronRight from 'vue-material-design-icons/ChevronRight.vue'
@@ -20,11 +25,13 @@ const email = ref('')
 const password = ref('')
 const errMsg = ref()
 const router = useRouter()
+const auth = getAuth()
 
 const register = () => {
-  signInWithEmailAndPassword(getAuth(), email.value, password.value)
+  signInWithEmailAndPassword(auth, email.value, password.value)
     .then((data) => {
       console.log('Successfully signed-in!')
+      console.log(data.CurrentUser)
       router.push('/user-account')
     })
     .catch((error) => {
@@ -52,7 +59,17 @@ const register = () => {
     })
 }
 
-const signInWithGoogle = () => {}
+const signInWithGoogle = () => {
+  const provider = new GoogleAuthProvider()
+  signInWithPopup(getAuth(), provider)
+    .then((result) => {
+      console.log(result.user)
+      router.push('/user-account')
+    })
+    .catch((error) => {
+      // handle error
+    })
+}
 
 // const handleSubmit = () => {
 //   if (!email.value || !password.value) {
