@@ -5,6 +5,9 @@ import {
   createUserWithEmailAndPassword,
   GoogleAuthProvider,
   signInWithPopup
+  //   getFirestore,
+  //   collection,
+  //   addDoc
 } from 'firebase/auth'
 import { useRouter } from 'vue-router'
 import ChevronLeft from 'vue-material-design-icons/ChevronLeft.vue'
@@ -19,6 +22,8 @@ const openFormFunc = (val) => {
     openForm.value = !openForm.value
   }
 }
+
+// Firebase
 
 // Form logic
 const email = ref('')

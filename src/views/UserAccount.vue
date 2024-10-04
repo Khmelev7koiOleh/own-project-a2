@@ -82,58 +82,11 @@
         </div>
       </section>
     </div>
-    <section class="mt-10 w-[100vw] h-[100vh] p-0">
-      <div class="text-white">
-        <div class="text-center text-white text-xl p-4">Title</div>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum enim commodi, placeat illum,
-        laudantium fugit, numquam itaque porro labore ratione impedit dolorum? Quas non commodi
-        placeat reiciendis doloribus et voluptatem. Repellendus nostrum commodi, in culpa eveniet
-        velit molestias vel voluptate qui doloremque, consequatur ea reiciendis! Voluptatibus,
-        quisquam beatae dolorum alias modi sapiente voluptatum commodi. Nihil itaque aperiam, neque
-        at impedit eos blanditiis excepturi distinctio magni, doloribus facere accusamus explicabo
-        necessitatibus nisi quo pariatur optio nostrum dolorem ipsum ut eaque perspiciatis aliquid.
-        Quam, rem quis! Dolorum est itaque, culpa quasi porro, ipsam sint provident hic odio
-        corrupti commodi! Unde nostrum, dicta, aliquid voluptas labore iste doloribus porro quae ea
-        adipisci, exercitationem quo tenetur numquam mollitia!
-      </div>
-      <div class="text-center text-white">
-        <div class="text-center text-white text-xl p-4">Title</div>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum enim commodi, placeat illum,
-        laudantium fugit, numquam itaque porro labore ratione impedit dolorum? Quas non commodi
-        placeat reiciendis doloribus et voluptatem. Repellendus nostrum commodi, in culpa eveniet
-        velit molestias vel voluptate qui doloremque, consequatur ea reiciendis! Voluptatibus,
-        quisquam beatae dolorum alias modi sapiente voluptatum commodi. Nihil itaque aperiam, neque
-        at impedit eos blanditiis excepturi distinctio magni, doloribus facere accusamus explicabo
-        necessitatibus nisi quo pariatur optio nostrum dolorem ipsum ut eaque perspiciatis aliquid.
-        Quam, rem quis! Dolorum est itaque, culpa quasi porro, ipsam sint provident hic odio
-        corrupti commodi! Unde nostrum, dicta, aliquid voluptas labore iste doloribus porro quae ea
-        adipisci, exercitationem quo tenetur numquam mollitia!
-      </div>
-      <div class="text-center text-white">
-        <div class="text-center text-white text-xl p-4">Title</div>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum enim commodi, placeat illum,
-        laudantium fugit, numquam itaque porro labore ratione impedit dolorum? Quas non commodi
-        placeat reiciendis doloribus et voluptatem. Repellendus nostrum commodi, in culpa eveniet
-        velit molestias vel voluptate qui doloremque, consequatur ea reiciendis! Voluptatibus,
-        quisquam beatae dolorum alias modi sapiente voluptatum commodi. Nihil itaque aperiam, neque
-        at impedit eos blanditiis excepturi distinctio magni, doloribus facere accusamus explicabo
-        necessitatibus nisi quo pariatur optio nostrum dolorem ipsum ut eaque perspiciatis aliquid.
-        Quam, rem quis! Dolorum est itaque, culpa quasi porro, ipsam sint provident hic odio
-        corrupti commodi! Unde nostrum, dicta, aliquid voluptas labore iste doloribus porro quae ea
-        adipisci, exercitationem quo tenetur numquam mollitia!
-      </div>
-      <div class="text-center text-white">
-        <div class="text-center text-white text-xl p-4">Title</div>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum enim commodi, placeat illum,
-        laudantium fugit, numquam itaque porro labore ratione impedit dolorum? Quas non commodi
-        placeat reiciendis doloribus et voluptatem. Repellendus nostrum commodi, in culpa eveniet
-        velit molestias vel voluptate qui doloremque, consequatur ea reiciendis! Voluptatibus,
-        quisquam beatae dolorum alias modi sapiente voluptatum commodi. Nihil itaque aperiam, neque
-        at impedit eos blanditiis excepturi distinctio magni, doloribus facere accusamus explicabo
-        necessitatibus nisi quo pariatur optio nostrum dolorem ipsum ut eaque perspiciatis aliquid.
-        Quam, rem quis! Dolorum est itaque, culpa quasi porro, ipsam sint provident hic odio
-        corrupti commodi! Unde nostrum, dicta, aliquid voluptas labore iste doloribus porro quae ea
-        adipisci, exercitationem quo tenetur numquam mollitia!
+    <section>
+      <div class="w-screen h-auto bg-gray-100">
+        <div class="px-[3%] gap-4 text-black grid-cols-1 py-8 flex justify-between">
+          <TextAreaComponent />
+        </div>
       </div>
     </section>
   </section>
@@ -142,6 +95,7 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
 import { useRouter } from 'vue-router'
+import TextAreaComponent from '@/components/TextAreaComponent.vue'
 import ChevronLeft from 'vue-material-design-icons/ChevronLeft.vue'
 import MenuIcon from 'vue-material-design-icons/Menu.vue'
 import { onMounted, ref } from 'vue'

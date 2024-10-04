@@ -12,9 +12,6 @@ const useThis = useThisStore()
 const { openForm, openFormLog } = storeToRefs(useThis)
 
 const route = useRoute()
-onMounted(() => {
-  openForm.value = false
-})
 
 const SideMenu = ref(false)
 const isFullScreenRoute = route.meta.fullScreen
