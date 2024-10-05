@@ -1,164 +1,190 @@
-<template>
-  <!-- <button
-             @click="openFormFunc(true)" type="button"
-             > -->
-
-  <section class="bg-black w-[100vw] h-[100vh]">
-    <div class="flex justify-between">
-      <div class="flex justify-end items-end">
-        <button type="button" @click="userSideMenu = !userSideMenu" class="p-5">
-          <MenuIcon fillColor="#ffffff" :size="35" />
-        </button>
-        <p
-          class="bg-green-400 rounded-full w-10 h-10 flex items-center justify-center text-white absolute top-5 right-5"
-        >
-          {{ firstLetter }}
-        </p>
-      </div>
-      <section
-        v-if="userSideMenu"
-        id="userSideMenu"
-        class="fixed w-[200px] h-full left-0 bg-yellow-400 overflow-x-auto z-50"
-      >
-        <div class="flex flex-col justify-around">
-          <div class="text-xl text-gray-100 flex items-center gap-2 p-4 justify-between">
-            <button type="button" @click="userSideMenu = !userSideMenu" class="p-1">
-              <MenuIcon fillColor="#ffffff" :size="35" />
-            </button>
-            <p
-              class="bg-green-400 rounded-full w-10 h-10 flex items-center justify-center text-white"
-            >
-              {{ firstLetter }}
-            </p>
-          </div>
-
-          <div class="border-b border-b-gray-500"></div>
-          <ul class="flex flex-col justify-center items-center py-40 md:py-40">
-            <li class="text-black text-lg font-bold">Menu</li>
-            <img
-              width="120"
-              class="relative bottom-2 right-4"
-              src="/img/rotated_french_fry_180__1_-removebg-preview (1).png"
-              alt=""
-            />
-            <li class="text-black text-sm font-light">Today's best</li>
-            <img
-              width="120"
-              class="relative bottom-2 right-4"
-              src="/img/rotated_french_fry_180__1_-removebg-preview (1).png"
-              alt=""
-            />
-            <li class="text-black text-sm font-light">Food-Set</li>
-            <img
-              width="120"
-              class="relative bottom-2 right-4"
-              src="/img/rotated_french_fry_180__1_-removebg-preview (1).png"
-              alt=""
-            />
-            <li class="text-black text-sm font-light">Popular</li>
-            <img
-              width="120"
-              class="relative bottom-2 right-4"
-              src="/img/rotated_french_fry_180__1_-removebg-preview (1).png"
-              alt=""
-            />
-            <li class="text-red-700 text-sm font-bold underline underline-offset-4">
-              Special offer
-            </li>
-            <img
-              width="120"
-              class="relative bottom-2 right-4"
-              src="/img/rotated_french_fry_180__1_-removebg-preview (1).png"
-              alt=""
-            />
-          </ul>
-
-          <button class="flex items-center rounded-full bg-black px-2 p-1 justify-between m-10">
-            <ChevronLeft fillColor="#ffffff" :size="30" class="bg-black rounded-full mx-1" />
-            <div @click="handleSignOut()" class="text-sm text-white font-bold" v-if="isLogedIn">
-              Sign-out
-            </div>
-          </button>
-        </div>
-      </section>
-    </div>
-    <section class="mt-10 p-0">
-      <div>
-        <textarea
-          cols="30"
-          rows="10"
-          class="border-2 border-red-400"
-          v-model="content"
-          @input="saveContent"
-        ></textarea>
-      </div>
-    </section>
-  </section>
-</template>
-
 <script setup>
-import { ref, onMounted } from 'vue'
-import { doc, setDoc, getDoc } from 'firebase/firestore'
-import { db, auth } from '../firebase' // Import your Firebase instance
-
-const content = ref('')
-const user = auth.currentUser
-import { RouterLink, RouterView } from 'vue-router'
+import { ref } from 'vue'
+import {
+  getAuth,
+  signInWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithPopup,
+  EmailAuthProvider,
+  linkWithCredential
+} from 'firebase/auth'
 import { useRouter } from 'vue-router'
 import ChevronLeft from 'vue-material-design-icons/ChevronLeft.vue'
-import MenuIcon from 'vue-material-design-icons/Menu.vue'
-import { onMounted, ref } from 'vue'
-import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth'
-import router from '@/router'
-const isLogedIn = ref(false)
-const firstLetter = ref('')
+import { useThisStore } from '../stores/pinia'
+import { storeToRefs } from 'pinia'
 
-let userSideMenu = ref(false)
-let auth
+// Vue Router and Store
+const router = useRouter()
+const useThis = useThisStore()
+const { openForm } = storeToRefs(useThis)
 
-onMounted(() => {
-  auth = getAuth()
-  onAuthStateChanged(auth, (user) => {
-    if (user && user.email) {
-      isLogedIn.value = true
-      // Extract the first letter of the user's email and store it
-      firstLetter.value = user.email.charAt(0).toUpperCase()
+// Form state
+const email = ref('')
+const password = ref('')
+const isSignedIn = ref(false)
+const errMsgs = ref({
+  errorEmail: '',
+  errorPassword: '',
+  notFound: '',
+  default: ''
+})
+
+// Validate Email and Password before submitting
+const validateInputs = () => {
+  if (!email.value) {
+    errMsgs.value.errorEmail = 'Email is required.'
+    return false
+  }
+  if (!password.value) {
+    errMsgs.value.errorPassword = 'Password is required.'
+    return false
+  }
+  errMsgs.value.errorEmail = ''
+  errMsgs.value.errorPassword = ''
+  return true
+}
+
+// Sign in with Email and Password
+const register = async () => {
+  const auth = getAuth()
+
+  if (!validateInputs()) return // Return if validation fails
+
+  try {
+    const data = await signInWithEmailAndPassword(auth, email.value, password.value)
+    isSignedIn.value = true
+    router.push({ name: 'tools' })
+    console.log('Successfully signed in with email')
+  } catch (error) {
+    console.log(error.code)
+    switch (error.code) {
+      case 'auth/invalid-email':
+        errMsgs.value.errorEmail = 'Invalid email format.'
+        break
+      case 'auth/user-not-found':
+        errMsgs.value.notFound = 'No account with that email was found.'
+        break
+      case 'auth/wrong-password':
+        errMsgs.value.errorPassword = 'Incorrect password.'
+        break
+      case 'auth/too-many-requests':
+        errMsgs.value.default = 'Too many attempts. Please try again later.'
+        break
+      default:
+        errMsgs.value.default = 'An error occurred. Please try again.'
+        break
+    }
+  }
+}
+
+// Sign in with Google
+const signInWithGoogle = async () => {
+  const auth = getAuth()
+  const provider = new GoogleAuthProvider()
+
+  try {
+    const result = await signInWithPopup(auth, provider)
+    const googleUser = result.user
+
+    // Check if this user is already linked with email/password
+    const linkedProviders = googleUser.providerData.map((provider) => provider.providerId)
+
+    if (!linkedProviders.includes(EmailAuthProvider.PROVIDER_ID)) {
+      // User is not yet linked with email/password, prompt for email/password to link the accounts
+      const emailPrompt = prompt('Enter your email to link with Google:')
+      const passwordPrompt = prompt('Enter your password:')
+
+      if (emailPrompt && passwordPrompt) {
+        const credential = EmailAuthProvider.credential(emailPrompt, passwordPrompt)
+        await linkWithCredential(googleUser, credential) // Link Google account with email/password account
+        console.log('Accounts successfully linked!')
+      } else {
+        alert('Please enter both email and password.')
+      }
     } else {
-      isLogedIn.value = false
-      firstLetter.value = '' // Clear the first letter if no user is logged in
+      console.log('Google account already linked with email/password.')
     }
-  })
-})
 
-const handleSignOut = () => {
-  signOut(auth).then(() => {
-    router.push('/')
-  })
-}
-
-const saveContent = async () => {
-  if (user) {
-    const contentRef = doc(db, 'textareaContents', user.uid)
-    await setDoc(contentRef, {
-      text: content.value
-    })
-  }
-}
-
-const loadContent = async () => {
-  if (user) {
-    const contentRef = doc(db, 'textareaContents', user.uid)
-    const contentDoc = await getDoc(contentRef)
-
-    if (contentDoc.exists()) {
-      content.value = contentDoc.data().text
+    isSignedIn.value = true
+    router.push({ name: 'tools' })
+  } catch (error) {
+    console.log(error.code)
+    switch (error.code) {
+      case 'auth/invalid-email':
+        errMsgs.value.errorEmail = 'Invalid email format.'
+        break
+      case 'auth/user-not-found':
+        errMsgs.value.notFound = 'No account with that email was found.'
+        break
+      case 'auth/credential-already-in-use':
+        alert('This account is already linked with another provider.')
+        break
+      default:
+        errMsgs.value.default = 'An error occurred during sign-in.'
+        break
     }
   }
 }
-
-onMounted(() => {
-  loadContent()
-})
 </script>
+
+<template>
+  <section class="bg-gray-800 min-h-screen flex flex-col justify-center items-center">
+    <div class="bg-white py-8 px-4 rounded-2xl">
+      <RouterLink to="/" class="inline-block">
+        <button type="button">
+          <ChevronLeft fillColor="#000000" :size="40" />
+        </button>
+      </RouterLink>
+      <div class="rounded-lg py-16 px-6 max-w-md w-full">
+        <h2 class="text-2xl font-bold text-gray-700 text-center">Sign-up</h2>
+
+        <!-- Email Field -->
+        <div class="mb-4">
+          <label for="email" class="block text-gray-700 font-bold mb-2">Email</label>
+          <input
+            id="email"
+            type="email"
+            v-model="email"
+            placeholder="Enter your email"
+            class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+          <p class="text-red-500">{{ errMsgs.errorEmail }}</p>
+        </div>
+
+        <!-- Password Field -->
+        <div class="mb-6">
+          <label for="password" class="block text-gray-700 font-bold mb-2">Password</label>
+          <input
+            id="password"
+            type="password"
+            v-model="password"
+            placeholder="Enter your password"
+            class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+          <p class="text-red-500">{{ errMsgs.errorPassword }}</p>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="flex items-center justify-between">
+          <button
+            type="button"
+            @click="register"
+            class="bg-purple-500 text-white px-6 py-2 mx-1 rounded-lg hover:bg-purple-600 transition duration-300"
+          >
+            Submit
+          </button>
+
+          <button
+            type="button"
+            @click="signInWithGoogle"
+            class="bg-purple-500 text-white px-6 py-2 mx-1 rounded-lg hover:bg-purple-600 transition duration-300"
+          >
+            Register with Google
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+</template>
 
 <style lang="scss" scoped></style>

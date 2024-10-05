@@ -3,7 +3,6 @@ import { ref } from 'vue'
 import {
   getAuth,
   signInWithEmailAndPassword,
-  createUserWithEmailAndPassword,
   GoogleAuthProvider,
   signInWithPopup,
   EmailAuthProvider,
@@ -29,6 +28,9 @@ const errMsgs = ref({
   notFound: '',
   default: ''
 })
+const linkingEmail = ref('') // Email for linking
+const linkingPassword = ref('') // Password for linking
+const showLinkingForm = ref(false) // To show/hide linking form
 
 // Validate Email and Password before submitting
 const validateInputs = () => {
@@ -45,30 +47,31 @@ const validateInputs = () => {
   return true
 }
 
-// Register with Email and Password
-const registerWithEmail = async () => {
+// Sign in with Email and Password
+const register = async () => {
   const auth = getAuth()
 
   if (!validateInputs()) return // Return if validation fails
 
   try {
-    // Create user with email and password
-    await createUserWithEmailAndPassword(auth, email.value, password.value)
+    const data = await signInWithEmailAndPassword(auth, email.value, password.value)
     isSignedIn.value = true
     router.push({ name: 'tools' })
-    router.push('/user-account')
-    console.log('Successfully signed up with email')
+    console.log('Successfully signed in with email')
   } catch (error) {
     console.log(error.code)
     switch (error.code) {
       case 'auth/invalid-email':
         errMsgs.value.errorEmail = 'Invalid email format.'
         break
-      case 'auth/email-already-in-use':
-        errMsgs.value.errorEmail = 'Email already in use.'
+      case 'auth/user-not-found':
+        errMsgs.value.notFound = 'No account with that email was found.'
         break
-      case 'auth/weak-password':
-        errMsgs.value.errorPassword = 'Password is too weak.'
+      case 'auth/wrong-password':
+        errMsgs.value.errorPassword = 'Incorrect password.'
+        break
+      case 'auth/too-many-requests':
+        errMsgs.value.default = 'Too many attempts. Please try again later.'
         break
       default:
         errMsgs.value.default = 'An error occurred. Please try again.'
@@ -85,29 +88,18 @@ const signInWithGoogle = async () => {
   try {
     const result = await signInWithPopup(auth, provider)
     const googleUser = result.user
-    router.push('/user-account')
 
     // Check if this user is already linked with email/password
     const linkedProviders = googleUser.providerData.map((provider) => provider.providerId)
 
     if (!linkedProviders.includes(EmailAuthProvider.PROVIDER_ID)) {
-      // User is not yet linked with email/password, prompt for email/password to link the accounts
-      const emailPrompt = prompt('Enter your email to link with Google:')
-      const passwordPrompt = prompt('Enter your password:')
-
-      if (emailPrompt && passwordPrompt) {
-        const credential = EmailAuthProvider.credential(emailPrompt, passwordPrompt)
-        await linkWithCredential(googleUser, credential) // Link Google account with email/password account
-        console.log('Accounts successfully linked!')
-      } else {
-        alert('Please enter both email and password.')
-      }
+      // User is not yet linked with email/password
+      showLinkingForm.value = true // Show the linking form
     } else {
       console.log('Google account already linked with email/password.')
+      isSignedIn.value = true
+      router.push({ name: 'tools' })
     }
-
-    isSignedIn.value = true
-    router.push({ name: 'tools' })
   } catch (error) {
     console.log(error.code)
     switch (error.code) {
@@ -122,6 +114,36 @@ const signInWithGoogle = async () => {
         break
       default:
         errMsgs.value.default = 'An error occurred during sign-in.'
+        break
+    }
+  }
+}
+
+// Link Google Account
+const linkGoogleAccount = async () => {
+  const auth = getAuth()
+  const credential = EmailAuthProvider.credential(linkingEmail.value, linkingPassword.value)
+
+  try {
+    const currentUser = auth.currentUser
+    await linkWithCredential(currentUser, credential) // Link Google account with email/password account
+    console.log('Accounts successfully linked!')
+    isSignedIn.value = true
+    router.push({ name: 'tools' })
+  } catch (error) {
+    console.error(error.code)
+    switch (error.code) {
+      case 'auth/invalid-email':
+        errMsgs.value.errorEmail = 'Invalid email format.'
+        break
+      case 'auth/wrong-password':
+        errMsgs.value.errorPassword = 'Incorrect password.'
+        break
+      case 'auth/credential-already-in-use':
+        alert('This account is already linked with another provider.')
+        break
+      default:
+        errMsgs.value.default = 'An error occurred while linking accounts.'
         break
     }
   }
@@ -169,7 +191,7 @@ const signInWithGoogle = async () => {
         <div class="flex items-center justify-between">
           <button
             type="button"
-            @click="registerWithEmail"
+            @click="register"
             class="bg-purple-500 text-white px-6 py-2 mx-1 rounded-lg hover:bg-purple-600 transition duration-300"
           >
             Submit
@@ -181,6 +203,40 @@ const signInWithGoogle = async () => {
             class="bg-purple-500 text-white px-6 py-2 mx-1 rounded-lg hover:bg-purple-600 transition duration-300"
           >
             Register with Google
+          </button>
+        </div>
+
+        <!-- Linking Form -->
+        <div v-if="showLinkingForm" class="mt-6">
+          <h3 class="text-lg font-bold text-gray-700 text-center">Link Google Account</h3>
+          <div class="mb-4">
+            <label for="linkingEmail" class="block text-gray-700 font-bold mb-2">Email</label>
+            <input
+              id="linkingEmail"
+              type="email"
+              v-model="linkingEmail"
+              placeholder="Enter your email to link"
+              class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+
+          <div class="mb-6">
+            <label for="linkingPassword" class="block text-gray-700 font-bold mb-2">Password</label>
+            <input
+              id="linkingPassword"
+              type="password"
+              v-model="linkingPassword"
+              placeholder="Enter your password to link"
+              class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+
+          <button
+            type="button"
+            @click="linkGoogleAccount"
+            class="bg-blue-500 text-white px-6 py-2 mx-1 rounded-lg hover:bg-blue-600 transition duration-300"
+          >
+            Link Account
           </button>
         </div>
       </div>

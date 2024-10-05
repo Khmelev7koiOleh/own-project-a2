@@ -1,177 +1,171 @@
-<template>
-  <!-- Desktop view -->
-  <div class="w-screen h-full hidden md:grid">
-    <div class="flex justify-around items-baseline">
-      <!-- About Us Section -->
-      <div class="flex flex-col">
-        <div class="font-bold text-black text-base py-4">About us</div>
-        <ul>
-          <li class="text-base text-black font-light">About Us Overview</li>
-          <li class="text-base text-black font-light">Leadership Team</li>
-          <li class="text-base text-black font-light">Values In Action</li>
-          <li class="text-base text-black font-light">Franchising info</li>
-          <li class="text-base text-black font-light">Recalls & Alerts</li>
-          <li class="text-base text-black font-light">Real Estate</li>
-          <li class="text-base text-black font-light">Accessibility</li>
-          <li class="text-base text-black font-light">Investor Relations</li>
-          <li class="text-base text-black font-light">News & Notifications</li>
-        </ul>
-      </div>
-
-      <!-- Services Section -->
-      <div class="flex flex-col">
-        <div class="font-bold text-black text-base py-4">Services</div>
-        <ul>
-          <li class="text-base text-black font-light">Services Overview</li>
-          <li class="text-base text-black font-light">Wi-Fi</li>
-          <li class="text-base text-black font-light">PlayPlaces & Parties</li>
-          <li class="text-base text-black font-light">Mobile Order & Pay</li>
-          <li class="text-base text-black font-light">Trending Now</li>
-          <li class="text-base text-black font-light">McDonald’s Merchandise</li>
-          <li class="text-base text-black font-light">Family Fun Hub</li>
-          <li class="text-base text-black font-light">MyMcDonald's Rewards</li>
-          <li class="text-base text-black font-light">McCafé®</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <!-- Mobile view -->
-  <div class="w-screen h-full md:hidden">
-    <div class="flex flex-col p-4">
-      <!-- About Us Section -->
-      <div class="mb-4">
-        <div class="flex items-center justify-between">
-          <div class="font-bold text-black text-base py-4">About Us</div>
-          <button @click="toggleSection('aboutUs')" type="button">
-            <Close fillColor="#000000" :size="30" />
-          </button>
-        </div>
-        <ul v-if="isOpen('aboutUs')" class="p-1">
-          <li
-            v-for="(item, index) in aboutUsItems"
-            :key="index"
-            class="text-base text-black font-light"
-          >
-            {{ item }}
-          </li>
-        </ul>
-      </div>
-
-      <!-- Services Section -->
-      <div class="mb-4">
-        <div class="flex items-center justify-between">
-          <div class="font-bold text-black text-base py-4">Services</div>
-          <button @click="toggleSection('services')" type="button">
-            <Close fillColor="#000000" :size="30" />
-          </button>
-        </div>
-        <ul v-if="isOpen('services')" class="p-1">
-          <li
-            v-for="(item, index) in servicesItems"
-            :key="index"
-            class="text-base text-black font-light"
-          >
-            {{ item }}
-          </li>
-        </ul>
-      </div>
-
-      <!-- Community Section -->
-      <div class="mb-4">
-        <div class="flex items-center justify-between">
-          <div class="font-bold text-black text-base py-4">Community</div>
-          <button @click="toggleSection('community')" type="button">
-            <Close fillColor="#000000" :size="30" />
-          </button>
-        </div>
-        <ul v-if="isOpen('community')" class="p-1">
-          <li
-            v-for="(item, index) in communityItems"
-            :key="index"
-            class="text-base text-black font-light"
-          >
-            {{ item }}
-          </li>
-        </ul>
-      </div>
-
-      <!-- Contact Us Section -->
-      <div class="mb-4">
-        <div class="flex items-center justify-between">
-          <div class="font-bold text-black text-base py-4">Contact Us</div>
-          <button @click="toggleSection('contact')" type="button">
-            <Close fillColor="#000000" :size="30" />
-          </button>
-        </div>
-        <ul v-if="isOpen('contact')" class="p-1">
-          <li
-            v-for="(item, index) in contactItems"
-            :key="index"
-            class="text-base text-black font-light"
-          >
-            {{ item }}
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</template>
-
 <script setup>
 import { ref } from 'vue'
-import Close from 'vue-material-design-icons/Close.vue'
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithPopup,
+  linkWithCredential,
+  fetchSignInMethodsForEmail
+} from 'firebase/auth'
+import { useRouter } from 'vue-router'
+import ChevronLeft from 'vue-material-design-icons/ChevronLeft.vue'
+import { useThisStore } from '../stores/pinia'
+import { storeToRefs } from 'pinia'
 
-// Initialize state for which section is open
-const openSection = ref('')
+// Vue Router and Store
+const router = useRouter()
+const useThis = useThisStore()
+const { openForm } = storeToRefs(useThis)
 
-// List of items for each section
-const aboutUsItems = [
-  'About Us Overview',
-  'Leadership Team',
-  'Values In Action',
-  'Franchising Info',
-  'Recalls & Alerts',
-  'Real Estate',
-  'Accessibility',
-  'Investor Relations',
-  'News & Notifications'
-]
+// Form state
+const email = ref('')
+const password = ref('')
+const isSignedIn = ref(false)
+const errMsgs = ref({
+  errorEmail: '',
+  errorPassword: '',
+  notFound: '',
+  default: ''
+})
 
-const servicesItems = [
-  'Services Overview',
-  'Wi-Fi',
-  'PlayPlaces & Parties',
-  'Mobile Order & Pay',
-  'Trending Now',
-  'McDonald’s Merchandise',
-  'Family Fun Hub',
-  "MyMcDonald's Rewards",
-  'McCafé®'
-]
-
-const communityItems = [
-  'Community Involvement',
-  'Charity Programs',
-  'Sustainability',
-  'Volunteering',
-  'Partnerships'
-]
-
-const contactItems = [
-  'Customer Service',
-  'Franchise Opportunities',
-  'Investor Relations',
-  'Media Inquiries'
-]
-
-// Function to toggle section visibility
-const toggleSection = (sectionId) => {
-  openSection.value = openSection.value === sectionId ? '' : sectionId
+// Validate Email and Password before submitting
+const validateInputs = () => {
+  if (!email.value) {
+    errMsgs.value.errorEmail = 'Email is required.'
+    return false
+  }
+  if (!password.value) {
+    errMsgs.value.errorPassword = 'Password is required.'
+    return false
+  }
+  errMsgs.value.errorEmail = ''
+  errMsgs.value.errorPassword = ''
+  return true
 }
 
-// Function to check if a section is open
-const isOpen = (sectionId) => openSection.value === sectionId
+// Register with Email and Password
+const registerWithEmail = async () => {
+  const auth = getAuth()
+
+  if (!validateInputs()) return // Return if validation fails
+
+  try {
+    // Check if the email is already associated with any provider
+    const signInMethods = await fetchSignInMethodsForEmail(auth, email.value)
+
+    if (signInMethods.length > 0) {
+      errMsgs.value.errorEmail = 'Email is already in use. Try signing in instead.'
+      return
+    }
+
+    // Create user with email and password
+    await createUserWithEmailAndPassword(auth, email.value, password.value)
+    isSignedIn.value = true
+    router.push({ name: 'tools' })
+    console.log('Successfully signed up with email')
+  } catch (error) {
+    console.log(error.code)
+    switch (error.code) {
+      case 'auth/invalid-email':
+        errMsgs.value.errorEmail = 'Invalid email format.'
+        break
+      case 'auth/weak-password':
+        errMsgs.value.errorPassword = 'Password is too weak.'
+        break
+      default:
+        errMsgs.value.default = 'An error occurred. Please try again.'
+        break
+    }
+  }
+}
+
+// Sign in with Google
+const signInWithGoogle = async () => {
+  const auth = getAuth()
+  const provider = new GoogleAuthProvider()
+
+  try {
+    const result = await signInWithPopup(auth, provider)
+    const googleUser = result.user
+
+    // Check if the user already has an email/password account
+    const signInMethods = await fetchSignInMethodsForEmail(auth, googleUser.email)
+    if (signInMethods.length > 0) {
+      // Account exists, link accounts
+      const credential = GoogleAuthProvider.credentialFromResult(result)
+      const currentUser = auth.currentUser
+      await linkWithCredential(currentUser, credential)
+      console.log('Successfully linked Google account to email account')
+    } else {
+      // Create new account with Google
+      // ...
+    }
+  } catch (error) {
+    console.error(error)
+  }
+}
 </script>
 
-<style scoped></style>
+<template>
+  <section class="bg-gray-800 min-h-screen flex flex-col justify-center items-center">
+    <div class="bg-white py-8 px-4 rounded-2xl">
+      <RouterLink to="/" class="inline-block">
+        <button type="button">
+          <ChevronLeft fillColor="#000000" :size="40" />
+        </button>
+      </RouterLink>
+      <div class="rounded-lg py-16 px-6 max-w-md w-full">
+        <h2 class="text-2xl font-bold text-gray-700 text-center">Sign-up</h2>
+
+        <!-- Email Field -->
+        <div class="mb-4">
+          <label for="email" class="block text-gray-700 font-bold mb-2">Email</label>
+          <input
+            id="email"
+            type="email"
+            v-model="email"
+            placeholder="Enter your email"
+            class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+          <p class="text-red-500">{{ errMsgs.errorEmail }}</p>
+        </div>
+
+        <!-- Password Field -->
+        <div class="mb-6">
+          <label for="password" class="block text-gray-700 font-bold mb-2">Password</label>
+          <input
+            id="password"
+            type="password"
+            v-model="password"
+            placeholder="Enter your password"
+            class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+          <p class="text-red-500">{{ errMsgs.errorPassword }}</p>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="flex items-center justify-between">
+          <button
+            type="button"
+            @click="registerWithEmail"
+            class="bg-purple-500 text-white px-6 py-2 mx-1 rounded-lg hover:bg-purple-600 transition duration-300"
+          >
+            Submit
+          </button>
+
+          <button
+            type="button"
+            @click="signInWithGoogle"
+            class="bg-purple-500 text-white px-6 py-2 mx-1 rounded-lg hover:bg-purple-600 transition duration-300"
+          >
+            Register with Google
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+</template>
+
+<style lang="scss" scoped></style>
