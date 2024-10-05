@@ -2,66 +2,130 @@
 import { ref } from 'vue'
 import {
   getAuth,
+  signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
   GoogleAuthProvider,
-  signInWithPopup
-  //   getFirestore,
-  //   collection,
-  //   addDoc
+  signInWithPopup,
+  EmailAuthProvider,
+  linkWithCredential
 } from 'firebase/auth'
 import { useRouter } from 'vue-router'
 import ChevronLeft from 'vue-material-design-icons/ChevronLeft.vue'
-import ChevronRight from 'vue-material-design-icons/ChevronRight.vue'
 import { useThisStore } from '../stores/pinia'
 import { storeToRefs } from 'pinia'
+
+// Vue Router and Store
 const router = useRouter()
 const useThis = useThisStore()
-const { openForm, openFormLog } = storeToRefs(useThis)
-const openFormFunc = (val) => {
-  if (val) {
-    openForm.value = !openForm.value
+const { openForm } = storeToRefs(useThis)
+
+// Form state
+const email = ref('')
+const password = ref('')
+const isSignedIn = ref(false)
+const errMsgs = ref({
+  errorEmail: '',
+  errorPassword: '',
+  notFound: '',
+  default: ''
+})
+
+// Validate Email and Password before submitting
+const validateInputs = () => {
+  if (!email.value) {
+    errMsgs.value.errorEmail = 'Email is required.'
+    return false
+  }
+  if (!password.value) {
+    errMsgs.value.errorPassword = 'Password is required.'
+    return false
+  }
+  errMsgs.value.errorEmail = ''
+  errMsgs.value.errorPassword = ''
+  return true
+}
+
+// Register with Email and Password
+const registerWithEmail = async () => {
+  const auth = getAuth()
+
+  if (!validateInputs()) return // Return if validation fails
+
+  try {
+    // Create user with email and password
+    await createUserWithEmailAndPassword(auth, email.value, password.value)
+    isSignedIn.value = true
+    router.push({ name: 'tools' })
+    router.push('/user-account')
+    console.log('Successfully signed up with email')
+  } catch (error) {
+    console.log(error.code)
+    switch (error.code) {
+      case 'auth/invalid-email':
+        errMsgs.value.errorEmail = 'Invalid email format.'
+        break
+      case 'auth/email-already-in-use':
+        errMsgs.value.errorEmail = 'Email already in use.'
+        break
+      case 'auth/weak-password':
+        errMsgs.value.errorPassword = 'Password is too weak.'
+        break
+      default:
+        errMsgs.value.default = 'An error occurred. Please try again.'
+        break
+    }
   }
 }
 
-// Firebase
-
-// Form logic
-const email = ref('')
-const password = ref('')
-
-const register = () => {
-  createUserWithEmailAndPassword(getAuth(), email.value, password.value)
-    .then((data) => {
-      console.log('Successfully registered!')
-      router.push('/user-account')
-    })
-    .catch((error) => {
-      console.log(error.code)
-      alert(error.message)
-    })
-}
-
-const signInWithGoogle = () => {
+// Sign in with Google
+const signInWithGoogle = async () => {
+  const auth = getAuth()
   const provider = new GoogleAuthProvider()
-  signInWithPopup(getAuth(), provider)
-    .then((result) => {
-      console.log(result.user)
-      router.push('/user-account')
-    })
-    .catch((error) => {
-      // handle error
-    })
+
+  try {
+    const result = await signInWithPopup(auth, provider)
+    const googleUser = result.user
+    router.push('/user-account')
+
+    // Check if this user is already linked with email/password
+    const linkedProviders = googleUser.providerData.map((provider) => provider.providerId)
+
+    if (!linkedProviders.includes(EmailAuthProvider.PROVIDER_ID)) {
+      // User is not yet linked with email/password, prompt for email/password to link the accounts
+      const emailPrompt = prompt('Enter your email to link with Google:')
+      const passwordPrompt = prompt('Enter your password:')
+
+      if (emailPrompt && passwordPrompt) {
+        const credential = EmailAuthProvider.credential(emailPrompt, passwordPrompt)
+        await linkWithCredential(googleUser, credential) // Link Google account with email/password account
+        console.log('Accounts successfully linked!')
+      } else {
+        alert('Please enter both email and password.')
+      }
+    } else {
+      console.log('Google account already linked with email/password.')
+    }
+
+    isSignedIn.value = true
+    router.push({ name: 'tools' })
+  } catch (error) {
+    console.log(error.code)
+    switch (error.code) {
+      case 'auth/invalid-email':
+        errMsgs.value.errorEmail = 'Invalid email format.'
+        break
+      case 'auth/user-not-found':
+        errMsgs.value.notFound = 'No account with that email was found.'
+        break
+      case 'auth/credential-already-in-use':
+        alert('This account is already linked with another provider.')
+        break
+      default:
+        errMsgs.value.default = 'An error occurred during sign-in.'
+        break
+    }
+  }
 }
-
-// const handleSubmit = () => {
-//   if (!email.value || !password.value) {
-//     alert('Please enter both email and password.')
-//     return
-//   }
-
-//   // Placeholder for form submission logic
-//   alert(`Email: ${email.value}, Password: ${password.value}`)
-// }
 </script>
 
 <template>
@@ -85,6 +149,7 @@ const signInWithGoogle = () => {
             placeholder="Enter your email"
             class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
+          <p class="text-red-500">{{ errMsgs.errorEmail }}</p>
         </div>
 
         <!-- Password Field -->
@@ -97,13 +162,14 @@ const signInWithGoogle = () => {
             placeholder="Enter your password"
             class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
+          <p class="text-red-500">{{ errMsgs.errorPassword }}</p>
         </div>
 
         <!-- Submit Button -->
         <div class="flex items-center justify-between">
           <button
             type="button"
-            @click="register"
+            @click="registerWithEmail"
             class="bg-purple-500 text-white px-6 py-2 mx-1 rounded-lg hover:bg-purple-600 transition duration-300"
           >
             Submit
