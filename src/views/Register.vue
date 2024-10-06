@@ -216,7 +216,7 @@ const linkGoogleAccount = async () => {
           <button
             type="button"
             @click="register"
-            class="bg-purple-500 text-white px-3 py-2 mx-1 rounded-lg hover:bg-purple-600 transition duration-300 flex gap-2"
+            class="bg-purple-500 text-white px-3 py-2 mx-1 rounded-lg hover:bg-purple-600 transition duration-300 flex flex-col gap-2"
           >
             <Email fillColor="#ffffff" />
             <div>Submit</div>
