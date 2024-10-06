@@ -3,11 +3,11 @@
              @click="openFormFunc(true)" type="button"
              > -->
 
-  <section class="bg-black w-[100vw] h-[100vh]">
+  <section class="w-[100vw] h-[100vh]">
     <div class="flex justify-between">
       <div class="flex justify-end items-end">
         <button type="button" @click="userSideMenu = !userSideMenu" class="p-5">
-          <MenuIcon fillColor="#ffffff" :size="35" />
+          <MenuIcon fillColor="#000000" :size="35" />
         </button>
         <p
           class="bg-green-400 rounded-full w-10 h-10 flex items-center justify-center text-white absolute top-5 right-5"

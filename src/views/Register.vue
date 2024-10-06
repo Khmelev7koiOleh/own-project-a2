@@ -22,6 +22,7 @@ const { openForm } = storeToRefs(useThis)
 const email = ref('')
 const password = ref('')
 const isSignedIn = ref(false)
+const openLinkform = ref(false)
 const errMsgs = ref({
   errorEmail: '',
   errorPassword: '',
@@ -79,11 +80,23 @@ const register = async () => {
     }
   }
 }
+const signInWithGoogle = () => {
+  const provider = new GoogleAuthProvider()
+  signInWithPopup(getAuth(), provider)
+    .then((result) => {
+      console.log(result.user)
+      router.push('/user-account')
+    })
+    .catch((error) => {
+      // handle error
+    })
+}
 
 // Sign in with Google
-const signInWithGoogle = async () => {
+const signUpWithGoogle = async () => {
   const auth = getAuth()
   const provider = new GoogleAuthProvider()
+  openLinkform.value = openLinkform.value = true
 
   try {
     const result = await signInWithPopup(auth, provider)
@@ -98,7 +111,7 @@ const signInWithGoogle = async () => {
     } else {
       console.log('Google account already linked with email/password.')
       isSignedIn.value = true
-      router.push({ name: 'tools' })
+      router.push('/user-account')
     }
   } catch (error) {
     console.log(error.code)
@@ -129,7 +142,7 @@ const linkGoogleAccount = async () => {
     await linkWithCredential(currentUser, credential) // Link Google account with email/password account
     console.log('Accounts successfully linked!')
     isSignedIn.value = true
-    router.push({ name: 'tools' })
+    router.push('/user-account')
   } catch (error) {
     console.error(error.code)
     switch (error.code) {
@@ -151,14 +164,17 @@ const linkGoogleAccount = async () => {
 </script>
 
 <template>
-  <section class="bg-gray-800 min-h-screen flex flex-col justify-center items-center">
+  <section
+    v-if="linkGoogleAccount"
+    class="bg-gray-800 min-h-screen flex flex-col justify-center items-center"
+  >
     <div class="bg-white py-8 px-4 rounded-2xl">
       <RouterLink to="/" class="inline-block">
         <button type="button">
           <ChevronLeft fillColor="#000000" :size="40" />
         </button>
       </RouterLink>
-      <div class="rounded-lg py-16 px-6 max-w-md w-full">
+      <div v-if="!openLinkform" class="rounded-lg py-16 px-6 max-w-md w-full">
         <h2 class="text-2xl font-bold text-gray-700 text-center">Sign-up</h2>
 
         <!-- Email Field -->
@@ -199,15 +215,16 @@ const linkGoogleAccount = async () => {
 
           <button
             type="button"
-            @click="signInWithGoogle"
+            @click="signUpWithGoogle"
             class="bg-purple-500 text-white px-6 py-2 mx-1 rounded-lg hover:bg-purple-600 transition duration-300"
           >
             Register with Google
           </button>
         </div>
-
-        <!-- Linking Form -->
-        <div v-if="showLinkingForm" class="mt-6">
+      </div>
+      <!-- Linking Form -->
+      <div v-if="openLinkform" class="bg-white py-8 px-4 rounded-2xl">
+        <div class="mt-6">
           <h3 class="text-lg font-bold text-gray-700 text-center">Link Google Account</h3>
           <div class="mb-4">
             <label for="linkingEmail" class="block text-gray-700 font-bold mb-2">Email</label>
@@ -236,7 +253,14 @@ const linkGoogleAccount = async () => {
             @click="linkGoogleAccount"
             class="bg-blue-500 text-white px-6 py-2 mx-1 rounded-lg hover:bg-blue-600 transition duration-300"
           >
-            Link Account
+            Link Email
+          </button>
+          <button
+            type="button"
+            @click="signInWithGoogle"
+            class="bg-blue-500 text-white px-6 py-2 mx-1 rounded-lg hover:bg-blue-600 transition duration-300"
+          >
+            Keep on with Google
           </button>
         </div>
       </div>
