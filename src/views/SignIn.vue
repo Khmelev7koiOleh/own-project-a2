@@ -86,7 +86,7 @@ const signInWithGoogle = () => {
 
 <template>
   <section class="bg-gray-800 min-h-screen flex flex-col justify-center items-center">
-    <div class="bg-white py-8 px-4 rounded-2xl">
+    <div class="bg-white py-8 px-6 rounded-2xl">
       <RouterLink to="/" class="inline-block">
         <button type="button">
           <ChevronLeft fillColor="#000000" :size="40" />
@@ -122,7 +122,7 @@ const signInWithGoogle = () => {
         </div>
 
         <!-- Submit Button -->
-        <div class="flex items-center justify-between">
+        <div class="flex flex-col gap-4 items-center justify-between">
           <button
             type="button"
             @click="register"

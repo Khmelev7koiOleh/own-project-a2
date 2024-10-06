@@ -182,7 +182,7 @@ const linkGoogleAccount = async () => {
           <ChevronLeft fillColor="#000000" :size="40" />
         </button>
       </RouterLink>
-      <div v-if="!openLinkform" class="rounded-lg py-16 px-6 max-w-md w-full">
+      <div v-if="!openLinkform" class="rounded-lg py-16 px-8 max-w-md w-full">
         <h2 class="text-2xl font-bold text-gray-700 text-center">Sign-up</h2>
 
         <!-- Email Field -->
