@@ -212,7 +212,7 @@ const linkGoogleAccount = async () => {
         </div>
 
         <!-- Submit Button -->
-        <div class="flex items-center justify-between">
+        <div class="flex flex-col items-center justify-between gap-4">
           <button
             type="button"
             @click="register"
