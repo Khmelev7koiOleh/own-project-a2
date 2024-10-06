@@ -228,7 +228,7 @@ const linkGoogleAccount = async () => {
             class="bg-purple-500 text-white px-3 py-2 mx-1 rounded-lg hover:bg-purple-600 transition duration-300 flex gap-2"
           >
             <Google fillColor="#ffffff" />
-            <div>Register with Google</div>
+            <div>Sign up with Google</div>
           </button>
         </div>
       </div>
@@ -271,7 +271,7 @@ const linkGoogleAccount = async () => {
               class="bg-purple-500 text-white px-3 py-2 mx-1 rounded-lg hover:bg-purple-600 transition duration-300 flex gap-2"
             >
               <Google fillColor="#ffffff" />
-              <div>Register with Google</div>
+              <div>Sign up with Google</div>
             </button>
           </div>
         </div>
