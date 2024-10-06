@@ -122,7 +122,7 @@ const signInWithGoogle = () => {
         </div>
 
         <!-- Submit Button -->
-        <div class="flex flex-col gap-4 items-center justify-between">
+        <div class="flex flex-col md:grid gap-4 items-center justify-between">
           <button
             type="button"
             @click="register"

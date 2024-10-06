@@ -5,6 +5,8 @@ import HomeView from '../views/HomeView.vue'
 import Register from '../views/Register.vue'
 import SignIn from '../views/SignIn.vue'
 import UserAccount from '../views/UserAccount.vue'
+import Cart from '@/views/Cart.vue'
+import Favorites from '@/views/Favorites.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -29,6 +31,16 @@ const router = createRouter({
     {
       path: '/sign-in',
       component: SignIn,
+      meta: { fullScreen: true }
+    },
+    {
+      path: '/cart',
+      component: Cart,
+      meta: { fullScreen: true }
+    },
+    {
+      path: '/favorites',
+      component: Favorites,
       meta: { fullScreen: true }
     }
   ]
