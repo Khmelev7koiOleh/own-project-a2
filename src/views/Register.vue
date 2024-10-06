@@ -23,6 +23,7 @@ const email = ref('')
 const password = ref('')
 const isSignedIn = ref(false)
 const openLinkform = ref(false)
+const wotstScenario = ref(false)
 const errMsgs = ref({
   errorEmail: '',
   errorPassword: '',
@@ -57,10 +58,12 @@ const register = async () => {
   try {
     const data = await signInWithEmailAndPassword(auth, email.value, password.value)
     isSignedIn.value = true
-    router.push({ name: 'tools' })
+    router.push('user-account')
     console.log('Successfully signed in with email')
   } catch (error) {
     console.log(error.code)
+    openLinkform.value = openLinkform.value = true
+    wotstScenario.value = wotstScenario.value = true
     switch (error.code) {
       case 'auth/invalid-email':
         errMsgs.value.errorEmail = 'Invalid email format.'
@@ -95,8 +98,10 @@ const signInWithGoogle = () => {
 // Sign in with Google
 const signUpWithGoogle = async () => {
   const auth = getAuth()
+
   const provider = new GoogleAuthProvider()
   openLinkform.value = openLinkform.value = true
+  wotstScenario.value = wotstScenario.value = false
 
   try {
     const result = await signInWithPopup(auth, provider)
@@ -223,7 +228,7 @@ const linkGoogleAccount = async () => {
         </div>
       </div>
       <!-- Linking Form -->
-      <div v-if="openLinkform" class="bg-white py-8 px-4 rounded-2xl">
+      <div v-if="openLinkform && !wotstScenario" class="bg-white py-8 px-4 rounded-2xl">
         <div class="mt-6">
           <h3 class="text-lg font-bold text-gray-700 text-center">Link Google Account</h3>
           <div class="mb-4">
@@ -254,6 +259,49 @@ const linkGoogleAccount = async () => {
             class="bg-blue-500 text-white px-6 py-2 mx-1 rounded-lg hover:bg-blue-600 transition duration-300"
           >
             Link Email
+          </button>
+          <button
+            type="button"
+            @click="signInWithGoogle"
+            class="bg-blue-500 text-white px-6 py-2 mx-1 rounded-lg hover:bg-blue-600 transition duration-300"
+          >
+            Keep on with Google
+          </button>
+        </div>
+      </div>
+
+      <!-- Linking Form  worst scenario-->
+      <div v-if="openLinkform && wotstScenario" class="bg-white py-8 px-4 rounded-2xl">
+        <div class="mt-6">
+          <h3 class="text-lg font-bold text-gray-700 text-center">Link Google Account</h3>
+          <div class="mb-4">
+            <label for="linkingEmail" class="block text-gray-700 font-bold mb-2">Email</label>
+            <input
+              id="linkingEmail"
+              type="email"
+              v-model="linkingEmail"
+              placeholder="Enter your email to link"
+              class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+
+          <div class="mb-6">
+            <label for="linkingPassword" class="block text-gray-700 font-bold mb-2">Password</label>
+            <input
+              id="linkingPassword"
+              type="password"
+              v-model="linkingPassword"
+              placeholder="Enter your password to link"
+              class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+
+          <button
+            type="button"
+            @click="signUpWithGoogle"
+            class="bg-blue-500 text-white px-6 py-2 mx-1 rounded-lg hover:bg-blue-600 transition duration-300"
+          >
+            Keep on with Email
           </button>
           <button
             type="button"

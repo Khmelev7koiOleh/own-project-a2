@@ -7,7 +7,7 @@
     <div class="flex justify-between">
       <div class="flex justify-end items-end">
         <button type="button" @click="userSideMenu = !userSideMenu" class="p-5">
-          <MenuIcon fillColor="#000000" :size="35" />
+          <MenuIcon fillColor="#000000  " :size="35" />
         </button>
         <p
           class="bg-green-400 rounded-full w-10 h-10 flex items-center justify-center text-white absolute top-5 right-5"
@@ -33,7 +33,13 @@
           </div>
 
           <div class="border-b border-b-gray-500"></div>
-          <ul class="flex flex-col justify-center items-center py-40 md:py-40">
+          <ul class="flex flex-col justify-center py-4">
+            <li class="text-gray-700 text-lg font-bold p-4">Cart</li>
+            <li class="text-gray-700 text-lg font-bold p-4">Favorives</li>
+          </ul>
+
+          <div class="border-b border-b-gray-500 m-4"></div>
+          <ul class="flex flex-col justify-center items-center pb-28 md:pb-28">
             <li class="text-black text-lg font-bold">Menu</li>
             <img
               width="120"

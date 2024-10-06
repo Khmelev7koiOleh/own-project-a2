@@ -64,73 +64,73 @@ import DasComp from '@/components/DasComp.vue'
         title="New releases"
         :data="[
           {
-            url: '/img/gimme_a_pic_of__db972bd8-282c-4bd6-8878-6d2d230132d2-removebg-preview.png',
+            url: '/img/file (9).png',
             song: 'Classic Burger',
             by: 'description',
             releasedOn: 'New'
           },
           {
-            url: '/img/gimme_a_pic_of__10744faa-2e52-4cd8-84ca-d5804f8c0444-removebg-preview.png',
+            url: '/img/file (8).png',
             song: 'Smoky BBQ Stack',
             by: 'Delain',
             releasedOn: 'New'
           },
           {
-            url: '/img/gimme_a_pic_of__53420499-9fad-4891-9830-86f0d39d9116-removebg-preview.png',
+            url: '/img/file (10).png',
             song: 'Cheddar Crunch Delight',
             by: 'description',
             releasedOn: 'New'
           },
           {
-            url: '/img/gimme_a_pic_of__37e3567e-315b-4617-ba10-295c0096a1ce-removebg-preview.png',
+            url: '/img/file (9).png',
             song: 'Spicy Jalapeño Blast',
             by: 'description',
             releasedOn: 'New'
           },
           {
-            url: '/img/file.png',
+            url: '/img/file (8).png',
             song: 'Double Decker Supreme',
             by: 'description',
             releasedOn: 'New'
           },
           {
-            url: '/img/gimme_a_pic_of__58017fd2-8d24-4bbf-b65a-294f23aa42a8-removebg-preview.png',
+            url: '/img/file (14).png',
             song: 'Classic Beef Tower',
             by: 'description',
             releasedOn: 'New'
           },
           {
-            url: '/img/gimme_a_pic_of__e61b2600-81b3-4790-8464-0bfbe91c2084-removebg-preview.png',
+            url: '/img/file (15).png',
             song: 'Cheezburger',
             by: 'description',
             releasedOn: 'New'
           },
           {
-            url: '/img/gimme_a_pic_of__10744faa-2e52-4cd8-84ca-d5804f8c0444-removebg-preview.png',
+            url: '/img/file (12).png',
             song: 'Maple Bacon Bomber',
             by: 'description',
             releasedOn: 'New'
           },
           {
-            url: '/img/gimme_a_pic_of__37e3567e-315b-4617-ba10-295c0096a1ce-removebg-preview.png',
+            url: '/img/file (10).png',
             song: 'Grilled Onion Melt',
             by: 'description',
             releasedOn: 'New'
           },
           {
-            url: '/img/gimme_a_pic_of__58017fd2-8d24-4bbf-b65a-294f23aa42a8-removebg-preview.png',
+            url: '/img/file (5).png',
             song: 'Zesty Ranch Smash',
             by: 'description',
             releasedOn: 'New'
           },
           {
-            url: '/img/gimme_a_pic_of__37e3567e-315b-4617-ba10-295c0096a1ce-removebg-preview.png',
+            url: '/img/file (9).png',
             song: 'Triple Cheese Inferno',
             by: 'description',
             releasedOn: 'New'
           },
           {
-            url: '/img/gimme_a_pic_of__58017fd2-8d24-4bbf-b65a-294f23aa42a8-removebg-preview.png',
+            url: '/img/file (8).png',
             song: 'CFirecracker Sizzle Burger',
             by: 'description',
             releasedOn: 'New'
@@ -180,7 +180,7 @@ import DasComp from '@/components/DasComp.vue'
         category="New releases for you"
         :data="[
           {
-            url: '/img/gimme_a_pic_of__db972bd8-282c-4bd6-8878-6d2d230132d2-removebg-preview.png',
+            url: '/img/file(9).png)',
             song: 'Classic Burger',
             by: 'description',
             releasedOn: 'New'
