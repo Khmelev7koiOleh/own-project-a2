@@ -9,6 +9,8 @@ import {
 import { useRouter } from 'vue-router'
 import ChevronLeft from 'vue-material-design-icons/ChevronLeft.vue'
 import ChevronRight from 'vue-material-design-icons/ChevronRight.vue'
+import Google from 'vue-material-design-icons/Google.vue'
+import Email from 'vue-material-design-icons/Email.vue'
 import { useThisStore } from '../stores/pinia'
 import { storeToRefs } from 'pinia'
 
@@ -124,17 +126,19 @@ const signInWithGoogle = () => {
           <button
             type="button"
             @click="register"
-            class="bg-purple-500 text-white px-6 py-2 mx-1 rounded-lg hover:bg-purple-600 transition duration-300"
+            class="bg-purple-500 text-white px-3 py-2 mx-1 rounded-lg hover:bg-purple-600 transition duration-300 flex gap-2"
           >
-            Submit
+            <Email fillColor="#ffffff" />
+            <div>Submit</div>
           </button>
 
           <button
             type="button"
             @click="signInWithGoogle"
-            class="bg-purple-500 text-white px-6 py-2 mx-1 rounded-lg hover:bg-purple-600 transition duration-300"
+            class="bg-purple-500 text-white px-3 py-2 mx-1 rounded-lg hover:bg-purple-600 transition duration-300 flex gap-2"
           >
-            Register with Google
+            <Google fillColor="#ffffff" />
+            <div>Register with Google</div>
           </button>
         </div>
       </div>
