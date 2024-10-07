@@ -62,7 +62,7 @@ const handleSignOut = () => {
       <section
         v-if="userSideMenu"
         id="userSideMenu"
-        class="fixed w-[220px] h-[100vh] left-0 bg-yellow-400 overflow-x-auto z-30"
+        class="fixed w-[220px] h-[100vh] left-0 bg-yellow-400 overflow-auto z-30"
       >
         <div class="flex flex-col justify-around">
           <div class="text-xl text-gray-100 flex items-center gap-2 p-4 justify-between">

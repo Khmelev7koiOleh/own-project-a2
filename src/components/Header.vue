@@ -42,9 +42,9 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
 import { useRouter } from 'vue-router'
-import MenuIcon from 'vue-material-design-icons/Menu.vue'
-import SideNavMenu from './SideNavMenu.vue'
 
+import SideNavMenu from './SideNavMenu.vue'
+import MenuIcon from 'vue-material-design-icons/Menu.vue'
 import { ref } from 'vue'
 import ChevronLeft from 'vue-material-design-icons/ChevronLeft.vue'
 import ChevronRight from 'vue-material-design-icons/ChevronRight.vue'

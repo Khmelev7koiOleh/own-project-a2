@@ -104,7 +104,7 @@
             releasedOn: 'New'
           },
           {
-            url: '/img/file (5).png',
+            url: '/img/file (18).png',
             song: 'Zesty Ranch Smash',
             by: 'description',
             releasedOn: 'New'
@@ -166,7 +166,7 @@
         category="New releases for you"
         :data="[
           {
-            url: '/img/file(9).png)',
+            url: '/img/file (16).png',
             song: 'Classic Burger',
             by: 'description',
             releasedOn: 'New'
