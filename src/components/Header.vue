@@ -3,7 +3,7 @@
     <div class="flex justify-between items-center p-4">
       <div class="flex justify-between items-center gap-8">
         <button type="button" @click="SideMenu = !SideMenu">
-          <MenuIcon fillColor="#888888" :size="30" />
+          <MenuIcon fillColor="#ffffff" :size="30" />
         </button>
 
         <div class="flex items-center">
@@ -33,7 +33,7 @@
   <div
     v-if="SideMenu"
     id="SideNav"
-    class="fixed top-0 left-0 w-[180px] bg-white h-full z-40 py-8 px-4 border-r-2 border-gray-200 shadow-lg transition-transform duration-300"
+    class="fixed top-0 left-0 md:w-[260px] bg-white h-full z-40 py-8 px-4 border-r-2 rounded-sm border-gray-200 shadow-lg transition-transform duration-300"
   >
     <SideNavMenu />
   </div>

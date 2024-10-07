@@ -7,6 +7,11 @@ import SignIn from '../views/SignIn.vue'
 import UserAccount from '../views/UserAccount.vue'
 import Cart from '@/views/Cart.vue'
 import Favorites from '@/views/Favorites.vue'
+import News from '@/components/News.vue'
+import FindaStore from '@/components/FindaStore.vue'
+import CustomersReviewsAndRating from '@/components/CustomersReviewsAndRating.vue'
+import OrderOnline from '@/components/OrderOnline.vue'
+import PromotionsAndOffers from '@/components/PromotionsAndOffers.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -41,6 +46,32 @@ const router = createRouter({
     {
       path: '/favorites',
       component: Favorites,
+      meta: { fullScreen: true }
+    },
+    {
+      path: '/news',
+      component: News,
+      meta: { fullScreen: true }
+    },
+    {
+      path: '/find-a-store',
+      component: FindaStore,
+      meta: { fullScreen: true }
+    },
+    {
+      path: '/promotions-and-offers',
+      component: PromotionsAndOffers,
+      meta: { fullScreen: true }
+    },
+    {
+      path: '/order-online',
+      component: OrderOnline,
+      meta: { fullScreen: true }
+    },
+
+    {
+      path: '/customers-reviews-and-rating',
+      component: CustomersReviewsAndRating,
       meta: { fullScreen: true }
     }
   ]
