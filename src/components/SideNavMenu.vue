@@ -13,9 +13,6 @@
       <div class="flex flex-col h-full gap-7 py-10 justify-center p-2">
         <!-- Menu Sec
          tion -->
-        <div class="flex justify-start items-center">
-          <UserMenu />
-        </div>
 
         <RouterLink to="/news" class="text-md font-semibold flex hover:text-gray-500"
           ><p>News</p>
@@ -38,6 +35,9 @@
           >Customer Reviews & Ratings <ChevronRight class="p-0.5" fillColor="#000000" :size="20"
         /></RouterLink>
 
+        <div class="flex justify-start items-center">
+          <UserMenu />
+        </div>
         <!-- Sign-in and Sign-up Buttons Section -->
         <div class="flex absolute bottom-0 gap-2 py-4">
           <RouterLink
