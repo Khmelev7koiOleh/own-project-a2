@@ -45,34 +45,28 @@ const router = createRouter({
     },
     {
       path: '/favorites',
-      component: Favorites,
-      meta: { fullScreen: true }
+      component: Favorites
     },
     {
       path: '/news',
-      component: News,
-      meta: { fullScreen: true }
+      component: News
     },
     {
       path: '/find-a-store',
-      component: FindaStore,
-      meta: { fullScreen: true }
+      component: FindaStore
     },
     {
       path: '/promotions-and-offers',
-      component: PromotionsAndOffers,
-      meta: { fullScreen: true }
+      component: PromotionsAndOffers
     },
     {
       path: '/order-online',
-      component: OrderOnline,
-      meta: { fullScreen: true }
+      component: OrderOnline
     },
 
     {
       path: '/customers-reviews-and-rating',
-      component: CustomersReviewsAndRating,
-      meta: { fullScreen: true }
+      component: CustomersReviewsAndRating
     }
   ]
 })

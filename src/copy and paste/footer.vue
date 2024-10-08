@@ -1,171 +1,83 @@
-<script setup>
-import { ref } from 'vue'
-import {
-  getAuth,
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  GoogleAuthProvider,
-  signInWithPopup,
-  linkWithCredential,
-  fetchSignInMethodsForEmail
-} from 'firebase/auth'
-import { useRouter } from 'vue-router'
-import ChevronLeft from 'vue-material-design-icons/ChevronLeft.vue'
-import { useThisStore } from '../stores/pinia'
-import { storeToRefs } from 'pinia'
-
-// Vue Router and Store
-const router = useRouter()
-const useThis = useThisStore()
-const { openForm } = storeToRefs(useThis)
-
-// Form state
-const email = ref('')
-const password = ref('')
-const isSignedIn = ref(false)
-const errMsgs = ref({
-  errorEmail: '',
-  errorPassword: '',
-  notFound: '',
-  default: ''
-})
-
-// Validate Email and Password before submitting
-const validateInputs = () => {
-  if (!email.value) {
-    errMsgs.value.errorEmail = 'Email is required.'
-    return false
-  }
-  if (!password.value) {
-    errMsgs.value.errorPassword = 'Password is required.'
-    return false
-  }
-  errMsgs.value.errorEmail = ''
-  errMsgs.value.errorPassword = ''
-  return true
-}
-
-// Register with Email and Password
-const registerWithEmail = async () => {
-  const auth = getAuth()
-
-  if (!validateInputs()) return // Return if validation fails
-
-  try {
-    // Check if the email is already associated with any provider
-    const signInMethods = await fetchSignInMethodsForEmail(auth, email.value)
-
-    if (signInMethods.length > 0) {
-      errMsgs.value.errorEmail = 'Email is already in use. Try signing in instead.'
-      return
-    }
-
-    // Create user with email and password
-    await createUserWithEmailAndPassword(auth, email.value, password.value)
-    isSignedIn.value = true
-    router.push({ name: 'tools' })
-    console.log('Successfully signed up with email')
-  } catch (error) {
-    console.log(error.code)
-    switch (error.code) {
-      case 'auth/invalid-email':
-        errMsgs.value.errorEmail = 'Invalid email format.'
-        break
-      case 'auth/weak-password':
-        errMsgs.value.errorPassword = 'Password is too weak.'
-        break
-      default:
-        errMsgs.value.default = 'An error occurred. Please try again.'
-        break
-    }
-  }
-}
-
-// Sign in with Google
-const signInWithGoogle = async () => {
-  const auth = getAuth()
-  const provider = new GoogleAuthProvider()
-
-  try {
-    const result = await signInWithPopup(auth, provider)
-    const googleUser = result.user
-
-    // Check if the user already has an email/password account
-    const signInMethods = await fetchSignInMethodsForEmail(auth, googleUser.email)
-    if (signInMethods.length > 0) {
-      // Account exists, link accounts
-      const credential = GoogleAuthProvider.credentialFromResult(result)
-      const currentUser = auth.currentUser
-      await linkWithCredential(currentUser, credential)
-      console.log('Successfully linked Google account to email account')
-    } else {
-      // Create new account with Google
-      // ...
-    }
-  } catch (error) {
-    console.error(error)
-  }
-}
-</script>
-
 <template>
-  <section class="bg-gray-800 min-h-screen flex flex-col justify-center items-center">
-    <div class="bg-white py-8 px-4 rounded-2xl">
-      <RouterLink to="/" class="inline-block">
-        <button type="button">
-          <ChevronLeft fillColor="#000000" :size="40" />
+  <section class="h-[100h] w-full">
+    <div class="flex flex-col h-full">
+      <!-- Top Bar with Menu Button -->
+      <div class="flex items-center justify-between">
+        <button type="button" @click="SideMenu = !SideMenu" class="flex items-center justify-end">
+          <Close fillColor="#000000" :size="30" />
         </button>
-      </RouterLink>
-      <div class="rounded-lg py-16 px-6 max-w-md w-full">
-        <h2 class="text-2xl font-bold text-gray-700 text-center">Sign-up</h2>
+      </div>
 
-        <!-- Email Field -->
-        <div class="mb-4">
-          <label for="email" class="block text-gray-700 font-bold mb-2">Email</label>
-          <input
-            id="email"
-            type="email"
-            v-model="email"
-            placeholder="Enter your email"
-            class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-          <p class="text-red-500">{{ errMsgs.errorEmail }}</p>
+      <div class="border-b border-b-gray-500 py-2"></div>
+      <!-- Main content area with Menu and Sign-up Buttons -->
+      <div class="flex flex-col h-full gap-7 py-10 justify-center p-2">
+        <!-- Menu Sec
+         tion -->
+
+        <RouterLink to="/news" class="text-md font-semibold flex hover:text-gray-500"
+          ><p>News</p>
+          <ChevronRight class="p-0.5" fillColor="#000000" :size="20"
+        /></RouterLink>
+        <RouterLink to="/find-a-store" class="text-md font-semibold flex hover:text-gray-500">
+          Find a store <ChevronRight class="p-0.5" fillColor="#000000" :size="20" />
+        </RouterLink>
+        <RouterLink
+          to="/promotions-and-offers"
+          class="text-md font-semibold flex hover:text-gray-500"
+          >Promotions & Offers <ChevronRight class="p-0.5" fillColor="#000000" :size="20"
+        /></RouterLink>
+        <RouterLink to="/order-online" class="text-md font-semibold flex hover:text-gray-500"
+          >Order Online <ChevronRight class="p-0.5" fillColor="#000000" :size="20"
+        /></RouterLink>
+        <RouterLink
+          to="/customers-reviews-and-rating"
+          class="text-md font-semibold flex hover:text-gray-500"
+          >Customer Reviews & Ratings <ChevronRight class="p-0.5" fillColor="#000000" :size="20"
+        /></RouterLink>
+
+        <div class="flex justify-start items-center">
+          <UserMenu />
         </div>
-
-        <!-- Password Field -->
-        <div class="mb-6">
-          <label for="password" class="block text-gray-700 font-bold mb-2">Password</label>
-          <input
-            id="password"
-            type="password"
-            v-model="password"
-            placeholder="Enter your password"
-            class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-          <p class="text-red-500">{{ errMsgs.errorPassword }}</p>
-        </div>
-
-        <!-- Submit Button -->
-        <div class="flex items-center justify-between">
-          <button
+        <!-- Sign-in and Sign-up Buttons Section -->
+        <div class="flex absolute bottom-0 gap-2 py-4">
+          <RouterLink
+            to="/sign-in"
             type="button"
-            @click="registerWithEmail"
-            class="bg-purple-500 text-white px-6 py-2 mx-1 rounded-lg hover:bg-purple-600 transition duration-300"
+            class="border border-gray-300 px-2.5 py-1.5 text-sm rounded-md bg-white text-black font-normal flex items-center justify-center"
           >
-            Submit
-          </button>
-
-          <button
+            <Email fillColor="#000000" :size="20" />
+            Sign-in
+            <Google fillColor="#000000" :size="20" />
+          </RouterLink>
+          <RouterLink
+            to="/sign-up"
             type="button"
-            @click="signInWithGoogle"
-            class="bg-purple-500 text-white px-6 py-2 mx-1 rounded-lg hover:bg-purple-600 transition duration-300"
+            class="border border-black px-2.5 py-1.5 text-sm rounded-md bg-black text-white font-normal flex items-center justify-center"
           >
-            Register with Google
-          </button>
+            <Email fillColor="#ffffff" :size="20" />
+            Sign-up
+            <Google fillColor="#ffffff" :size="20" />
+          </RouterLink>
         </div>
       </div>
     </div>
   </section>
 </template>
+
+<script setup>
+import { ref } from 'vue'
+import { RouterLink } from 'vue-router'
+import MenuIcon from 'vue-material-design-icons/Menu.vue'
+import ChevronLeft from 'vue-material-design-icons/ChevronLeft.vue'
+import ChevronRight from 'vue-material-design-icons/ChevronRight.vue'
+import Close from 'vue-material-design-icons/Close.vue'
+import Google from 'vue-material-design-icons/Google.vue'
+import Email from 'vue-material-design-icons/Email.vue'
+import { useThisStore } from '../stores/pinia'
+import { storeToRefs } from 'pinia'
+import UserMenu from './userMenu.vue'
+const useThis = useThisStore()
+const { SideMenu } = storeToRefs(useThis)
+</script>
 
 <style lang="scss" scoped></style>

@@ -44,8 +44,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import MenuIcon from 'vue-material-design-icons/Menu.vue'
-import ChevronLeft from 'vue-material-design-icons/ChevronLeft.vue'
+
 import Close from 'vue-material-design-icons/Close.vue'
 import Plus from 'vue-material-design-icons/Plus.vue'
 let openMenu = ref(false)
