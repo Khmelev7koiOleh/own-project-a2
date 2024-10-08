@@ -26,7 +26,7 @@
           class="border border-black px-2.5 py-1.5 text-sm rounded-full bg-black text-white font-normal flex gap-1"
         >
           <Email fillColor="#ffffff" :size="20" />
-          <p>Sign-upcheck</p>
+          <p>Sign-up</p>
         </RouterLink>
       </div>
     </div>
@@ -48,7 +48,7 @@ import { useRouter } from 'vue-router'
 import SideNavMenu from './SideNavMenu.vue'
 import MenuIcon from 'vue-material-design-icons/Menu.vue'
 import { ref } from 'vue'
-
+import Google from 'vue-material-design-icons/Google.vue'
 import Email from 'vue-material-design-icons/Email.vue'
 import ChevronLeft from 'vue-material-design-icons/ChevronLeft.vue'
 import ChevronRight from 'vue-material-design-icons/ChevronRight.vue'
