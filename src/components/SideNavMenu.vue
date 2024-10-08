@@ -35,9 +35,6 @@
           >Customer Reviews & Ratings <ChevronRight class="p-0.5" fillColor="#000000" :size="20"
         /></RouterLink>
 
-        <div class="flex justify-start items-center">
-          <UserMenu />
-        </div>
         <!-- Sign-in and Sign-up Buttons Section -->
         <div class="flex absolute bottom-0 gap-2 py-4">
           <RouterLink
@@ -78,6 +75,8 @@ import { storeToRefs } from 'pinia'
 import UserMenu from './userMenu.vue'
 const useThis = useThisStore()
 const { SideMenu } = storeToRefs(useThis)
+
+let openMenu = ref(false)
 </script>
 
 <style lang="scss" scoped></style>
