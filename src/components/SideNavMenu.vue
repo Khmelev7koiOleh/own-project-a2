@@ -35,6 +35,9 @@
           >Customer Reviews & Ratings <ChevronRight class="p-0.5" fillColor="#000000" :size="20"
         /></RouterLink>
 
+        <div class="flex justify-start items-center">
+          <UserMenu />
+        </div>
         <!-- Sign-in and Sign-up Buttons Section -->
         <div class="flex absolute bottom-0 gap-2 py-4">
           <RouterLink
@@ -63,7 +66,8 @@
 
 <script setup>
 import { ref } from 'vue'
-import { RouterLink } from 'vue-router'
+import router from '@/router'
+import { RouterLink, RouterView } from 'vue-router'
 import MenuIcon from 'vue-material-design-icons/Menu.vue'
 import ChevronLeft from 'vue-material-design-icons/ChevronLeft.vue'
 import ChevronRight from 'vue-material-design-icons/ChevronRight.vue'
