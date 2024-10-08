@@ -35,7 +35,7 @@
   <div
     v-if="SideMenu"
     id="SideNav"
-    class="fixed top-0 left-0 md:w-[260px] bg-white h-full z-40 py-8 px-4 border-r-2 rounded-sm border-gray-200 shadow-lg transition-transform duration-300"
+    class="fixed top-0 left-0 md:w-[240px] bg-white h-full z-40 py-8 px-4 border-r-2 rounded-sm border-gray-200 shadow-lg transition-transform duration-300"
   >
     <SideNavMenu />
   </div>
@@ -48,7 +48,7 @@ import { useRouter } from 'vue-router'
 import SideNavMenu from './SideNavMenu.vue'
 import MenuIcon from 'vue-material-design-icons/Menu.vue'
 import { ref } from 'vue'
-import Google from 'vue-material-design-icons/Google.vue'
+
 import Email from 'vue-material-design-icons/Email.vue'
 import ChevronLeft from 'vue-material-design-icons/ChevronLeft.vue'
 import ChevronRight from 'vue-material-design-icons/ChevronRight.vue'
