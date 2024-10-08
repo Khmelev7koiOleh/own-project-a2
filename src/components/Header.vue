@@ -15,16 +15,20 @@
         <RouterLink
           to="/sign-in"
           type="button"
-          class="border border-black px-2.5 py-1.5 text-sm rounded-full bg-white text-black font-normal"
+          class="border border-black px-2.5 py-1.5 text-sm rounded-full bg-white text-black font-normal flex gap-1"
         >
-          Sign-in
+          <Email fillColor="#00000" :size="20" />
+          <p>Sign-in</p>
+          <Google fillColor="#00000" :size="20" />
         </RouterLink>
         <RouterLink
           to="/sign-up"
           type="button"
-          class="border border-black px-2.5 py-1.5 text-sm rounded-full bg-black text-white font-normal"
+          class="border border-black px-2.5 py-1.5 text-sm rounded-full bg-black text-white font-normal flex gap-1"
         >
-          Sign-up
+          <Email fillColor="#ffffff" :size="20" />
+          <p>Sign-up</p>
+          <Google fillColor="#ffffff" :size="20" />
         </RouterLink>
       </div>
     </div>
@@ -46,6 +50,8 @@ import { useRouter } from 'vue-router'
 import SideNavMenu from './SideNavMenu.vue'
 import MenuIcon from 'vue-material-design-icons/Menu.vue'
 import { ref } from 'vue'
+import Google from 'vue-material-design-icons/Google.vue'
+import Email from 'vue-material-design-icons/Email.vue'
 import ChevronLeft from 'vue-material-design-icons/ChevronLeft.vue'
 import ChevronRight from 'vue-material-design-icons/ChevronRight.vue'
 
