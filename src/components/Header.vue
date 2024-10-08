@@ -26,7 +26,7 @@
           class="border border-black px-2.5 py-1.5 text-sm rounded-full bg-black text-white font-normal flex gap-1"
         >
           <Email fillColor="#ffffff" :size="20" />
-          <p>Sign-up</p>
+          <p>Sign-upcheck</p>
         </RouterLink>
       </div>
     </div>
