@@ -15,7 +15,7 @@
          tion -->
 
         <div class="flex justify-start items-center">
-          <UserMenu />
+          <CustomersMenu />
         </div>
         <!-- Sign-in and Sign-up Buttons Section -->
         <div class="flex absolute bottom-0 gap-2 py-4">
@@ -40,16 +40,14 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import { useRouter } from 'vue-router'
 import { RouterLink } from 'vue-router'
-import ChevronRight from 'vue-material-design-icons/ChevronRight.vue'
+
 import Close from 'vue-material-design-icons/Close.vue'
 import Google from 'vue-material-design-icons/Google.vue'
 import Email from 'vue-material-design-icons/Email.vue'
 import { useThisStore } from '../stores/pinia'
 import { storeToRefs } from 'pinia'
-import UserMenu from './userMenu.vue'
+import CustomersMenu from './CustomersMenu.vue'
 const useThis = useThisStore()
 const { SideMenu } = storeToRefs(useThis)
 </script>
