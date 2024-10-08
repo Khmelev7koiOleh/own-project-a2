@@ -1,14 +1,14 @@
 <template>
   <div class="fixed w-[100vw] min-h-[80px] z-10 bg-opacity-0">
-    <div class="flex justify-between items-center p-4">
+    <div class="flex justify-between items-center p-1">
       <div class="flex justify-between items-center gap-8">
         <button type="button" @click="SideMenu = !SideMenu">
           <MenuIcon fillColor="#ffffff" :size="30" />
         </button>
 
         <div class="flex items-center">
-          <img width="60px" src="/public/img/tuxpi.com.1726604318-removebg-preview.png" alt="" />
-          <p class="text-3xl text-gray-300 font-semibold">MnT</p>
+          <img width="50px" src="/public/img/tuxpi.com.1726604318-removebg-preview.png" alt="" />
+          <p class="text-2xl text-gray-300 font-semibold">MnT</p>
         </div>
       </div>
       <div class="flex justify-between items-center gap-4">
@@ -19,7 +19,6 @@
         >
           <Email fillColor="#00000" :size="20" />
           <p>Sign-in</p>
-          <Google fillColor="#00000" :size="20" />
         </RouterLink>
         <RouterLink
           to="/sign-up"
@@ -28,7 +27,6 @@
         >
           <Email fillColor="#ffffff" :size="20" />
           <p>Sign-up</p>
-          <Google fillColor="#ffffff" :size="20" />
         </RouterLink>
       </div>
     </div>
